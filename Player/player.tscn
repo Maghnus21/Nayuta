@@ -1,3 +1,63 @@
-[gd_scene format=3 uid="uid://chwkvha04qf56"]
+[gd_scene load_steps=8 format=3 uid="uid://chwkvha04qf56"]
 
-[node name="player_body" type="CharacterBody3D"]
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_0yqs2"]
+[ext_resource type="Script" path="res://player/scripts/pview.gd" id="2_5nyk8"]
+[ext_resource type="AudioStream" uid="uid://kcng3lwvbfc2" path="res://sound/player/footsteps/concrete3.wav" id="3_duomn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_110ha"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n8a3r"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i3ki8"]
+height = 0.1
+radius = 0.49
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rpye3"]
+height = 0.1
+radius = 0.49
+
+[node name="player_body" type="CharacterBody3D" node_paths=PackedStringArray("audio_player")]
+slide_on_ceiling = false
+script = ExtResource("1_0yqs2")
+audio_player = NodePath("AudioSources/player_feet")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_110ha")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_n8a3r")
+
+[node name="GroundCheckShapeCast3D" type="ShapeCast3D" parent="."]
+shape = SubResource("CylinderShape3D_i3ki8")
+target_position = Vector3(0, -1.05, 0)
+debug_shape_custom_color = Color(0.803922, 0.603922, 0, 1)
+
+[node name="CrouchCheckShapeCast3D" type="ShapeCast3D" parent="."]
+shape = SubResource("CylinderShape3D_rpye3")
+target_position = Vector3(0, 1.05, 0)
+debug_shape_custom_color = Color(0.803922, 0.603922, 0, 1)
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_5nyk8")
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="AudioSources" type="Node3D" parent="."]
+
+[node name="sfx" type="AudioStreamPlayer3D" parent="AudioSources"]
+stream = ExtResource("3_duomn")
+
+[node name="player_feet" type="AudioStreamPlayer3D" parent="AudioSources"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
