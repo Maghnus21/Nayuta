@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_lju5v"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_d3gwp"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_7b81r"]
-[ext_resource type="PackedScene" uid="uid://cvms3g1frvswh" path="res://models/dingus_the_cat.glb" id="4_ef82s"]
 [ext_resource type="PackedScene" uid="uid://chwkvha04qf56" path="res://player/player.tscn" id="5_iyfg7"]
+[ext_resource type="PackedScene" uid="uid://bs785kxvfr4cl" path="res://props/dingus.tscn" id="5_t0qje"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c53su"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -159,12 +159,11 @@ shape = SubResource("ConvexPolygonShape3D_a6lqd")
 [node name="entity_2_brush_5_collision_shape" type="CollisionShape3D" parent="QodotNode3D/QodotMap/entity_2_func_group"]
 shape = SubResource("ConvexPolygonShape3D_v5825")
 
-[node name="dingus_the_cat" parent="." instance=ExtResource("4_ef82s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0053, 0, -7.62007)
-
 [node name="player_body" parent="." instance=ExtResource("5_iyfg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31911, 1, -1.99928)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.180828, 0, -0.983515, 0, 1, 0, 0.983515, 0, 0.180828, 0, 2.46501, 0)
-current = true
+
+[node name="dingus_the_cat" parent="." instance=ExtResource("5_t0qje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0299, 33.9871, 0)
