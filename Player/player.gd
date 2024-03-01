@@ -2,6 +2,7 @@ extends Node3D
 
 #	constants
 var RAY_LENGTH = 3.0
+var PULL_FORCE = 20.0
 
 #	exports and onready
 @export var camera: Camera3D
@@ -12,7 +13,7 @@ var RAY_LENGTH = 3.0
 
 
 #	local
-var held_obj
+var held_obj:Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,12 +25,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("interact_key"):
-		cast_ray()
+		if held_obj != null:
+			drop_obj()
+		else:
+			cast_ray()
 		
 	pass
 
 
 func _physics_process(delta):
+	if held_obj != null:
+		pickup()
 	pass
 
 func cast_ray():
@@ -42,8 +48,15 @@ func cast_ray():
 	if collision:
 		print("hit obj: ", collision.collider.name)
 		if collision.collider.is_in_group("holdable"):
-			print("holdable obj")
+			held_obj = collision.collider
+			held_obj.lock_rotation = true
 
+func pickup():
+	#held_obj.global_position = lerp(held_obj.global_position, pickup_point.global_position, 0.5)
+	held_obj.set_linear_velocity((pickup_point.global_transform.origin - held_obj.global_transform.origin) * PULL_FORCE)
+	pass
 
-
+func drop_obj():
+	held_obj.lock_rotation = false
+	held_obj = null
 
