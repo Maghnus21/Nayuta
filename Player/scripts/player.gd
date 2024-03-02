@@ -49,7 +49,8 @@ func cast_ray():
 		print("hit obj: ", collision.collider.name)
 		if collision.collider.is_in_group("holdable"):
 			held_obj = collision.collider
-			held_obj.lock_rotation = true
+			held_obj.global_rotation = pickup_point.global_rotation
+			#held_obj.lock_rotation = true
 
 func pickup():
 	#held_obj.global_position = lerp(held_obj.global_position, pickup_point.global_position, 0.5)

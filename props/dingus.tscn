@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bs785kxvfr4cl"]
 
-[ext_resource type="Script" path="res://props/rb_collision.gd" id="1_8cxua"]
+[ext_resource type="Script" path="res://scripts/rb_collision.gd" id="1_0odgo"]
 [ext_resource type="Texture2D" uid="uid://dh2prwgueuieb" path="res://models/dingus_the_cat_Image_0.jpg" id="2_wgte4"]
 [ext_resource type="Texture2D" uid="uid://btnwyog1tk4hn" path="res://models/dingus_the_cat_Image_1.png" id="3_7fs8m"]
 [ext_resource type="AudioStream" uid="uid://be58wfdrfp7sw" path="res://sound/npc/animals/cat_meow.wav" id="4_2mjsw"]
@@ -13,6 +13,7 @@ resource_name = "dingus"
 cull_mode = 2
 albedo_texture = ExtResource("2_wgte4")
 roughness = 0.821115
+texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_no7cv"]
 _surfaces = [{
@@ -54,6 +55,7 @@ transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("3_7fs8m")
 roughness = 0.821115
+texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j3get"]
 _surfaces = [{
@@ -90,14 +92,15 @@ shadow_mesh = SubResource("ArrayMesh_j3get")
 [node name="dingus" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("1_8cxua")
+script = ExtResource("1_0odgo")
 audio_source = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0450464, 0.183001, -0.0070385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045, 0, -0.007)
 shape = SubResource("BoxShape3D_b3al1")
 
 [node name="dingus_the_cat_model" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.178618, 0)
 
 [node name="Sketchfab_model" type="Node3D" parent="dingus_the_cat_model"]
 transform = Transform3D(2, 0, 0, 0, -7.15256e-07, 2, 0, -2, -7.15256e-07, 0, 0, 0)
@@ -119,7 +122,7 @@ mesh = SubResource("ArrayMesh_4pt7e")
 skeleton = NodePath("")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175341, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0286214, 0)
 stream = ExtResource("4_2mjsw")
 
 [node name="dingus_the_cat" type="Node3D" parent="."]

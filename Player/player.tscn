@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/scripts/playermv.gd" id="1_x1b6e"]
 [ext_resource type="Script" path="res://player/scripts/pview.gd" id="2_5nyk8"]
-[ext_resource type="Script" path="res://player/player.gd" id="2_txmmq"]
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="2_txmmq"]
 [ext_resource type="AudioStream" uid="uid://kcng3lwvbfc2" path="res://sound/player/footsteps/concrete3.wav" id="3_duomn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_110ha"]
@@ -51,11 +51,12 @@ debug_shape_custom_color = Color(0.803922, 0.603922, 0, 1)
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_5nyk8")
+mouse_sensitivity = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="pickup_point" type="Node3D" parent="Head/Camera3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.78258e-07, 0, -2.03904)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1.78258e-07, 0, -2.03904)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
