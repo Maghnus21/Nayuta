@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_lju5v"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_d3gwp"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_7b81r"]
-[ext_resource type="PackedScene" uid="uid://chwkvha04qf56" path="res://player/player.tscn" id="5_iyfg7"]
+[ext_resource type="PackedScene" uid="uid://chwkvha04qf56" path="res://Player/player.tscn" id="5_iyfg7"]
 [ext_resource type="PackedScene" uid="uid://bs785kxvfr4cl" path="res://props/dingus.tscn" id="5_t0qje"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c53su"]

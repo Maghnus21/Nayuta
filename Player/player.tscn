@@ -23,7 +23,7 @@ slide_on_ceiling = false
 script = ExtResource("1_x1b6e")
 audio_player = NodePath("AudioSources/player_feet")
 
-[node name="player_int" type="Node3D" parent="." node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col")]
+[node name="player_invt" type="Node3D" parent="." node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col")]
 script = ExtResource("2_txmmq")
 camera = NodePath("../Head/Camera3D")
 pickup_point = NodePath("../Head/Camera3D/pickup_point")

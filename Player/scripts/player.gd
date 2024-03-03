@@ -3,6 +3,7 @@ extends Node3D
 #	constants
 var RAY_LENGTH = 3.0
 var PULL_FORCE = 20.0
+var THROW_FORCE = 8.0
 
 #	exports and onready
 @export var camera: Camera3D
@@ -29,7 +30,10 @@ func _process(delta):
 			drop_obj()
 		else:
 			cast_ray()
-		
+	
+	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
+		throw_obj()
+	
 	pass
 
 
@@ -61,3 +65,10 @@ func drop_obj():
 	held_obj.lock_rotation = false
 	held_obj = null
 
+func throw_obj():
+	var forward = -camera.global_transform.basis.z
+	
+	held_obj.apply_impulse(forward * THROW_FORCE)
+	drop_obj()
+	
+	pass

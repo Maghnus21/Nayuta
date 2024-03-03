@@ -76,6 +76,8 @@ var footstep_sound_dict = {"default": ["null", "null"],
 
 
 func _ready():
+	
+	#	preload audio here
 	land_audio = preload("res://sound/player/footsteps/concrete3.wav")
 	pass
 
