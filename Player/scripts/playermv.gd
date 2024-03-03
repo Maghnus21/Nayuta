@@ -24,7 +24,7 @@ const MOUSE_SENSATIVITY = 1200
 @onready var debug_label:Label = $Control/Label
 
 const MOVESPEED:float = 12.0
-const WALKSPEED:float = 8.0
+const WALKSPEED:float = 6.0
 const STOPSPEED:float = 10.0
 const GRAVITY:float = 64.0
 const ACCELERATE:float = 10.0
