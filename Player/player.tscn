@@ -54,6 +54,7 @@ script = ExtResource("2_5nyk8")
 mouse_sensitivity = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+far = 5000.0
 
 [node name="pickup_point" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1.78258e-07, 0, -2.03904)

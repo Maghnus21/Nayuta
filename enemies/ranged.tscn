@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgh6puer8fwd0"]
+
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_t3k21"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m8oew"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_m8oew")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("entity", "nav_agent")]
+script = ExtResource("1_t3k21")
+entity = NodePath("..")
+nav_agent = NodePath("../NavigationAgent3D")

@@ -10,3 +10,39 @@ cat meow:
 
 textures
 =============
+metal 025
+	https://ambientcg.com/view?id=Metal025
+
+metal 041c
+	https://ambientcg.com/view?id=Metal041C
+
+metal plates 011
+	https://ambientcg.com/view?id=MetalPlates011
+
+rust 006
+	https://ambientcg.com/view?id=Rust006
+
+concrete 008
+	https://ambientcg.com/view?id=Concrete008
+
+concrete 015
+	https://ambientcg.com/view?id=Concrete015
+
+concrete 017
+	https://ambientcg.com/view?id=Concrete017
+
+concrete 031
+	https://ambientcg.com/view?id=Concrete031
+
+concrete 041b
+	https://ambientcg.com/view?id=Concrete041B
+
+concrete 042a
+	https://ambientcg.com/view?id=Concrete042A
+
+concrete 042b
+	https://ambientcg.com/view?id=Concrete042B
+
+rails 001
+	https://ambientcg.com/view?id=Rails001
+
