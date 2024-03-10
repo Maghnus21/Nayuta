@@ -13,4 +13,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
 shadow_enabled = true
 omni_range = 6.63506
 script = ExtResource("2_yv3m0")
-LIGHT_MODE = 0
+LIGHT_MODE = "NORMAL"
+read_speed = 12
