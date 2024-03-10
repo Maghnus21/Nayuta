@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://byq4fw7lb7p3q"]
+
+[ext_resource type="PackedScene" uid="uid://4ef6vmoufww5" path="res://models/ceiling light/ceiling_light_long.blend" id="1_nrxhq"]
+[ext_resource type="Script" path="res://props/q_light.gd" id="2_yv3m0"]
+
+[node name="ceiling_light_long" instance=ExtResource("1_nrxhq")]
+
+[node name="ceilinglight" parent="." index="0"]
+gi_mode = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
+shadow_enabled = true
+omni_range = 6.63506
+script = ExtResource("2_yv3m0")
+LIGHT_MODE = 0

@@ -16,8 +16,15 @@ metal 025
 metal 041c
 	https://ambientcg.com/view?id=Metal041C
 
+metal 046a
+	https://ambientcg.com/view?id=Metal046A
+
 metal plates 011
 	https://ambientcg.com/view?id=MetalPlates011
+
+metal plates 013
+	https://ambientcg.com/view?id=MetalPlates013
+
 
 rust 006
 	https://ambientcg.com/view?id=Rust006
@@ -34,6 +41,9 @@ concrete 017
 concrete 031
 	https://ambientcg.com/view?id=Concrete031
 
+concrete 036
+	https://ambientcg.com/view?id=Concrete036
+
 concrete 041b
 	https://ambientcg.com/view?id=Concrete041B
 
@@ -43,6 +53,29 @@ concrete 042a
 concrete 042b
 	https://ambientcg.com/view?id=Concrete042B
 
+concrete 044b
+	https://ambientcg.com/view?id=Concrete044B
+
+concrete 044c
+	https://ambientcg.com/view?id=Concrete044C
+
+concrete 53
+	https://www.sharetextures.com/textures/concrete/concrete_53
+
 rails 001
 	https://ambientcg.com/view?id=Rails001
+
+rubble
+	https://freestocktextures.com/texture/garbage-ground-debris,269.html
+
+concrete_grunge
+	https://freestocktextures.com/texture/grunge-gray-wall,1307.html
+
+concrete_4559
+	https://texture.ninja/category/Concrete/3?texture=Concrete-4559.jpg
+
+concrete_7778
+	https://texture.ninja/category/Concrete/3?texture=concrete_7778.jpg
+
+
 

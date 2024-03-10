@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://bs785kxvfr4cl"]
 
 [ext_resource type="Script" path="res://scripts/rb_collision.gd" id="1_0odgo"]
-[ext_resource type="Texture2D" uid="uid://dh2prwgueuieb" path="res://models/dingus_the_cat_Image_0.jpg" id="2_wgte4"]
-[ext_resource type="Texture2D" uid="uid://btnwyog1tk4hn" path="res://models/dingus_the_cat_Image_1.png" id="3_7fs8m"]
+[ext_resource type="Texture2D" uid="uid://dh2prwgueuieb" path="res://models/dingus/dingus_the_cat_Image_0.jpg" id="2_wgte4"]
+[ext_resource type="Texture2D" uid="uid://btnwyog1tk4hn" path="res://models/dingus/dingus_the_cat_Image_1.png" id="3_7fs8m"]
 [ext_resource type="AudioStream" uid="uid://be58wfdrfp7sw" path="res://sound/npc/animals/cat_meow.wav" id="4_2mjsw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3al1"]
