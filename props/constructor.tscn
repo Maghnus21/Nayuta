@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwifofbx5qq5p"]
+
+[ext_resource type="PackedScene" uid="uid://bcq5ag61t8ajs" path="res://models/constructor/constructor.blend" id="1_4m0ki"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kk5gx"]
+size = Vector3(7.09698, 3.521, 6.66885)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba12x"]
+size = Vector3(4.60102, 2.41333, 2.05552)
+
+[node name="constructor" instance=ExtResource("1_4m0ki")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294525, 0.755127, 0.678665)
+shape = SubResource("BoxShape3D_kk5gx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313421, 0.201294, 4.77688)
+shape = SubResource("BoxShape3D_ba12x")

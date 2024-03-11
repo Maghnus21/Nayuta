@@ -10,6 +10,9 @@ cat meow:
 
 textures
 =============
+metal 05
+	https://ambientcg.com/view?id=Metal005
+
 metal 025
 	https://ambientcg.com/view?id=Metal025
 
@@ -19,12 +22,17 @@ metal 041c
 metal 046a
 	https://ambientcg.com/view?id=Metal046A
 
+metal plates 010
+	https://ambientcg.com/view?id=MetalPlates010
+
 metal plates 011
 	https://ambientcg.com/view?id=MetalPlates011
 
+metal plate 012
+	https://ambientcg.com/view?id=MetalPlates012
+
 metal plates 013
 	https://ambientcg.com/view?id=MetalPlates013
-
 
 rust 006
 	https://ambientcg.com/view?id=Rust006
@@ -76,6 +84,15 @@ concrete_4559
 
 concrete_7778
 	https://texture.ninja/category/Concrete/3?texture=concrete_7778.jpg
+
+old house window
+	https://www.goodtextures.com/image/18509/old-house-window-texture-18509
+
+
+
+
+
+
 
 
 

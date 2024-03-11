@@ -1,4 +1,4 @@
-extends OmniLight3D
+extends Node3D
 
 ## enum storing titles of lighting modes
 @export_enum("NORMAL", "FLICKER", "SLOW_PULSE", "CANDLE", "FAST_STROBE", "GENTLE_PULSE1", "FLICKER2", "CANDLE2", "CANDLE3", "SLOW_STROBE", "FLOURSCENT_FLICKER", "SLOW_PULSE_NOT_FADE_TO_BLACK") var LIGHT_MODE:String
@@ -31,14 +31,12 @@ var count = 0
 var current_char
 var current_lmc_loc = 0
 
+#generic variable
+@export var light:Light3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	default_brightness = light_energy
-	
-	#var light_string:String = light_options[LIGHT_MODE]
-	#print(light_string)
-	pass # Replace with function body.
-
+	default_brightness = light.light_energy
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -51,7 +49,6 @@ func _process(delta):
 	pass
 
 func update_light_value():
-	#print(LIGHT_OPTIONS.NORMAL[0])
 	light_string = light_options[LIGHT_MODE]
 	
 	if current_lmc_loc > light_string.length() - 1:
@@ -59,7 +56,6 @@ func update_light_value():
 	else:
 		current_char = light_string[current_lmc_loc]
 		current_lmc_loc += 1
-		print(current_char)
 	pass
 
 func update_light_level():
@@ -67,8 +63,10 @@ func update_light_level():
 	current_char.to_lower()
 	var brightness_multi:float = (current_char.unicode_at(0)-96.0) / 13.0
 	
-	#light_energy = lerp(light_energy, default_brightness * brightness_multi, .5)
-	light_energy = default_brightness * brightness_multi
+	if !smooth_transistion:
+		light.light_energy = default_brightness * brightness_multi
 	
+	else:
+		light.light_energy = lerp(light.light_energy, default_brightness * brightness_multi, transistion_weight)
 	
 	pass
