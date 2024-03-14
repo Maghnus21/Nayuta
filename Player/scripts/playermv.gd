@@ -1,6 +1,7 @@
 ##	modified version of pmove_full from repo https://github.com/Btan2/Q_Move (uses godot 3 functions)
 ##	TODO: implement ladder climbing (half life 2), ground slide (dishonored), swimming
-
+##
+##	modified version of https://github.com/Btan2/Q_Move.git
 
 extends CharacterBody3D
 
@@ -123,6 +124,8 @@ func _input(event):
 
 func _physics_process(delta):
 	deltaTime = delta
+	
+	check_health()
 	
 	crouch()
 	catagorize_pos()
@@ -465,7 +468,11 @@ func update_debug_info():
 func receive_damage(amount):
 	health -= amount
 
-
+func check_health():
+	if health <= 0.0:
+		print("dies lmao")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_parent().get_tree().change_scene_to_file("res://menu/died_menu.tscn")
 
 
 

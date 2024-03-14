@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxu1vd7b4hm4j"
-path.s3tc="res://.godot/imported/Metal046A_1K-JPG_NormalGL.jpg-7bebf943c27543f6fe07df0031116f0f.s3tc.ctex"
+uid="uid://ci7tppj3wfima"
+path.s3tc="res://.godot/imported/gunner_gunner_texture.jpg-ac8a9277cdb03ff33d53be4a598803b0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://textures/Metal046A_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Metal046A_1K-JPG_NormalGL.jpg-7bebf943c27543f6fe07df0031116f0f.s3tc.ctex"]
+source_file="res://models/generic_enemy/gunner_gunner_texture.jpg"
+dest_files=["res://.godot/imported/gunner_gunner_texture.jpg-ac8a9277cdb03ff33d53be4a598803b0.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://textures/Metal046A_1K-JPG_NormalGL.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

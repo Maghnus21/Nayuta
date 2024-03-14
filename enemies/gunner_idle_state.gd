@@ -2,6 +2,9 @@ extends State
 class_name GunnerIdleState
 
 @export var idle_rotate:bool = false
+@export var sfx:AudioStreamPlayer3D
+
+@export var raycast:RayCast3D
 
 @export var target:Node3D
 
@@ -16,6 +19,7 @@ var reset_rot_time:float = 0.0
 
 var open_face_time:float = 0.2667
 var open_face_timer:float = 0.0
+var played_scream:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,19 +44,25 @@ func exit_state():
 
 
 func update_state(delta):
+	check_health()
 	pass
 
 
 func physics_update_state(delta):
 	#	called every physics update
-	var ray_data = cast_ray(state_machine.entity, DETECT_RANGE)
+	#var ray_data = cast_ray(state_machine.entity, DETECT_RANGE)
 	var a = Vector2(state_machine.entity.global_position.x, state_machine.entity.global_position.z)
 	var b = Vector2(target.global_position.x, target.global_position.z)
 	
 	var angle_to_ent:float = rad_to_deg(a.angle_to_point(b))
 	#print (a, "\t ", b, "\t ", angle_to_ent)
 	
-	if angle_to_ent <= MAX_DETECT_ANGLE && angle_to_ent >= -MAX_DETECT_ANGLE:
+	if angle_to_ent <= MAX_DETECT_ANGLE && angle_to_ent >= -MAX_DETECT_ANGLE && state_machine.entity.loc_check():
+		
+		if played_scream != true:
+			sfx.play()
+			played_scream = true
+		
 		print ("in detect range")
 		
 		open_face()
@@ -63,6 +73,7 @@ func physics_update_state(delta):
 			open_face_timer = 0
 			state_machine.entity.aware = true
 			state_machine.change_state("chasestate")
+			
 		#state_machine.entity_anim_state_machine["parameters/IdleBlendTree/Add2/add_amount"] = 1
 		
 	 
@@ -72,6 +83,8 @@ func physics_update_state(delta):
 		#print("entity in detection range")
 		#pass
 	#
+	
+	
 	
 	
 	pass

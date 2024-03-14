@@ -8,6 +8,18 @@ audio
 cat meow:
 	https://freesound.org/people/jbdelgado/sounds/569528/
 
+cell scream:
+	https://freesound.org/people/thanvannispen/sounds/94581/
+
+9mm pistol:
+	https://freesound.org/people/oneshotofficial/sounds/647594/
+
+shotgun fire:
+	https://soundbible.com/2020-Normal-Shotgun.html
+
+smg fire:
+	https://freesound.org/people/SuperPhat/sounds/417689/
+
 textures
 =============
 metal 05

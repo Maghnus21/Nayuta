@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://yfln1ytwj8qk"]
+[gd_scene load_steps=4 format=3 uid="uid://wv8k2pcx05t1"]
 
-[ext_resource type="Script" path="res://projectiles/bullet.gd" id="1_dthrg"]
+[ext_resource type="Script" path="res://projectiles/pistol_bullet.gd" id="1_lfxxb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea4vn"]
 emission_enabled = true
@@ -15,9 +15,10 @@ rings = 4
 
 [node name="bullet" type="Node3D" node_paths=PackedStringArray("raycast")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("1_dthrg")
+script = ExtResource("1_lfxxb")
+bullet_damage = 18.0
 raycast = NodePath("RayCast3D")
-bullet_speed = 120.0
+bullet_speed = 140.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

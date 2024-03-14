@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct6ouwy4jqv3f"]
+
+[ext_resource type="PackedScene" uid="uid://ciu05ve37si4n" path="res://models/weapons/smg.blend" id="1_pjikg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ox4wg"]
+albedo_color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="smg2" instance=ExtResource("1_pjikg")]
+
+[node name="smg" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_ox4wg")

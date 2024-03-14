@@ -1,31 +1,31 @@
-[gd_scene load_steps=649 format=3 uid="uid://bg4j4nm0mwsdi"]
+[gd_scene load_steps=649 format=3 uid="uid://bg248utqffj4a"]
 
-[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_f2l86"]
-[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_ngxq3"]
-[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_dmxx3"]
-[ext_resource type="Texture2D" uid="uid://cjh862kam0ffa" path="res://textures/Concrete031_1K-JPG_Color.jpg" id="4_3pl66"]
-[ext_resource type="Texture2D" uid="uid://brkfwfncx4nnu" path="res://textures/Concrete044A_1K-JPG_Color.jpg" id="5_2xsa1"]
-[ext_resource type="Texture2D" uid="uid://bhxxcjlq0sdi0" path="res://textures/rubble.jpg" id="6_ca417"]
-[ext_resource type="Texture2D" uid="uid://biavk5suhwsxw" path="res://textures/MetalPlates011_1K-JPG_Color.jpg" id="7_84v6r"]
-[ext_resource type="Texture2D" uid="uid://cta1oiealugut" path="res://textures/Concrete044B_1K-JPG_Color.jpg" id="8_sayfx"]
-[ext_resource type="Texture2D" uid="uid://2icb3vp52g5k" path="res://textures/Concrete042A_1K-JPG_Color.jpg" id="9_w4id5"]
-[ext_resource type="Texture2D" uid="uid://ba3clwc8jbhxo" path="res://textures/Concrete017_1K-JPG_Color.jpg" id="10_dis8a"]
-[ext_resource type="Texture2D" uid="uid://tu1d481tmrap" path="res://textures/Concrete036_1K-JPG_Color.jpg" id="11_eeqgb"]
-[ext_resource type="Texture2D" uid="uid://e7ecei0jof1l" path="res://textures/Metal041C_1K-JPG_Color.jpg" id="12_pgiek"]
-[ext_resource type="Texture2D" uid="uid://daknf884mf7ro" path="res://textures/Metal025_1K-JPG_Color.jpg" id="13_hqu08"]
-[ext_resource type="Texture2D" uid="uid://chesa6n2ewfex" path="res://textures/Concrete044C_1K-JPG_Color.jpg" id="14_ubowj"]
-[ext_resource type="Texture2D" uid="uid://b63lfxnk20hnt" path="res://textures/Concrete041B_1K-JPG_Color.jpg" id="15_6slk8"]
-[ext_resource type="Texture2D" uid="uid://dcg7mhhvhvr1g" path="res://textures/MetalPlates013_1K-JPG_Color.jpg" id="16_6u6to"]
-[ext_resource type="Texture2D" uid="uid://c4ubv3imi37t6" path="res://textures/Metal046A_1K-JPG_Color.jpg" id="17_rgp1q"]
-[ext_resource type="PackedScene" uid="uid://mbm3lqau78b8" path="res://models/window/window_grid.blend" id="20_up32d"]
-[ext_resource type="PackedScene" uid="uid://cesl8h0lojv08" path="res://models/window/window_grid3.blend" id="21_6l2tj"]
-[ext_resource type="PackedScene" uid="uid://dlkmonnpw82v7" path="res://models/window/window_grid_broken2.blend" id="22_n0pf7"]
-[ext_resource type="PackedScene" uid="uid://1d30mwaq5j8d" path="res://models/window/window_grid2.blend" id="23_rw02j"]
-[ext_resource type="Material" uid="uid://lycq8cq14qu2" path="res://materials/rust_metal_plates.tres" id="24_nscdo"]
-[ext_resource type="Texture2D" uid="uid://b30jqejb41nr2" path="res://textures/MetalPlates011_1K-JPG_NormalGL.jpg" id="25_831xu"]
-[ext_resource type="Script" path="res://menu/startscene.gd" id="26_3v2m3"]
-[ext_resource type="PackedScene" uid="uid://ckwblpq80nsl7" path="res://props/gate_large.tscn" id="26_fxd7c"]
-[ext_resource type="PackedScene" uid="uid://d4ixsc86flxsq" path="res://props/gate_small.tscn" id="27_714fd"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_rv3an"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_r3srd"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_ih5g1"]
+[ext_resource type="Texture2D" uid="uid://cjh862kam0ffa" path="res://textures/Concrete031_1K-JPG_Color.jpg" id="4_e78kw"]
+[ext_resource type="Texture2D" uid="uid://brkfwfncx4nnu" path="res://textures/Concrete044A_1K-JPG_Color.jpg" id="5_kjjk1"]
+[ext_resource type="Texture2D" uid="uid://bhxxcjlq0sdi0" path="res://textures/rubble.jpg" id="6_f3ppf"]
+[ext_resource type="Texture2D" uid="uid://biavk5suhwsxw" path="res://textures/MetalPlates011_1K-JPG_Color.jpg" id="7_5xn62"]
+[ext_resource type="Texture2D" uid="uid://cta1oiealugut" path="res://textures/Concrete044B_1K-JPG_Color.jpg" id="8_xp6r2"]
+[ext_resource type="Texture2D" uid="uid://2icb3vp52g5k" path="res://textures/Concrete042A_1K-JPG_Color.jpg" id="9_tli1c"]
+[ext_resource type="Texture2D" uid="uid://ba3clwc8jbhxo" path="res://textures/Concrete017_1K-JPG_Color.jpg" id="10_2ad8n"]
+[ext_resource type="Texture2D" uid="uid://tu1d481tmrap" path="res://textures/Concrete036_1K-JPG_Color.jpg" id="11_8ftcg"]
+[ext_resource type="Texture2D" uid="uid://e7ecei0jof1l" path="res://textures/Metal041C_1K-JPG_Color.jpg" id="12_e4qib"]
+[ext_resource type="Texture2D" uid="uid://daknf884mf7ro" path="res://textures/Metal025_1K-JPG_Color.jpg" id="13_htcqp"]
+[ext_resource type="Texture2D" uid="uid://chesa6n2ewfex" path="res://textures/Concrete044C_1K-JPG_Color.jpg" id="14_py0rm"]
+[ext_resource type="Texture2D" uid="uid://b63lfxnk20hnt" path="res://textures/Concrete041B_1K-JPG_Color.jpg" id="15_r3d7i"]
+[ext_resource type="Texture2D" uid="uid://dcg7mhhvhvr1g" path="res://textures/MetalPlates013_1K-JPG_Color.jpg" id="16_1p3q0"]
+[ext_resource type="Texture2D" uid="uid://c4ubv3imi37t6" path="res://textures/Metal046A_1K-JPG_Color.jpg" id="17_fml21"]
+[ext_resource type="PackedScene" uid="uid://mbm3lqau78b8" path="res://models/window/window_grid.blend" id="18_0w5k1"]
+[ext_resource type="PackedScene" uid="uid://cesl8h0lojv08" path="res://models/window/window_grid3.blend" id="19_dhima"]
+[ext_resource type="PackedScene" uid="uid://dlkmonnpw82v7" path="res://models/window/window_grid_broken2.blend" id="20_4o8ml"]
+[ext_resource type="PackedScene" uid="uid://1d30mwaq5j8d" path="res://models/window/window_grid2.blend" id="21_xt0gu"]
+[ext_resource type="Material" uid="uid://lycq8cq14qu2" path="res://materials/rust_metal_plates.tres" id="22_gjw02"]
+[ext_resource type="Texture2D" uid="uid://b30jqejb41nr2" path="res://textures/MetalPlates011_1K-JPG_NormalGL.jpg" id="23_xt7uq"]
+[ext_resource type="PackedScene" uid="uid://ckwblpq80nsl7" path="res://props/gate_large.tscn" id="24_wolqw"]
+[ext_resource type="PackedScene" uid="uid://d4ixsc86flxsq" path="res://props/gate_small.tscn" id="25_5menr"]
+[ext_resource type="Script" path="res://menu/startscene.gd" id="26_20ldj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j4et4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,12 +48,12 @@ volumetric_fog_density = 0.004
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sb862"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3e5fx"]
-albedo_texture = ExtResource("4_3pl66")
+albedo_texture = ExtResource("4_e78kw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq03c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnqbg"]
-albedo_texture = ExtResource("5_2xsa1")
+albedo_texture = ExtResource("5_kjjk1")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6se5b"]
 _surfaces = [{
@@ -120,13 +120,13 @@ points = PackedVector3Array(-35, 31, 22, -35, 30, 22, -31, 30, 22, -31, 31, 22, 
 points = PackedVector3Array(-35, 36, 22, -35, 35, 22, -31, 35, 22, -31, 36, 22, -35, 36, 23, -35, 35, 23, -31, 35, 23, -31, 36, 23)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gobs"]
-albedo_texture = ExtResource("6_ca417")
+albedo_texture = ExtResource("6_f3ppf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvm1f"]
-albedo_texture = ExtResource("7_84v6r")
+albedo_texture = ExtResource("7_5xn62")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udint"]
-albedo_texture = ExtResource("8_sayfx")
+albedo_texture = ExtResource("8_xp6r2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hca37"]
 _surfaces = [{
@@ -387,19 +387,19 @@ points = PackedVector3Array(-11.7647, -4.14209, -15.8088, -11.7647, -8.14209, -1
 points = PackedVector3Array(-13.7647, -4.14209, -15.8088, -13.7647, -12.1421, -15.8088, -11.7647, -12.1421, -15.8088, -11.7647, -4.14209, -15.8088, -13.7647, -4.14209, -14.8088, -13.7647, -12.1421, -14.8088, -11.7647, -12.1421, -14.8088, -11.7647, -4.14209, -14.8088)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfdtg"]
-albedo_texture = ExtResource("9_w4id5")
+albedo_texture = ExtResource("9_tli1c")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vepix"]
-albedo_texture = ExtResource("10_dis8a")
+albedo_texture = ExtResource("10_2ad8n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khrb1"]
-albedo_texture = ExtResource("11_eeqgb")
+albedo_texture = ExtResource("11_8ftcg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x53v2"]
-albedo_texture = ExtResource("12_pgiek")
+albedo_texture = ExtResource("12_e4qib")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh3pi"]
-albedo_texture = ExtResource("13_hqu08")
+albedo_texture = ExtResource("13_htcqp")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_044ad"]
 _surfaces = [{
@@ -879,7 +879,7 @@ points = PackedVector3Array(-41.014, 9.48585, -36.5575, -41.014, -16.5142, -36.5
 points = PackedVector3Array(-41.014, -31.5142, -36.5575, -41.014, -32.5142, -36.5575, -18.014, -32.5142, -36.5575, -18.014, -31.5142, -36.5575, -41.014, -31.5142, -26.5575, -41.014, -32.5142, -26.5575, -18.014, -32.5142, -26.5575, -18.014, -31.5142, -26.5575)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixpsc"]
-albedo_texture = ExtResource("14_ubowj")
+albedo_texture = ExtResource("14_py0rm")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h5iho"]
 _surfaces = [{
@@ -1071,10 +1071,10 @@ points = PackedVector3Array(23.31, 11.13, 2.97, 23.31, 3.13, 2.97, 24.31, 3.13, 
 points = PackedVector3Array(-33.69, 24.13, 20.97, -33.69, 9.13, 20.97, 2.31, 9.13, 20.97, 2.31, 24.13, 20.97, -33.69, 24.13, 21.97, -33.69, 9.13, 21.97, 2.31, 9.13, 21.97, 2.31, 24.13, 21.97)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufxte"]
-albedo_texture = ExtResource("15_6slk8")
+albedo_texture = ExtResource("15_r3d7i")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3vkh"]
-albedo_texture = ExtResource("16_6u6to")
+albedo_texture = ExtResource("16_1p3q0")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_73jqk"]
 _surfaces = [{
@@ -2172,7 +2172,7 @@ points = PackedVector3Array(-9.97608, -24.8461, 1.52243, -9.97608, -34.8461, 1.5
 points = PackedVector3Array(-3.97608, -38.8461, 2.52243, -3.97608, -34.8461, 2.52243, -5.97608, -34.8461, 2.52243, -5.97608, -34.8461, 13.5224, -3.97608, -38.8461, 13.5224, -3.97608, -34.8461, 13.5224)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkcl0"]
-albedo_texture = ExtResource("17_rgp1q")
+albedo_texture = ExtResource("17_fml21")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5px2c"]
 _surfaces = [{
@@ -2391,10 +2391,10 @@ points = PackedVector3Array(-87.7508, 60.8295, -113.353, -87.7508, 21.8295, -113
 points = PackedVector3Array(-84.1582, 80.8295, -113.353, -87.7508, 80.8295, -113.353, -87.7508, 60.8295, -113.353, -76.7508, 60.8295, -113.353, -87.7508, 80.8295, -109.946, -87.7508, 60.8295, -97.3531, -76.7508, 60.8295, -97.353, -84.1582, 80.8295, -109.946)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thhng"]
-albedo_texture = ExtResource("7_84v6r")
+albedo_texture = ExtResource("7_5xn62")
 metallic = 0.36
 normal_enabled = true
-normal_texture = ExtResource("25_831xu")
+normal_texture = ExtResource("23_xt7uq")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 uv2_triplanar = true
@@ -2416,12 +2416,12 @@ directional_shadow_max_distance = 1000.0
 sky_mode = 1
 
 [node name="QodotNode3D" type="Node3D" parent="."]
-script = ExtResource("1_f2l86")
+script = ExtResource("1_rv3an")
 
 [node name="QodotMap" type="Node3D" parent="QodotNode3D"]
-script = ExtResource("2_ngxq3")
+script = ExtResource("2_r3srd")
 map_file = "C:/Users/maghn/Documents/Godot projects/Nayuta/maps/e1/e1m1.map"
-entity_fgd = ExtResource("3_dmxx3")
+entity_fgd = ExtResource("3_ih5g1")
 texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp")
 default_material = SubResource("StandardMaterial3D_sb862")
 
@@ -4258,22 +4258,22 @@ shape = SubResource("ConvexPolygonShape3D_j4wo6")
 
 [node name="windows" type="Node3D" parent="level_mesh"]
 
-[node name="window_grid" parent="level_mesh/windows" instance=ExtResource("20_up32d")]
+[node name="window_grid" parent="level_mesh/windows" instance=ExtResource("18_0w5k1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3846, 2.00047, 0.996712)
 
-[node name="window_grid2" parent="level_mesh/windows" instance=ExtResource("20_up32d")]
+[node name="window_grid2" parent="level_mesh/windows" instance=ExtResource("18_0w5k1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3846, 2.00047, 12.004)
 
-[node name="window_grid3" parent="level_mesh/windows" instance=ExtResource("21_6l2tj")]
+[node name="window_grid3" parent="level_mesh/windows" instance=ExtResource("19_dhima")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4974, 2.02385, -7.0013)
 
-[node name="window_grid_broken2" parent="level_mesh/windows" instance=ExtResource("22_n0pf7")]
+[node name="window_grid_broken2" parent="level_mesh/windows" instance=ExtResource("20_4o8ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.264, 10.0556, -3.93497)
 
-[node name="window_grid_broken3" parent="level_mesh/windows" instance=ExtResource("22_n0pf7")]
+[node name="window_grid_broken3" parent="level_mesh/windows" instance=ExtResource("20_4o8ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -14.5601, 17.9436, -14.9791)
 
-[node name="window_grid4" parent="level_mesh/windows" instance=ExtResource("23_rw02j")]
+[node name="window_grid4" parent="level_mesh/windows" instance=ExtResource("21_xt0gu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3196, 18.0217, -0.996489)
 
 [node name="pipes" type="Node3D" parent="level_mesh"]
@@ -4284,7 +4284,7 @@ gi_mode = 2
 use_collision = true
 height = 32.3339
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D12" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.87544, -77.9691, -20.0877)
@@ -4293,7 +4293,7 @@ use_collision = true
 radius = 3.0
 height = 121.534
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D13" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.87544, -13.4219, -3.32847)
@@ -4302,7 +4302,7 @@ use_collision = true
 radius = 3.0
 height = 25.384
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D14" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 4.87544, -15.976, -17.4235)
@@ -4311,7 +4311,7 @@ use_collision = true
 radius = 3.0
 height = 9.754
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0478, 45.6052, 16.7594)
@@ -4319,7 +4319,7 @@ gi_mode = 2
 use_collision = true
 height = 32.3339
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9773, 39.8597, 16.7594)
@@ -4484,14 +4484,14 @@ transform = Transform3D(0.603305, -0.525196, 0.600159, 0, 0.752541, 0.658545, -0
 use_collision = true
 height = 2.85537
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0.995293, -0.0638162, 0.0729253, 5.78776e-09, 0.752541, 0.658545, -0.0969057, -0.655446, 0.748999, 18.1175, 28.6441, 17.6386)
 use_collision = true
 height = 2.85537
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D16" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 0.752415, 0.658689, 0, -0.658689, 0.752415, 2.30479, 27.1826, 18.3124)
@@ -4499,7 +4499,7 @@ use_collision = true
 radius = 0.7
 height = 5.27
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D20" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 0.752415, 0.658689, 0, -0.658689, 0.752415, 2.30479, 24.6533, 36.1091)
@@ -4507,7 +4507,7 @@ use_collision = true
 radius = 0.7
 height = 2.37
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D21" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2.30479, 8.82771, 36.804)
@@ -4515,7 +4515,7 @@ use_collision = true
 radius = 0.7
 height = 31.695
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D38" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -7.06046, -0.979554, 19.4555)
@@ -4523,7 +4523,7 @@ use_collision = true
 radius = 0.95
 height = 6.64
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D39" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0.707106, -0.707106, 0, 0.707106, 0.707106, 0, 0, 0, 0.999999, -9.02008, 3.8789, 19.4555)
@@ -4531,7 +4531,7 @@ use_collision = true
 radius = 0.95
 height = 6.64
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D40" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(2.98023e-08, -0.999999, 0, 0.999999, -2.98023e-08, 0, 0, 0, 0.999999, -11.8167, 5.98887, 19.4555)
@@ -4539,7 +4539,7 @@ use_collision = true
 radius = 0.95
 height = 1.985
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D41" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(2.10734e-08, -0.707106, -0.707106, 0.999999, -2.98023e-08, 0, 2.10734e-08, -0.707106, 0.707106, -12.669, 5.98887, 18.9544)
@@ -4547,7 +4547,7 @@ use_collision = true
 radius = 0.95
 height = 1.985
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D43" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(2.10734e-08, -0.707106, -0.707106, 0.999999, -2.98023e-08, 0, 2.10734e-08, -0.707106, 0.707106, -13.6395, 5.98887, -2.18984)
@@ -4555,7 +4555,7 @@ use_collision = true
 radius = 0.95
 height = 1.985
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D42" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0, 0, -0.999999, 0.999999, -2.98023e-08, 0, 2.98023e-08, -0.999999, 0, -13.1578, 5.98887, 8.25195)
@@ -4563,7 +4563,7 @@ use_collision = true
 radius = 0.95
 height = 20.725
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D17" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30479, 35.8174, 16.6917)
@@ -4571,7 +4571,7 @@ use_collision = true
 radius = 0.7
 height = 14.69
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D18" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0.707106, -0.707106, 0, 0.707106, 0.707106, 0, 0, 0, 1, 1.86935, 43.3825, 16.6917)
@@ -4579,7 +4579,7 @@ use_collision = true
 radius = 0.7
 height = 1.71
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D19" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0, -0.999999, 0, 0.999999, 0, 0, 0, 0, 1, -8.21188, 43.8012, 16.6917)
@@ -4587,35 +4587,35 @@ use_collision = true
 radius = 0.7
 height = 19.8
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D15" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0.995293, -0.0638162, 0.0729253, -0.0685227, 0.0686568, 0.995284, -0.0685227, -0.995597, 0.0639608, 18.1175, 27.7321, 19.5683)
 use_collision = true
 height = 2.85537
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D10" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(-0.0969057, -0.655446, 0.748999, 5.78776e-09, 0.752541, 0.658545, -0.995293, 0.0638162, -0.0729254, 17.0364, 44.3577, 16.7652)
 use_collision = true
 height = 2.85537
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(-0.995293, 0.0638162, -0.0729252, 5.78776e-09, 0.752541, 0.658545, 0.0969056, 0.655446, -0.748999, 18.0951, 50.6061, 17.3294)
 use_collision = true
 height = 2.07
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(-0.995293, 0.0950631, 0.0188044, -7.45058e-09, -0.194046, 0.980992, 0.0969056, 0.976375, 0.193133, 18.2282, 51.0397, 18.6966)
 use_collision = true
 height = 2.07
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D7" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.32804, 25.3299, 27.6112)
@@ -4623,21 +4623,21 @@ use_collision = true
 radius = 0.7
 height = 16.16
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="level_mesh/pipes"]
 transform = Transform3D(0.340265, -0.91764, -0.205318, 0.498194, -0.00925867, 0.867016, -0.79751, -0.397304, 0.454012, 20.0935, 61.6004, 17.2619)
 use_collision = true
 height = 2.85537
 smooth_faces = false
-material = ExtResource("24_nscdo")
+material = ExtResource("22_gjw02")
 
 [node name="gates" type="Node3D" parent="level_mesh"]
 
-[node name="gate_large" parent="level_mesh/gates" instance=ExtResource("26_fxd7c")]
+[node name="gate_large" parent="level_mesh/gates" instance=ExtResource("24_wolqw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.49583, 13, 46.4599)
 
-[node name="small_gate" parent="level_mesh/gates" instance=ExtResource("27_714fd")]
+[node name="small_gate" parent="level_mesh/gates" instance=ExtResource("25_5menr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7407, 33, 20.0055)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -4648,17 +4648,37 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("26_3v2m3")
+script = ExtResource("26_20ldj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="startscene"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = -1.975
+anchor_right = 0.025
+anchor_bottom = -1.975
 offset_left = 19.0
 offset_top = 279.0
 offset_right = 582.0
 offset_bottom = 489.0
 theme_override_font_sizes/font_size = 100
-text = "Mutagen"
+text = "You won"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="startscene/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0071048
+anchor_top = -0.480952
+anchor_right = 0.0071048
+anchor_bottom = -0.480952
+offset_left = 19.0
+offset_top = 279.0
+offset_right = 582.0
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 24
+text = "thank you for playing"
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="startscene"]
@@ -4668,7 +4688,7 @@ offset_top = 441.0
 offset_right = 274.0
 offset_bottom = 491.0
 theme_override_font_sizes/font_size = 24
-text = "start"
+text = "Play again"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="startscene/Button" to="startscene" method="_on_button_pressed"]

@@ -4,7 +4,7 @@ extends Node3D
 var RAY_LENGTH:float = 3.0
 var PULL_FORCE:float = 20.0
 var THROW_FORCE:float = 8.0
-var MAX_HEALTH:float = 100.0
+var MAX_HEALTH:float = 20.0
 
 #	exports and onready
 @export var camera: Camera3D
@@ -14,6 +14,7 @@ var MAX_HEALTH:float = 100.0
 @export var player_col: CollisionShape3D
 @export var projectile:PackedScene
 @export var active_weapon:weapons
+@export var raycast:RayCast3D
 
 @export var pistol:Node3D
 @export var smg:Node3D
@@ -23,7 +24,9 @@ var MAX_HEALTH:float = 100.0
 @export var smg_barrel:Node3D
 @export var shotgun_barrel:Node3D
 
-
+@export var pistol_bullet:PackedScene
+@export var smg_bullet:PackedScene
+@export var shotgun_bullet:PackedScene
 
 @export var sfx_source:AudioStreamPlayer3D
 @export var gun_source:AudioStreamPlayer3D
@@ -34,7 +37,7 @@ var health:float = 0.0
 
 var held_obj:Node3D
 var rng
-
+@export var playermv:Node3D
 
 
 var pistol_damage:float = 30.0
@@ -65,9 +68,9 @@ enum weapons {UNARMED, PISTOL, SMG, SHOTGUN}
 func _ready():
 	health = MAX_HEALTH
 	
-	pistol_audio = preload("res://sound/weapons/pistol_fire2.wav")
-	smg_audio = preload("res://sound/weapons/smg1_fire1.wav")
-	shotgun_audio = preload("res://sound/weapons/shotgun_fire7.wav")
+	pistol_audio = preload("res://sound/weapons/pistol_gunshot.wav")
+	smg_audio = preload("res://sound/weapons/smg_fire1.wav")
+	shotgun_audio = preload("res://sound/weapons/shotgun_fire1.wav")
 	
 	rng = RandomNumberGenerator.new()
 	pass # Replace with function body.
@@ -88,30 +91,31 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
 		throw_obj()
-	
 
 
 
 func _physics_process(delta):
 	if held_obj != null:
 		pickup()
+	
+	#check_health()
 	pass
 
 func cast_ray(range:float):
 	var space = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - camera.global_transform.basis.z * range)
+	var query = PhysicsRayQueryParameters3D.create(camera.global_position - camera.global_transform.basis.z * 0.6, camera.global_position - camera.global_transform.basis.z * range)
 	query.hit_from_inside = false
 		
 	var collision = space.intersect_ray(query)
 	
-	return collision
-	#
-	#if collision:
-		#print("hit obj: ", collision.collider.name)
-		#if collision.collider.is_in_group("holdable"):
-			#held_obj = collision.collider
-			#held_obj.global_rotation = pickup_point.global_rotation
-			##held_obj.lock_rotation = true
+	#return collision
+	
+	if collision:
+		print("hit obj: ", collision.collider.name)
+		if collision.collider.is_in_group("holdable"):
+			held_obj = collision.collider
+			held_obj.global_rotation = pickup_point.global_rotation
+			#held_obj.lock_rotation = true
 
 func pickup():
 	#held_obj.global_position = lerp(held_obj.global_position, pickup_point.global_position, 0.5)
@@ -132,9 +136,12 @@ func throw_obj():
 	pass
 
 func fire_shotgun():
+	raycast.force_raycast_update()
+	var ray_endpoint = raycast.get_collision_point()
+	
 	var col = cast_ray(1000)
 	
-	shotgun_barrel.look_at(col.position,  Vector3.UP, true)
+	shotgun_barrel.look_at(ray_endpoint,  Vector3.UP, true)
 	
 	gun_source.stream = shotgun_audio
 	gun_source.play()
@@ -143,9 +150,12 @@ func fire_shotgun():
 	pass
 
 func fire_pistol():
+	raycast.force_raycast_update()
+	var ray_endpoint = raycast.get_collision_point()
+	
 	var col = cast_ray(1000)
 	
-	pistol_barrel.look_at(col.position,  Vector3.UP, true)
+	pistol_barrel.look_at(ray_endpoint,  Vector3.UP, true)
 	
 	gun_source.stream = pistol_audio
 	gun_source.play()
@@ -154,9 +164,12 @@ func fire_pistol():
 	pass
 
 func fire_smg():
+	raycast.force_raycast_update()
+	var ray_endpoint = raycast.get_collision_point()
+	
 	var col = cast_ray(1000)
 	
-	smg_barrel.look_at(col.position,  Vector3.UP, true)
+	smg_barrel.look_at(ray_endpoint,  Vector3.UP, true)
 	
 	gun_source.stream = smg_audio
 	gun_source.play()
@@ -232,4 +245,8 @@ func  change_weapon():
 func damage(damage_amount):
 	print(health)
 	pass
+
+
+
+
 

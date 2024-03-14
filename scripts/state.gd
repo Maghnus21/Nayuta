@@ -46,7 +46,10 @@ func cast_ray(obj_trans, ray_length):
 			#held_obj.global_rotation = pickup_point.global_rotation
 			##held_obj.lock_rotation = true
 
-
+func check_health():
+	if state_machine.entity.health <= 0.0:
+		state_machine.change_state("deathstate")
+	pass
 
 
 

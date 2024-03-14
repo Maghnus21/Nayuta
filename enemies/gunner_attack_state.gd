@@ -36,6 +36,7 @@ func exit_state():
 	pass
 
 func update_state(delta):
+	check_health()
 	pass
 
 func physics_update_state(delta):
