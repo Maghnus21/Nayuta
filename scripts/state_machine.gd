@@ -6,6 +6,7 @@ class_name StateMachine
 
 @export var entity: CharacterBody3D
 @export var entity_corpse: PackedScene
+@export var entity_anim_state_machine:AnimationTree
 
 @export var nav_agent: NavigationAgent3D
 @export var entity_range:=15.0

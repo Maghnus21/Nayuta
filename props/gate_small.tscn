@@ -92,7 +92,6 @@ transitions = ["door_open", "door_close", SubResource("AnimationNodeStateMachine
 [node name="gate_small" type="Node3D" parent="."]
 
 [node name="Cube" type="MeshInstance3D" parent="gate_small"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 mesh = SubResource("ArrayMesh_pq2u0")
 skeleton = NodePath("")
 

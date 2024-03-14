@@ -4,6 +4,9 @@
 
 extends CharacterBody3D
 
+@export var MAX_HEALTH:float = 100.0
+var health:float = 0.0
+
 @export var ray_foot:RayCast3D
 var current_mesh:MeshInstance3D
 @export var audio_player:AudioStreamPlayer3D
@@ -76,6 +79,7 @@ var footstep_sound_dict = {"default": ["null", "null"],
 
 
 func _ready():
+	health = MAX_HEALTH
 	
 	#	preload audio here
 	land_audio = preload("res://sound/player/footsteps/concrete3.wav")
@@ -458,7 +462,8 @@ func update_debug_info():
 	
 	pass
 
-
+func receive_damage(amount):
+	health -= amount
 
 
 
