@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chwkvha04qf56"]
+[gd_scene load_steps=16 format=3 uid="uid://chwkvha04qf56"]
 
 [ext_resource type="Script" path="res://player/scripts/playermv.gd" id="1_x1b6e"]
 [ext_resource type="Script" path="res://player/scripts/pview.gd" id="2_5nyk8"]
@@ -14,8 +14,6 @@
 [ext_resource type="Script" path="res://player/player_health_ui.gd" id="10_skkuu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n8a3r"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_110ha"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i3ki8"]
 height = 0.1
@@ -56,10 +54,6 @@ sfx_source = NodePath("../AudioSources/sfx")
 gun_source = NodePath("../AudioSources/GunAudio")
 playermv = NodePath("..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CapsuleMesh_110ha")
-
 [node name="GroundCheckShapeCast3D" type="ShapeCast3D" parent="."]
 shape = SubResource("CylinderShape3D_i3ki8")
 target_position = Vector3(0, -1.05, 0)
@@ -71,11 +65,12 @@ target_position = Vector3(0, 1.05, 0)
 debug_shape_custom_color = Color(0.803922, 0.603922, 0, 1)
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_5nyk8")
 mouse_sensitivity = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
 fov = 60.0
 far = 5000.0
 
@@ -104,8 +99,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.3723
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1.78258e-07, 0, -2.03904)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.47201e-08, 0, -0.511539)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 2000)
+hit_back_faces = false
 
 [node name="AudioSources" type="Node3D" parent="."]
 

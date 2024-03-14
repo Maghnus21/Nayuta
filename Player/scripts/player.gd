@@ -68,9 +68,9 @@ enum weapons {UNARMED, PISTOL, SMG, SHOTGUN}
 func _ready():
 	health = MAX_HEALTH
 	
-	pistol_audio = preload("res://sound/weapons/pistol_gunshot.wav")
-	smg_audio = preload("res://sound/weapons/smg_fire1.wav")
-	shotgun_audio = preload("res://sound/weapons/shotgun_fire1.wav")
+	pistol_audio = preload("res://sound/weapons/pistol_fire2.wav")
+	smg_audio = preload("res://sound/weapons/smg1_fire1.wav")
+	shotgun_audio = preload("res://sound/weapons/shotgun_fire7.wav")
 	
 	rng = RandomNumberGenerator.new()
 	pass # Replace with function body.
