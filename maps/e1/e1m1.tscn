@@ -2608,6 +2608,11 @@ size = Vector3(97.595, 1, 119.165)
 
 [node name="e1m1" type="Node3D"]
 
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_count_label")]
+script = ExtResource("31_qjo3k")
+enemies = 26
+enemy_count_label = NodePath("../Label")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_abjnr")
 
@@ -5019,11 +5024,6 @@ transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 39.7291, 3
 [node name="dingus_the_cat" parent="." instance=ExtResource("5_t0qje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0793, 31.2605, 0.108692)
 
-[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_count_label")]
-script = ExtResource("31_qjo3k")
-enemies = 26
-enemy_count_label = NodePath("../Label")
-
 [node name="Label" type="Label" parent="."]
 offset_right = 125.0
 offset_bottom = 83.0
@@ -5166,8 +5166,8 @@ omni_range = 120.522
 [node name="small_gate" parent="." instance=ExtResource("23_6yaeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8358, 33, 21.0304)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="skybox" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.821, -9.97869)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="skybox"]
 shape = SubResource("BoxShape3D_p8nr6")
