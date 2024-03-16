@@ -68,6 +68,7 @@ var last_used_weap
 func _ready():
 	health = MAX_HEALTH
 	
+	#	preloading audioclips for weapons
 	pistol_audio = preload("res://sound/weapons/pistol_fire2.wav")
 	smg_audio = preload("res://sound/weapons/smg1_fire1.wav")
 	shotgun_audio = preload("res://sound/weapons/shotgun_fire7.wav")
@@ -128,17 +129,20 @@ func pickup(collision):
 			held_obj.global_rotation = pickup_point.global_rotation
 	pass
 
-##	
+##	moves object to holding point vector using physics. object will bump into walls
+##	TODO increase pull force overtime to try and get object to point
 func hold_obj():
 	held_obj.set_linear_velocity((pickup_point.global_transform.origin - held_obj.global_transform.origin) * PULL_FORCE)
 	pass
 
+##	drops held object and changes weapon to last used weapon
 func drop_obj():
 	change_weapon_by_int(last_used_weap)
 	
 	held_obj.lock_rotation = false
 	held_obj = null
 
+##	applies force to object and then dropped
 func throw_obj():
 	change_weapon_by_int(last_used_weap)
 	
@@ -147,6 +151,7 @@ func throw_obj():
 	held_obj.apply_impulse(forward * THROW_FORCE)
 	drop_obj()
 
+##	shotgun
 func fire_shotgun():
 	var col = cast_ray(1000)
 	
@@ -157,6 +162,7 @@ func fire_shotgun():
 	
 	shoot_bullets(shotgun_barrel, 10, Vector3(shotgun_spread,shotgun_spread,0))
 
+##	pistol
 func fire_pistol():
 	var col = cast_ray(1000)
 	
@@ -167,6 +173,7 @@ func fire_pistol():
 	
 	shoot_bullets(pistol_barrel, 1, Vector3(pistol_spread,pistol_spread,0))
 
+##	sub machinegun
 func fire_smg():
 	var col = cast_ray(1000)
 	
@@ -177,9 +184,11 @@ func fire_smg():
 	
 	shoot_bullets(smg_barrel, 1, Vector3(smg_spread,smg_spread,0))
 
+##	rebound bullets
 func rebound():
 	pass
 
+##	function to shoot bullets from spawn point, number of bullets, and spread
 func shoot_bullets(bullet_spawn:Node3D, bullet_count:int, spread:Vector3):
 	rng.seed = hash(Time.get_ticks_usec())
 	
@@ -195,6 +204,7 @@ func shoot_bullets(bullet_spawn:Node3D, bullet_count:int, spread:Vector3):
 	
 	pass
 
+##	function to see if player pressed input, fires weapon depending on enum
 func player_attack(delta):
 	
 	if Input.is_action_pressed("mouse_left") && time_passed > rate_of_fire:
@@ -213,6 +223,7 @@ func player_attack(delta):
 	else:
 		time_passed += delta
 
+##	change weapons using inputs
 func  change_weapon():
 	if Input.is_action_just_pressed("alpha_1"):
 		last_used_weap = active_weapon

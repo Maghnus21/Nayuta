@@ -35,6 +35,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	#	deletes bullet after reaching lifetime limit
 	if timer < delete_time:
 		timer += delta
 	else:

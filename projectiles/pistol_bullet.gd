@@ -58,7 +58,7 @@ func _physics_process(delta):
 
 		if collider.is_in_group("enemy"):
 			collider.damage_entity(bullet_damage)
-			print("hit enemy: ", collider.name)
+			print("hit enemy: ", collider.name, "\t health: ", collider.health)
 			queue_free()
 
 func _set_rotation(rot):

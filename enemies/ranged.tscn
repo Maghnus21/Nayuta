@@ -1,14 +1,14 @@
 [gd_scene load_steps=40 format=3 uid="uid://cgh6puer8fwd0"]
 
-[ext_resource type="Script" path="res://enemies/ranged.gd" id="1_2nhwx"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_t3k21"]
+[ext_resource type="Script" path="res://enemies/grunt_ranged.gd" id="1_vcvmm"]
 [ext_resource type="PackedScene" uid="uid://beurydv87om" path="res://projectiles/enemy_bullet.tscn" id="2_8yvvp"]
-[ext_resource type="Script" path="res://enemies/gunner_idle_state.gd" id="3_16aem"]
 [ext_resource type="PackedScene" uid="uid://cnnnr2vj5dpod" path="res://models/generic_enemy/gunner.glb" id="3_xsxtl"]
-[ext_resource type="Script" path="res://enemies/gunner_chase_state.gd" id="4_4e6ia"]
 [ext_resource type="Texture2D" uid="uid://blimggxjjg442" path="res://models/generic_enemy/gunner_texture.jpg" id="4_smf4m"]
-[ext_resource type="Script" path="res://enemies/gunner_attack_state.gd" id="5_8oso3"]
-[ext_resource type="Script" path="res://enemies/gunner_death_state.gd" id="8_pfndq"]
+[ext_resource type="Script" path="res://enemies/grunt_ranged_idle_state.gd" id="6_e3yge"]
+[ext_resource type="Script" path="res://enemies/grunt_ranged_chase_state.gd" id="7_6bcn0"]
+[ext_resource type="Script" path="res://enemies/grunt_ranged_attack_state.gd" id="8_cutwd"]
+[ext_resource type="Script" path="res://enemies/grunt_ranged_death_state.gd" id="9_gtgsv"]
 [ext_resource type="AudioStream" uid="uid://yx1yjwkh7f35" path="res://sound/npc/enemies/94581__thanvannispen__cell_screams_11.wav" id="10_87i0t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_m8oew"]
@@ -1826,8 +1826,8 @@ states/human_fire/position = Vector2(634, 161)
 transitions = ["Start", "IdleBlendTree", SubResource("AnimationNodeStateMachineTransition_deei6"), "IdleBlendTree", "RunBlendTree", SubResource("AnimationNodeStateMachineTransition_dehh3"), "human_fire", "RunBlendTree", SubResource("AnimationNodeStateMachineTransition_6tgjk"), "RunBlendTree", "IdleBlendTree", SubResource("AnimationNodeStateMachineTransition_giypc"), "RunBlendTree", "human_fire", SubResource("AnimationNodeStateMachineTransition_w0my8"), "human_fire", "IdleBlendTree", SubResource("AnimationNodeStateMachineTransition_xndfe"), "RunBlendTree", "human_death", SubResource("AnimationNodeStateMachineTransition_502wo"), "IdleBlendTree", "human_death", SubResource("AnimationNodeStateMachineTransition_x2pyg"), "human_fire", "human_death", SubResource("AnimationNodeStateMachineTransition_0ubmc")]
 graph_offset = Vector2(-23, -15)
 
-[node name="gunner" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "projectile_spawn") groups=["enemy"]]
-script = ExtResource("1_2nhwx")
+[node name="grunt_ranged" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "projectile_spawn") groups=["enemy"]]
+script = ExtResource("1_vcvmm")
 raycast = NodePath("RayCast3D")
 projectile_spawn = NodePath("BulletSpawn")
 projectile = ExtResource("2_8yvvp")
@@ -1919,21 +1919,21 @@ entity_anim_state_machine = NodePath("../AnimationTree")
 nav_agent = NodePath("../NavigationAgent3D")
 
 [node name="IdleState" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("sfx", "state_machine")]
-script = ExtResource("3_16aem")
+script = ExtResource("6_e3yge")
 sfx = NodePath("../../AudioSources/sfx")
 state_machine = NodePath("..")
 
 [node name="ChaseState" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("state_machine")]
-script = ExtResource("4_4e6ia")
+script = ExtResource("7_6bcn0")
 entity_speed = 8.0
 state_machine = NodePath("..")
 
 [node name="AttackState" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("state_machine")]
-script = ExtResource("5_8oso3")
+script = ExtResource("8_cutwd")
 state_machine = NodePath("..")
 
 [node name="DeathState" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("col", "state_machine")]
-script = ExtResource("8_pfndq")
+script = ExtResource("9_gtgsv")
 col = NodePath("../../CollisionShape3D")
 state_machine = NodePath("..")
 

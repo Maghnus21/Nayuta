@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4ixsc86flxsq"]
+[gd_scene load_steps=14 format=3 uid="uid://d4ixsc86flxsq"]
 
 [ext_resource type="Texture2D" uid="uid://iemnyehxfw2r" path="res://textures/MetalPlates010_1K-JPG_Color.jpg" id="1_3ypdq"]
 
@@ -39,6 +39,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_raxgh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x5baf"]
+size = Vector3(1, 4, 4)
 
 [sub_resource type="Animation" id="Animation_jyb7n"]
 resource_name = "door_close"
@@ -94,6 +97,11 @@ transitions = ["door_open", "door_close", SubResource("AnimationNodeStateMachine
 [node name="Cube" type="MeshInstance3D" parent="gate_small"]
 mesh = SubResource("ArrayMesh_pq2u0")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="gate_small"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate_small/StaticBody3D"]
+shape = SubResource("BoxShape3D_x5baf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="gate_small"]
 libraries = {
