@@ -9,5 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = "Health: " + var_to_str(player_hp.health)
+	#text = "Health: " + var_to_str(player_hp.health)
 	pass

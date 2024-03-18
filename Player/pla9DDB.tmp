@@ -26,10 +26,11 @@ radius = 0.49
 [node name="player" type="CharacterBody3D" groups=["player"]]
 slide_on_ceiling = false
 
-[node name="playermv_nu" type="Node3D" parent="." node_paths=PackedStringArray("player_character", "audio_player")]
+[node name="playermv_nu" type="Node3D" parent="." node_paths=PackedStringArray("player_character", "audio_player", "ground_check_shapecast")]
 script = ExtResource("1_bynxp")
 player_character = NodePath("..")
 audio_player = NodePath("../AudioSources/player_feet")
+ground_check_shapecast = NodePath("../GroundCheckShapeCast3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["hitbox"]]
 shape = SubResource("CylinderShape3D_n8a3r")

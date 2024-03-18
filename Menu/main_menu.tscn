@@ -1,4 +1,4 @@
-[gd_scene load_steps=649 format=3 uid="uid://bg4j4nm0mwsdi"]
+[gd_scene load_steps=650 format=3 uid="uid://bg4j4nm0mwsdi"]
 
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_f2l86"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_ngxq3"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://menu/startscene.gd" id="26_3v2m3"]
 [ext_resource type="PackedScene" uid="uid://ckwblpq80nsl7" path="res://props/gate_large.tscn" id="26_fxd7c"]
 [ext_resource type="PackedScene" uid="uid://d4ixsc86flxsq" path="res://props/gate_small.tscn" id="27_714fd"]
+[ext_resource type="PackedScene" uid="uid://dw1re35f21nk" path="res://menu/settings_menu.tscn" id="27_tru2h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j4et4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -4643,32 +4644,77 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7407, 33, 20.0055)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.789191, 0.482161, 0.380392, 0, 0.619382, -0.78509, -0.614147, 0.619586, 0.488811, 15.31, 1.97561, 15.776)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Camera3D"]
+
 [node name="startscene" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("26_3v2m3")
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="startscene"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 279.0
-offset_right = 582.0
-offset_bottom = 489.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -603.0
+offset_top = -165.0
+offset_right = -40.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "Mutagen"
-metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="startscene"]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 441.0
-offset_right = 274.0
-offset_bottom = 491.0
+[node name="start" type="Button" parent="startscene"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -602.0
+offset_top = -17.0
+offset_right = -373.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "start"
-metadata/_edit_use_anchors_ = true
+flat = true
+alignment = 0
 
-[connection signal="pressed" from="startscene/Button" to="startscene" method="_on_button_pressed"]
+[node name="settings" type="Button" parent="startscene"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -602.0
+offset_top = 53.0
+offset_right = -369.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "settings"
+flat = true
+alignment = 0
+
+[node name="SettingsWindow" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("27_tru2h")]
+sfx_player = NodePath("../Camera3D/AudioStreamPlayer3D")
+
+[connection signal="pressed" from="startscene/start" to="startscene" method="_on_button_pressed"]
+[connection signal="pressed" from="startscene/settings" to="startscene" method="_on_button_2_pressed"]
