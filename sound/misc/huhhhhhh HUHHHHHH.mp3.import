@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dic4f0f4nnlf5"
+path="res://.godot/imported/huhhhhhh HUHHHHHH.mp3-5cd4e4af56166dd033f7d1d609977ba9.mp3str"
+
+[deps]
+
+source_file="res://sound/misc/huhhhhhh HUHHHHHH.mp3"
+dest_files=["res://.godot/imported/huhhhhhh HUHHHHHH.mp3-5cd4e4af56166dd033f7d1d609977ba9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

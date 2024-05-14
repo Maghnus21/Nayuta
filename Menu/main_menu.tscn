@@ -4648,47 +4648,35 @@ transform = Transform3D(0.789191, 0.482161, 0.380392, 0, 0.619382, -0.78509, -0.
 
 [node name="startscene" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("26_3v2m3")
 
 [node name="Label" type="Label" parent="startscene"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -603.0
-offset_top = -165.0
-offset_right = -40.0
-offset_bottom = 45.0
-grow_horizontal = 2
+offset_left = 32.0
+offset_top = -136.0
+offset_right = 595.0
+offset_bottom = 74.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
-text = "Mutagen"
+text = "Nayuta"
 
 [node name="start" type="Button" parent="startscene"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -602.0
-offset_top = -17.0
-offset_right = -373.0
-offset_bottom = 33.0
-grow_horizontal = 2
+offset_left = 40.0
+offset_top = -8.0
+offset_right = 269.0
+offset_bottom = 42.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "start"
@@ -4697,24 +4685,20 @@ alignment = 0
 
 [node name="settings" type="Button" parent="startscene"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -602.0
-offset_top = 53.0
-offset_right = -369.0
-offset_bottom = 101.0
-grow_horizontal = 2
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 273.0
+offset_bottom = 88.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "settings"
 flat = true
 alignment = 0
 
-[node name="SettingsWindow" parent="." node_paths=PackedStringArray("sfx_player") instance=ExtResource("27_tru2h")]
-sfx_player = NodePath("../Camera3D/AudioStreamPlayer3D")
+[node name="Window" parent="startscene" instance=ExtResource("27_tru2h")]
 
 [connection signal="pressed" from="startscene/start" to="startscene" method="_on_button_pressed"]
 [connection signal="pressed" from="startscene/settings" to="startscene" method="_on_button_2_pressed"]

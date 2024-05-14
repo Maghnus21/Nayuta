@@ -1,6 +1,6 @@
 extends Control
 
-@onready var settings_window = $'../SettingsWindow'
+@onready var settings_window = $'../startscene/Window'
 
 @onready var audio_player = $'../Camera3D/AudioStreamPlayer3D'
 

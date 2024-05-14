@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y348et2xqfy4"
+path="res://.godot/imported/Simon Stålenhag - Music For DOS - 01 Memory Block.mp3-1aea68e2218df7cdcf3706295838da13.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Simon Stålenhag - Music For DOS - 01 Memory Block.mp3"
+dest_files=["res://.godot/imported/Simon Stålenhag - Music For DOS - 01 Memory Block.mp3-1aea68e2218df7cdcf3706295838da13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

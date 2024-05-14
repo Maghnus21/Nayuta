@@ -20,6 +20,13 @@ shotgun fire:
 smg fire:
 	https://freesound.org/people/SuperPhat/sounds/417689/
 
+ricochet1:
+	https://freesound.org/people/harrisonlace/sounds/634884/
+
+ricochet_miss:
+	https://freesound.org/people/SypherZent/sounds/420668/
+
+
 textures
 =============
 metal 05

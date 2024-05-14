@@ -23,6 +23,10 @@ func _on_body_entered(body):
 		#audio_source.play()
 	audio_source.play()
 	
+	if body.is_in_group("enemy"):
+		body.damage_entity(100.0)
+		print("hit enemy")
+	
 	pass # Replace with function body.
 
 

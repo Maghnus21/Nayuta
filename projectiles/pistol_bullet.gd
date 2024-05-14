@@ -64,3 +64,10 @@ func _physics_process(delta):
 func _set_rotation(rot):
 	self.rotation = rot
 	pass
+
+func set_damage_value(new_damage_value:float):
+	bullet_damage = new_damage_value
+	pass
+
+func set_speed(new_speed_value:float):
+	bullet_speed = new_speed_value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cgh6puer8fwd0"]
+[gd_scene load_steps=41 format=3 uid="uid://cgh6puer8fwd0"]
 
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_t3k21"]
 [ext_resource type="Script" path="res://enemies/grunt_ranged.gd" id="1_vcvmm"]
@@ -17,6 +17,9 @@
 cull_mode = 2
 albedo_texture = ExtResource("4_smf4m")
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyqp6"]
+albedo_texture = ExtResource("4_smf4m")
 
 [sub_resource type="Animation" id="Animation_1a8te"]
 resource_name = "human_death"
@@ -1900,15 +1903,19 @@ bones/51/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="arm_l" parent="gunner/human_rig/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_ij52c")
+gi_mode = 2
 
 [node name="arm_r" parent="gunner/human_rig/Skeleton3D" index="1"]
 material_override = SubResource("StandardMaterial3D_ij52c")
+gi_mode = 2
 
 [node name="body" parent="gunner/human_rig/Skeleton3D" index="2"]
-material_override = SubResource("StandardMaterial3D_ij52c")
+material_override = SubResource("StandardMaterial3D_qyqp6")
+gi_mode = 2
 
 [node name="head" parent="gunner/human_rig/Skeleton3D" index="3"]
 material_override = SubResource("StandardMaterial3D_ij52c")
+gi_mode = 2
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("initial_state", "entity", "entity_anim_state_machine", "nav_agent")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

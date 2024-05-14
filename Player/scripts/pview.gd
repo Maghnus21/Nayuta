@@ -2,6 +2,9 @@ extends Node3D
 
 
 @onready var camera = $Camera3D
+@export var rebound_area:Area3D
+@export var player_arms:Node3D
+#@onready var flashlight = $camera/Flashlight
 @onready var player_controller:CharacterBody3D = get_parent()
 
 @export var mouse_sensitivity:float = 1
@@ -20,6 +23,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	camera.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
+	rebound_area.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
+	player_arms.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
+	#flashlight.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
 	pass
 
 func _input(event):

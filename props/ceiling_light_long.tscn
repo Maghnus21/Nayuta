@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byq4fw7lb7p3q"]
 
 [ext_resource type="PackedScene" uid="uid://4ef6vmoufww5" path="res://models/ceiling light/ceiling_light_long.blend" id="1_nrxhq"]
-[ext_resource type="Script" path="res://props/q_light.gd" id="2_yv3m0"]
+[ext_resource type="Script" path="res://scripts/q_light.gd" id="2_yv3m0"]
 
 [node name="ceiling_light_long" node_paths=PackedStringArray("light") instance=ExtResource("1_nrxhq")]
 script = ExtResource("2_yv3m0")

@@ -12,13 +12,12 @@ var health:float = 0.0
 
 @export var ray_foot:RayCast3D
 var current_mesh:MeshInstance3D
-@export var audio_player:AudioStreamPlayer3D
 
 const MOUSE_SENSATIVITY = 1200
 
 @onready var player_collider:CollisionShape3D = $'../CollisionShape3D'
-@onready var sfx_audio_player:AudioStreamPlayer3D = $'../AudioSources/sfx'
-@onready var player_audio: AudioStreamPlayer3D = $'../AudioSources/player_feet'
+@onready var sfx_audio_player:AudioStreamPlayer3D = $'../AudioSources/SFX'
+@onready var player_audio: AudioStreamPlayer3D = $'../AudioSources/PlayerAudio'
 @onready var head:Node3D = $'../Head'
 #@onready var player_mesh:MeshInstance3D = $'../MeshInstance3D'
 
@@ -27,6 +26,7 @@ const MOUSE_SENSATIVITY = 1200
 @onready var ground_check_shapecast:ShapeCast3D = $'../GroundCheckShapeCast3D'
 @onready var crouch_check_shapecast:ShapeCast3D = $'../CrouchCheckShapeCast3D'
 
+@export var show_debug_data:bool = false
 @onready var debug_label:Label = $'../Control/Label'
 
 
@@ -44,6 +44,7 @@ const MAXHANG:float = 0.2
 const PLAYER_HEIGHT:float = 2.0
 const CROUCH_HEIGHT:float = 1.0
 const PLAYER_MASS:float = 80.0
+const PLAYER_STEP_TIME:float = 0.42
 
 @export var min_fall_damage_dis:int = 20
 
@@ -66,6 +67,8 @@ var crouched_under_low_obj:bool = false
 enum STATELIST {WALK, FALL, SLIDE, SWIM, LADDER, NOCLIP}
 var current_state: STATELIST = STATELIST.WALK
 
+var rng:RandomNumberGenerator
+
 var land_audio
 
 var debug_dict = {
@@ -73,6 +76,10 @@ var debug_dict = {
 	"current_loc": Vector3(0,0,0)
 }
 
+var step_timer:float = 0.0
+
+var step_sound_concrete1:AudioStreamWAV
+var step_sound_concrete2:AudioStreamWAV
 
 #	audio to be used for footsteps will have path strings stored here and stream field in player uses strings to fetch files
 #	audio then should be played according to material type; concrete, sand, metal, etc
@@ -83,10 +90,15 @@ var footstep_sound_dict = {"default": ["null", "null"],
 
 
 func _ready():
+	rng = RandomNumberGenerator.new()
+	
 	health = MAX_HEALTH
 	
+	step_sound_concrete1 = preload("res://sound/player/footsteps/concrete1.wav")
+	step_sound_concrete2 = preload("res://sound/player/footsteps/concrete3.wav")
+	
 	#	preload audio here
-	land_audio = preload("res://sound/player/footsteps/concrete3.wav")
+	player_audio.stream = step_sound_concrete1
 	pass
 
 func _input(event):
@@ -134,9 +146,32 @@ func _physics_process(delta):
 	catagorize_pos()
 	jump_button()
 	check_state()
-	update_debug_info()
+	emit_walk_sounds()
+	
+	if show_debug_data: update_debug_info()
 	
 	#print(player_collider.global_transform.origin)
+
+func emit_walk_sounds():
+	if player_character.velocity.length() > 0.2:
+		if step_timer < PLAYER_STEP_TIME:
+			step_timer += deltaTime
+		else:
+			step_timer = 0.0
+			match(current_state):
+				STATELIST.WALK:
+					rng.seed = hash(Time.get_ticks_usec())
+				
+					var rand = rng.randi_range(1, 2)
+					match(rand):
+						1: player_audio.set_stream(step_sound_concrete1)
+						2: player_audio.set_stream(step_sound_concrete2)
+				
+					player_audio.play()
+	else:
+		step_timer = PLAYER_STEP_TIME/2
+
+	pass
 
 func check_state():
 	match(current_state):
@@ -231,7 +266,7 @@ func calc_fall_damage():
 	else:
 		if fall_dis < min_fall_damage_dis:
 			#sfx_audio_player.stream = land_audio
-			sfx_audio_player.play()
+			player_audio.play()
 			print("landed safely")
 
 func jump_button():

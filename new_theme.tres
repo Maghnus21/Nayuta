@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bdi3n0rsda37s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iks1r"]
+
+[resource]
+VBoxContainer/styles/v_style = SubResource("StyleBoxEmpty_iks1r")

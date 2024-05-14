@@ -1,58 +1,271 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw1re35f21nk"]
+[gd_scene load_steps=4 format=3 uid="uid://dw1re35f21nk"]
 
-[ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_xxcte"]
-[ext_resource type="Texture2D" uid="uid://dhh71hs5h2ke0" path="res://images/IMG_20210927_150717.jpg" id="2_7isce"]
+[ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_j0gtc"]
+[ext_resource type="Script" path="res://menu/settings.gd" id="1_ylelc"]
+[ext_resource type="AudioStream" uid="uid://y348et2xqfy4" path="res://sound/music/Simon Stålenhag - Music For DOS - 01 Memory Block.mp3" id="2_x7hbm"]
 
-[node name="SettingsWindow" type="Control"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_xxcte")
-
-[node name="Window" type="Window" parent="."]
+[node name="Window" type="Window" node_paths=PackedStringArray("video_scroll_container")]
 title = "Settings"
-initial_position = 4
-size = Vector2i(512, 256)
+position = Vector2i(420, 63)
+size = Vector2i(512, 512)
 min_size = Vector2i(256, 256)
-keep_title_visible = true
-theme_override_font_sizes/title_font_size = 16
+script = ExtResource("1_j0gtc")
+video_scroll_container = NodePath("SettingsWindow/TabContainer/Video/ScrollContainer")
 
-[node name="Control" type="Control" parent="Window"]
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x7hbm")
+bus = &"Music"
+
+[node name="SFXStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
+
+[node name="SettingsWindow" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ylelc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Window/Control"]
+[node name="TabContainer" type="TabContainer" parent="SettingsWindow"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 31.0
+current_tab = 1
+clip_tabs = false
+
+[node name="Mouse" type="TabBar" parent="SettingsWindow/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsWindow/TabContainer/Mouse"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 33.0
+offset_right = 181.615
+offset_bottom = 79.185
+text = "under construction lul"
+
+[node name="Video" type="TabBar" parent="SettingsWindow/TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsWindow/TabContainer/Video"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/TabContainer/Video/ScrollContainer"]
+z_as_relative = false
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="AspectRatio" type="Control" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/AspectRatio"]
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 23.0
+text = "AspectRatio (NW)"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/AspectRatio/Label"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 128.0
+offset_bottom = 57.0
+item_count = 6
+allow_reselect = true
+popup/item_0/text = "3:2"
+popup/item_0/id = 0
+popup/item_1/text = "4:3"
+popup/item_1/id = 1
+popup/item_2/text = "5:3"
+popup/item_2/id = 2
+popup/item_3/text = "5:4"
+popup/item_3/id = 3
+popup/item_4/text = "16:9"
+popup/item_4/id = 4
+popup/item_5/text = "16:10"
+popup/item_5/id = 5
+
+[node name="Resolution" type="Control" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/Resolution"]
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 23.0
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/Resolution/Label"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 127.0
+offset_bottom = 57.0
+item_count = 6
+allow_reselect = true
+popup/item_0/text = "640x480"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1600x900"
+popup/item_2/id = 2
+popup/item_3/text = "1920x1080"
+popup/item_3/id = 3
+popup/item_4/text = "2560x1440"
+popup/item_4/id = 4
+popup/item_5/text = "1200x1200"
+popup/item_5/id = 5
+
+[node name="WindowMode" type="Control" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/WindowMode"]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 23.0
+text = "Window Mode"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/WindowMode/Label"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 137.0
+offset_bottom = 57.0
+item_count = 3
+allow_reselect = true
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Boarderless"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+
+[node name="Audio" type="TabBar" parent="SettingsWindow/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow/TabContainer/Audio"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 17.0
+offset_right = 8.0
+offset_bottom = 209.0
+theme_override_constants/separation = 46
+
+[node name="MasterAudio" type="Control" parent="SettingsWindow/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/MasterAudio"]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 23.0
+text = "Master Audio"
+
+[node name="HSlider" type="HSlider" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/MasterAudio/Label"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 6.0
+offset_right = 328.0
+offset_bottom = 22.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/MasterAudio/Label"]
+layout_mode = 0
+offset_left = 408.0
+offset_right = 448.0
+offset_bottom = 23.0
+
+[node name="SFXAudio" type="Control" parent="SettingsWindow/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/SFXAudio"]
+layout_mode = 0
+offset_right = 77.0
+offset_bottom = 23.0
+text = "SFX Audio"
+
+[node name="HSlider" type="HSlider" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/SFXAudio/Label"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 4.0
+offset_right = 328.0
+offset_bottom = 20.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/SFXAudio/Label"]
+layout_mode = 0
+offset_left = 408.0
+offset_right = 448.0
+offset_bottom = 23.0
+
+[node name="MusicAudio" type="Control" parent="SettingsWindow/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/MusicAudio"]
+layout_mode = 0
+offset_right = 95.0
+offset_bottom = 23.0
+text = "Music Audio"
+
+[node name="HSlider" type="HSlider" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/MusicAudio/Label"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 2.0
+offset_right = 328.0
+offset_bottom = 18.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/MusicAudio/Label"]
+layout_mode = 0
+offset_left = 408.0
+offset_right = 448.0
+offset_bottom = 23.0
+
+[node name="AudioTest" type="Control" parent="SettingsWindow/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/AudioTest"]
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 23.0
+size_flags_horizontal = 8
+text = "Test Audio"
+
+[node name="Button" type="Button" parent="SettingsWindow/TabContainer/Audio/VBoxContainer/AudioTest/Label"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 216.0
-offset_top = 88.0
-offset_right = 256.0
-offset_bottom = 128.0
+offset_left = 87.0
+offset_top = -11.5
+offset_right = 199.0
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "Press"
 
-[node name="HSlider" type="HSlider" parent="Window/Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Window"]
-visible = false
-position = Vector2(256, 128)
-scale = Vector2(0.255, 0.255)
-texture = ExtResource("2_7isce")
-
-[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="size_changed" from="." to="." method="_on_size_changed"]
+[connection signal="tab_clicked" from="SettingsWindow/TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="item_selected" from="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/AspectRatio/Label/OptionButton" to="." method="_on_aspect_ratio_option_button_item_selected"]
+[connection signal="pressed" from="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/AspectRatio/Label/OptionButton" to="." method="_on_aspect_ratio_option_button_pressed"]
+[connection signal="item_selected" from="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/Resolution/Label/OptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="pressed" from="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/Resolution/Label/OptionButton" to="." method="_on_resolution_option_button_pressed"]
+[connection signal="item_selected" from="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/WindowMode/Label/OptionButton" to="." method="_on_window_mode_option_button_item_selected"]
+[connection signal="pressed" from="SettingsWindow/TabContainer/Video/ScrollContainer/VBoxContainer/WindowMode/Label/OptionButton" to="." method="_on_window_mode_option_button_pressed"]
+[connection signal="value_changed" from="SettingsWindow/TabContainer/Audio/VBoxContainer/MasterAudio/Label/HSlider" to="." method="_on_master_vol_slider_value_changed"]
+[connection signal="value_changed" from="SettingsWindow/TabContainer/Audio/VBoxContainer/SFXAudio/Label/HSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="value_changed" from="SettingsWindow/TabContainer/Audio/VBoxContainer/MusicAudio/Label/HSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="pressed" from="SettingsWindow/TabContainer/Audio/VBoxContainer/AudioTest/Label/Button" to="." method="_on_button_pressed"]

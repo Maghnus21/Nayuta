@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs785kxvfr4cl"]
+[gd_scene load_steps=13 format=3 uid="uid://bs785kxvfr4cl"]
 
 [ext_resource type="Script" path="res://scripts/rb_collision.gd" id="1_0odgo"]
 [ext_resource type="Texture2D" uid="uid://dh2prwgueuieb" path="res://models/dingus/dingus_the_cat_Image_0.jpg" id="2_wgte4"]
 [ext_resource type="Texture2D" uid="uid://btnwyog1tk4hn" path="res://models/dingus/dingus_the_cat_Image_1.png" id="3_7fs8m"]
 [ext_resource type="AudioStream" uid="uid://be58wfdrfp7sw" path="res://sound/npc/animals/cat_meow.wav" id="4_2mjsw"]
+[ext_resource type="Script" path="res://scripts/Dialogue.gd" id="5_hpwje"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3al1"]
 size = Vector3(0.615, 0.395, 0.345)
@@ -12,6 +13,7 @@ size = Vector3(0.615, 0.395, 0.345)
 resource_name = "dingus"
 cull_mode = 2
 albedo_texture = ExtResource("2_wgte4")
+metallic_specular = 0.0
 roughness = 0.821115
 texture_filter = 2
 
@@ -89,7 +91,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j3get")
 
-[node name="dingus" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
+[node name="dingus" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable", "talkable"]]
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_0odgo")
@@ -114,10 +116,12 @@ transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, -0.01, 0, 0.01, -3.57628e-0
 transform = Transform3D(100, 0, 0, 0, -3.57628e-05, 100, 0, -100, -3.57628e-05, 0, 0, 0)
 
 [node name="dingus_dingus_0" type="MeshInstance3D" parent="dingus_the_cat_model/Sketchfab_model/4208413c13314acba8c009c728471fae_fbx/RootNode/dingus"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_cdl0c")
 skeleton = NodePath("")
 
 [node name="dingus_whiskers_0" type="MeshInstance3D" parent="dingus_the_cat_model/Sketchfab_model/4208413c13314acba8c009c728471fae_fbx/RootNode/dingus"]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_4pt7e")
 skeleton = NodePath("")
 
@@ -126,6 +130,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0286214, 0)
 stream = ExtResource("4_2mjsw")
 
 [node name="dingus_the_cat" type="Node3D" parent="."]
+
+[node name="NPCDialogue" type="Node3D" parent="."]
+script = ExtResource("5_hpwje")
+entity_name = "dingus"
+dialogue_array = [&"anyways, um... i bought a whole bunch of shungite rocks, do you know what shungite is? anybody know what shungite is? ", &"no, not suge knight, i think he\'s locked up in prison. i\'m talkin\' shungite", &"anyways, it\'s a two billion year-old like, rock stone that protects against frequencies and unwanted frequencies that may be traveling in the air", &"that\'s my story, i bought a whole bunch of stuff", &"put \'em around the la casa. little pyramids, stuff like that"]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

@@ -1,4 +1,5 @@
 extends Node3D
+class_name EnemyProjectile
 
 @export var bullet_damage: float = 20.0
 @export var raycast:RayCast3D
@@ -57,7 +58,7 @@ func _physics_process(delta):
 			queue_free()
 
 		if collider.is_in_group("player"):
-			collider.receive_damage(bullet_damage)
+			#collider.receive_damage(bullet_damages)
 			print("hit player")
 			queue_free()
 
@@ -65,3 +66,7 @@ func _physics_process(delta):
 func _set_rotation(rot):
 	self.rotation = rot
 	pass
+
+func delete_projectile():
+	queue_free()
+

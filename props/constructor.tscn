@@ -10,6 +10,9 @@ size = Vector3(4.60102, 2.41333, 2.05552)
 
 [node name="constructor" instance=ExtResource("1_4m0ki")]
 
+[node name="Cube" parent="." index="0"]
+gi_mode = 2
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
