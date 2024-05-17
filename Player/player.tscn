@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://chwkvha04qf56"]
+[gd_scene load_steps=45 format=3 uid="uid://chwkvha04qf56"]
 
 [ext_resource type="Script" path="res://player/scripts/playermv_nu.gd" id="1_bynxp"]
 [ext_resource type="Script" path="res://player/scripts/pview.gd" id="2_5nyk8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://wv8k2pcx05t1" path="res://projectiles/player_bullet_shotgun.tscn" id="5_bkqo2"]
 [ext_resource type="PackedScene" uid="uid://c63f0pler3sfl" path="res://projectiles/player_bullet_smg.tscn" id="6_m63lj"]
 [ext_resource type="Texture2D" uid="uid://dhh71hs5h2ke0" path="res://images/IMG_20210927_150717.jpg" id="10_3p6aj"]
+[ext_resource type="PackedScene" uid="uid://ctqm7sww5hqsa" path="res://player/ui/player_ui.tscn" id="10_aplq5"]
 [ext_resource type="Script" path="res://player/player_health_ui.gd" id="10_skkuu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n8a3r"]
@@ -357,11 +358,12 @@ slide_on_ceiling = false
 script = ExtResource("1_bynxp")
 player_character = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["hitbox"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." node_paths=PackedStringArray("entity") groups=["hitbox"]]
 shape = SubResource("CylinderShape3D_n8a3r")
 script = ExtResource("4_i36n8")
+entity = NodePath("../player_invt")
 
-[node name="player_invt" type="Node3D" parent="." node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col", "raycast", "rebound_area", "rebound_col", "rebound_spawn", "dialogue_box", "dialogue_text", "player_flashlight", "pistol", "smg", "shotgun", "pistol_barrel", "smg_barrel", "shotgun_barrel", "sfx_source", "gun_source", "dialogue_audio")]
+[node name="player_invt" type="Node3D" parent="." node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col", "raycast", "rebound_area", "rebound_col", "rebound_spawn", "dialogue_box", "dialogue_text", "player_flashlight", "pistol", "smg", "shotgun", "pistol_barrel", "smg_barrel", "shotgun_barrel", "player_ui", "sfx_source", "gun_source", "dialogue_audio")]
 script = ExtResource("2_txmmq")
 camera = NodePath("../Head/Camera3D")
 pickup_point = NodePath("../Head/Camera3D/pickup_point")
@@ -374,7 +376,7 @@ rebound_area = NodePath("../ReboundArea3D")
 rebound_col = NodePath("../ReboundArea3D/CollisionShape3D2")
 rebound_spawn = NodePath("../Head/Camera3D/ReboundBulletSpawn")
 dialogue_box = NodePath("../PlayerHUD/DialogueBox")
-dialogue_text = NodePath("../PlayerHUD/DialogueBox/RichTextLabel")
+dialogue_text = NodePath("../PlayerHUD/DialogueBox/DialogueRichTextLabel")
 player_flashlight = NodePath("../Head/Camera3D/Flashlight")
 pistol = NodePath("../Head/Camera3D/pistol")
 smg = NodePath("../Head/Camera3D/smg2")
@@ -385,6 +387,7 @@ shotgun_barrel = NodePath("../Head/Camera3D/shotgun_bullet_spawn")
 pistol_bullet = ExtResource("4_q0fag")
 smg_bullet = ExtResource("5_bkqo2")
 shotgun_bullet = ExtResource("6_m63lj")
+player_ui = NodePath("../PlayerUI")
 sfx_source = NodePath("../AudioSources/SFX")
 gun_source = NodePath("../AudioSources/GunAudio")
 dialogue_audio = NodePath("../AudioSources/DialogueAudio")
@@ -561,7 +564,10 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/punch = false
 parameters/conditions/rebound = false
 
+[node name="PlayerUI" parent="." instance=ExtResource("10_aplq5")]
+
 [node name="PlayerHUD" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -585,25 +591,34 @@ grow_vertical = 0
 [node name="ColorRect" type="ColorRect" parent="PlayerHUD/DialogueBox"]
 layout_mode = 1
 offset_left = -300.0
-offset_top = -176.0
+offset_top = -200.0
 offset_right = 340.0
 offset_bottom = -40.0
 color = Color(0.192157, 0.192157, 0.192157, 0.431373)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PlayerHUD/DialogueBox"]
+[node name="DialogueRichTextLabel" type="RichTextLabel" parent="PlayerHUD/DialogueBox"]
 layout_mode = 0
 offset_left = -172.0
-offset_top = -168.0
+offset_top = -192.0
 offset_right = 332.0
-offset_bottom = -48.0
+offset_bottom = -72.0
 text = "default text"
+
+[node name="NameRichTextLabel" type="RichTextLabel" parent="PlayerHUD/DialogueBox"]
+layout_mode = 0
+offset_left = -292.0
+offset_top = -64.0
+offset_right = -180.0
+offset_bottom = -40.0
+text = "name"
+scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="PlayerHUD/DialogueBox"]
 layout_mode = 0
 offset_left = -292.0
-offset_top = -168.0
+offset_top = -192.0
 offset_right = -180.0
-offset_bottom = -48.0
+offset_bottom = -72.0
 texture = ExtResource("10_3p6aj")
 expand_mode = 1
 

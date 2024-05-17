@@ -4,7 +4,7 @@ extends Node3D
 var RAY_LENGTH:float = 3.0
 var PULL_FORCE:float = 20.0
 var THROW_FORCE:float = 256.0
-var MAX_HEALTH:float = 20.0
+var MAX_HEALTH:float = 100.0
 var FLASHLIGHT_MIN_DIS:float = 3.0
 var MELEE_COOLDOWN:float = 0.4			# time must be equal to melee animation time
 var REBOUND_COOLDOWN:float = 0.6
@@ -34,6 +34,7 @@ var DIALOGUE_BOX_VISIBLE_TIME:float = 8.0
 
 @export var dialogue_box:Control
 @export var dialogue_text:RichTextLabel
+@export var name_dialogue_text:RichTextLabel
 
 @export_category("Player Items")
 @export var player_flashlight:Light3D
@@ -49,6 +50,9 @@ var DIALOGUE_BOX_VISIBLE_TIME:float = 8.0
 @export var pistol_bullet:PackedScene
 @export var smg_bullet:PackedScene
 @export var shotgun_bullet:PackedScene
+
+@export_category("UI")
+@export var player_ui:Control
 
 @export_category("Audio Sources")
 @export var sfx_source:AudioStreamPlayer3D
@@ -571,6 +575,9 @@ func change_weapon_by_int(new_weapon):
 	pass
 
 func damage(damage_amount):
+	
+	player_ui.reduce_health_bar_precentage(damage_amount)
+	
 	print(health)
 	pass
 

@@ -1,0 +1,170 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctqm7sww5hqsa"]
+
+[ext_resource type="Script" path="res://player/ui/player_ui.gd" id="1_sgwv8"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sgwv8")
+
+[node name="PlayerStatus" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_right = 320.0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="PlayerStatus"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+offset_right = 320.0
+grow_vertical = 0
+color = Color(0.419608, 0.419608, 0.419608, 0.564706)
+
+[node name="PlayerHealth" type="Control" parent="PlayerStatus"]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 320.0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="PlayerStatus/PlayerHealth"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 296.0
+grow_vertical = 2
+color = Color(0.894118, 0, 0.117647, 1)
+
+[node name="WeaponName" type="RichTextLabel" parent="PlayerStatus/PlayerHealth"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 296.0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Health[/center]"
+
+[node name="Energy" type="Control" parent="PlayerStatus"]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+offset_right = 320.0
+offset_bottom = -48.0
+grow_vertical = 0
+
+[node name="ColorRect2" type="ColorRect" parent="PlayerStatus/Energy"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_right = 296.0
+offset_bottom = 16.0
+grow_vertical = 2
+color = Color(0, 0.529412, 0.643137, 1)
+
+[node name="WeaponName2" type="RichTextLabel" parent="PlayerStatus/Energy"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_right = 296.0
+offset_bottom = 16.0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Constituent[/center]"
+
+[node name="WeaponStatus" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="WeaponStatus"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -96.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.419608, 0.419608, 0.419608, 0.564706)
+
+[node name="WeaponName" type="RichTextLabel" parent="WeaponStatus"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -96.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]Weapon Name[/center]"
+
+[node name="AmmoCountText" type="RichTextLabel" parent="WeaponStatus"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -72.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]Ammo count[/center]"
+
+[node name="AmmoCountValue" type="RichTextLabel" parent="WeaponStatus"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]999/999[/center]"
