@@ -168,3 +168,24 @@ grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]999/999[/center]"
+
+[node name="PlayerObjective" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="PlayerObjective"]
+layout_mode = 1
+offset_right = 256.0
+offset_bottom = 88.0
+color = Color(0.419608, 0.419608, 0.419608, 0.564706)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerObjective"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 88.0
+bbcode_enabled = true
+text = "[center] Current Objective: 
+Eliminate enemies
+ [/center]"

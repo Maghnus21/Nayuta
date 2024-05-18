@@ -351,8 +351,36 @@ states/r_arm_rebound/position = Vector2(646, 100)
 transitions = ["r_arm_rebound", "r_arm_idle", SubResource("AnimationNodeStateMachineTransition_qfdxq"), "Start", "r_arm_idle", SubResource("AnimationNodeStateMachineTransition_iqjdf"), "r_arm_idle", "r_arm_rebound", SubResource("AnimationNodeStateMachineTransition_lqb20"), "r_arm_idle", "r_arm_punch", SubResource("AnimationNodeStateMachineTransition_g6ylb"), "r_arm_punch", "r_arm_idle", SubResource("AnimationNodeStateMachineTransition_l703o")]
 graph_offset = Vector2(-90, -70)
 
-[node name="player" type="CharacterBody3D" groups=["player"]]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col", "raycast", "rebound_area", "rebound_col", "rebound_spawn", "dialogue_box", "dialogue_text", "name_dialogue_text", "player_flashlight", "pistol", "smg", "shotgun", "pistol_barrel", "smg_barrel", "shotgun_barrel", "player_ui", "sfx_source", "gun_source", "dialogue_audio") groups=["player"]]
 slide_on_ceiling = false
+script = ExtResource("2_txmmq")
+camera = NodePath("Head/Camera3D")
+pickup_point = NodePath("Head/Camera3D/pickup_point")
+ray = NodePath("Head/Camera3D/RayCast3D")
+player = NodePath(".")
+player_col = NodePath("CollisionShape3D")
+projectile = ExtResource("4_q0fag")
+raycast = NodePath("Head/Camera3D/RayCast3D")
+rebound_area = NodePath("ReboundArea3D")
+rebound_col = NodePath("ReboundArea3D/CollisionShape3D2")
+rebound_spawn = NodePath("Head/Camera3D/ReboundBulletSpawn")
+dialogue_box = NodePath("PlayerHUD/DialogueBox")
+dialogue_text = NodePath("PlayerHUD/DialogueBox/DialogueRichTextLabel")
+name_dialogue_text = NodePath("PlayerHUD/DialogueBox/NameRichTextLabel")
+player_flashlight = NodePath("Head/Camera3D/Flashlight")
+pistol = NodePath("Head/Camera3D/pistol")
+smg = NodePath("Head/Camera3D/smg2")
+shotgun = NodePath("Head/Camera3D/shotgun")
+pistol_barrel = NodePath("Head/Camera3D/pistol_bullet_spawn")
+smg_barrel = NodePath("Head/Camera3D/smg_bullet_spawn")
+shotgun_barrel = NodePath("Head/Camera3D/shotgun_bullet_spawn")
+pistol_bullet = ExtResource("4_q0fag")
+smg_bullet = ExtResource("6_m63lj")
+shotgun_bullet = ExtResource("5_bkqo2")
+player_ui = NodePath("PlayerUI")
+sfx_source = NodePath("AudioSources/SFX")
+gun_source = NodePath("AudioSources/GunAudio")
+dialogue_audio = NodePath("AudioSources/DialogueAudio")
 
 [node name="playermv_nu" type="Node3D" parent="." node_paths=PackedStringArray("player_character")]
 script = ExtResource("1_bynxp")
@@ -361,36 +389,7 @@ player_character = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." node_paths=PackedStringArray("entity") groups=["hitbox"]]
 shape = SubResource("CylinderShape3D_n8a3r")
 script = ExtResource("4_i36n8")
-entity = NodePath("../player_invt")
-
-[node name="player_invt" type="Node3D" parent="." node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col", "raycast", "rebound_area", "rebound_col", "rebound_spawn", "dialogue_box", "dialogue_text", "player_flashlight", "pistol", "smg", "shotgun", "pistol_barrel", "smg_barrel", "shotgun_barrel", "player_ui", "sfx_source", "gun_source", "dialogue_audio")]
-script = ExtResource("2_txmmq")
-camera = NodePath("../Head/Camera3D")
-pickup_point = NodePath("../Head/Camera3D/pickup_point")
-ray = NodePath("../Head/Camera3D/RayCast3D")
-player = NodePath("..")
-player_col = NodePath("../CollisionShape3D")
-projectile = ExtResource("4_q0fag")
-raycast = NodePath("../Head/Camera3D/RayCast3D")
-rebound_area = NodePath("../ReboundArea3D")
-rebound_col = NodePath("../ReboundArea3D/CollisionShape3D2")
-rebound_spawn = NodePath("../Head/Camera3D/ReboundBulletSpawn")
-dialogue_box = NodePath("../PlayerHUD/DialogueBox")
-dialogue_text = NodePath("../PlayerHUD/DialogueBox/DialogueRichTextLabel")
-player_flashlight = NodePath("../Head/Camera3D/Flashlight")
-pistol = NodePath("../Head/Camera3D/pistol")
-smg = NodePath("../Head/Camera3D/smg2")
-shotgun = NodePath("../Head/Camera3D/shotgun")
-pistol_barrel = NodePath("../Head/Camera3D/pistol_bullet_spawn")
-smg_barrel = NodePath("../Head/Camera3D/smg_bullet_spawn")
-shotgun_barrel = NodePath("../Head/Camera3D/shotgun_bullet_spawn")
-pistol_bullet = ExtResource("4_q0fag")
-smg_bullet = ExtResource("5_bkqo2")
-shotgun_bullet = ExtResource("6_m63lj")
-player_ui = NodePath("../PlayerUI")
-sfx_source = NodePath("../AudioSources/SFX")
-gun_source = NodePath("../AudioSources/GunAudio")
-dialogue_audio = NodePath("../AudioSources/DialogueAudio")
+entity = NodePath("")
 
 [node name="GroundCheckShapeCast3D" type="ShapeCast3D" parent="."]
 shape = SubResource("CylinderShape3D_i3ki8")
@@ -505,33 +504,6 @@ volume_db = -24.984
 [node name="DialogueAudio" type="AudioStreamPlayer" parent="AudioSources"]
 bus = &"Dialogue"
 
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="health" type="Label" parent="Control" node_paths=PackedStringArray("player_hp")]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 651.0
-offset_right = 162.0
-offset_bottom = 706.0
-theme_override_font_sizes/font_size = 40
-text = "health: "
-script = ExtResource("10_skkuu")
-player_hp = NodePath("../..")
-metadata/_edit_use_anchors_ = true
-
 [node name="ReboundArm" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176664, 0)
 
@@ -563,6 +535,33 @@ tree_root = SubResource("AnimationNodeStateMachine_5jmyk")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/punch = false
 parameters/conditions/rebound = false
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="health" type="Label" parent="Control" node_paths=PackedStringArray("player_hp")]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 651.0
+offset_right = 162.0
+offset_bottom = 706.0
+theme_override_font_sizes/font_size = 40
+text = "health: "
+script = ExtResource("10_skkuu")
+player_hp = NodePath("../..")
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerUI" parent="." instance=ExtResource("10_aplq5")]
 
@@ -621,5 +620,3 @@ offset_right = -180.0
 offset_bottom = -72.0
 texture = ExtResource("10_3p6aj")
 expand_mode = 1
-
-[connection signal="body_entered" from="ReboundArea3D" to="player_invt" method="_on_rebound_area_3d_body_entered"]

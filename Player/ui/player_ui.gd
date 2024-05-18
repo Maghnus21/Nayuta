@@ -1,7 +1,13 @@
 extends Control
 
+@export_group("Player Status")
 @export var health_bar:ColorRect
 @export var energy_bar:ColorRect
+@export_group("Player Weapons")
+@export var weapon_name:RichTextLabel
+@export var ammo_count_value:RichTextLabel
+@export_group("Player Objective")
+@export var objective_text:RichTextLabel
 
 var delta_time:float = 0
 

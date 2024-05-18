@@ -122,7 +122,7 @@ var dialogue_box_timer:float = 0.0
 func _ready():
 	health = MAX_HEALTH
 	
-	arm_state_machine = $'../AnimationTree'.get("parameters/playback")
+	arm_state_machine = $'AnimationTree'.get("parameters/playback")
 	
 	#	preloading audioclips for weapons
 	melee_miss = preload("res://sound/weapons/claw_miss1.wav")
