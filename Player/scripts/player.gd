@@ -157,21 +157,22 @@ func _physics_process(delta):
 	
 	flashlight_distance()
 	cooldown_timers()
-	player_hud()
+	#player_hud()
 	
 	if held_obj != null:
 		hold_obj()
 	
 	#check_health()
 
-func player_hud():
-	if dialogue_box.visible:
-		dialogue_box_timer += delta_time
-		
-		if dialogue_box_timer >= DIALOGUE_BOX_VISIBLE_TIME:
-			dialogue_box.visible = false
-			dialogue_box_timer = 0.0
-	pass
+# unused but will keep for posterity
+#func player_hud():
+	#if dialogue_box.visible:
+		#dialogue_box_timer += delta_time
+		#
+		#if dialogue_box_timer >= DIALOGUE_BOX_VISIBLE_TIME:
+			#dialogue_box.visible = false
+			#dialogue_box_timer = 0.0
+	#pass
 
 ##	casts ray from center of screen to specified units forward
 func cast_ray(range:float):
@@ -190,13 +191,13 @@ func cast_ray(range:float):
 ##	checks if player has pressed interact key currently "F" and picks up rigidbody object
 func pick_up_obj():
 	if Input.is_action_just_pressed("interact_key"):
-		talk(cast_ray(5.0))
+		#talk(cast_ray(5.0))
 		
-		#if held_obj != null:
-			#drop_obj()
-		#else:
-			#pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
-	#
+		if held_obj != null:
+			drop_obj()
+		else:
+			pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
+	
 	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
 		throw_obj()
 	
@@ -247,7 +248,7 @@ func throw_obj():
 
 ##	shotgun
 func fire_shotgun():
-	var col = cast_ray(1000)
+	var col = cast_ray(1024)
 	
 	shotgun_barrel.look_at(col.position,  Vector3.UP, true)
 	
@@ -258,7 +259,7 @@ func fire_shotgun():
 
 ##	pistol
 func fire_pistol():
-	var col = cast_ray(1000)
+	var col = cast_ray(1024)
 	
 	pistol_barrel.look_at(col.position,  Vector3.UP, true)
 	
@@ -267,9 +268,9 @@ func fire_pistol():
 	
 	shoot_bullets(pistol_barrel, 1, Vector3(pistol_spread,pistol_spread,0))
 
-##	sub machinegun
+##	submachine gun
 func fire_smg():
-	var col = cast_ray(1000)
+	var col = cast_ray(1024)
 	
 	smg_barrel.look_at(col.position,  Vector3.UP, true)
 	
@@ -359,6 +360,7 @@ func check_melee_rebound():
 			
 			melee()
 			start_melee_cooldown()
+		
 		arm.REBOUND:
 			print("REBOUND PROJECTILE")
 			play_sound_effect(ricochet)
@@ -436,7 +438,7 @@ func  change_weapon():
 func change_weapon_by_int(new_weapon):
 	match new_weapon:
 		#	UNARMED
-		1: 
+		0: 
 			last_used_weap = active_weapon
 			print(last_used_weap)
 			active_weapon = weapons.UNARMED
@@ -447,7 +449,7 @@ func change_weapon_by_int(new_weapon):
 			
 		
 		#	pistol
-		2:
+		1:
 			last_used_weap = active_weapon
 			
 			active_weapon = weapons.PISTOL
@@ -459,7 +461,7 @@ func change_weapon_by_int(new_weapon):
 			shotgun.visible = false
 		
 		#	smg
-		3:
+		2:
 			last_used_weap = active_weapon
 			
 			active_weapon = weapons.SMG
@@ -471,7 +473,7 @@ func change_weapon_by_int(new_weapon):
 			shotgun.visible = false
 		
 		#	shotgun
-		4:
+		3:
 			last_used_weap = active_weapon
 			
 			active_weapon = weapons.SHOTGUN
@@ -484,6 +486,7 @@ func change_weapon_by_int(new_weapon):
 	pass
 
 func damage(damage_amount):
+	health -= damage_amount
 	
 	player_ui.reduce_health_bar_precentage(damage_amount)
 	
@@ -511,7 +514,6 @@ func flashlight_distance():
 	#	lerps flaslight to position behind player camera to maintain light size
 	#	NOTE: feature enabled/disabled using adjusting_flashlight bool
 	if !col.is_empty() && adjusting_flashlight:
-		#print(col.position)
 		var flashlight_pos = player_flashlight.global_transform.origin
 		var distance = flashlight_pos.distance_to(col.position)
 		player_flashlight.position.z = lerp(player_flashlight.position.z, (FLASHLIGHT_MIN_DIS-distance), 0.35)

@@ -48,5 +48,5 @@ func _on_audio_stream_player_finished() -> void:
 	pass # Replace with function body.
 
 func audio_player_pitch_varience():
-	audio_player.pitch_scale = rng.randf_range(0.9, 1.0)
+	audio_player.pitch_scale = rng.randf_range(0.95, 1.0)
 	pass
