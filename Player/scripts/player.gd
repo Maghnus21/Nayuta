@@ -36,6 +36,8 @@ var DIALOGUE_BOX_VISIBLE_TIME:float = 8.0
 @export var dialogue_text:RichTextLabel
 @export var name_dialogue_text:RichTextLabel
 
+@export var exit_timer: Timer
+
 @export_category("Player Items")
 @export var player_flashlight:Light3D
 
@@ -117,6 +119,7 @@ var rebound_box_array:Array
 var flashlight_sound:AudioStreamWAV
 
 var dialogue_box_timer:float = 0.0
+var is_in_dialogue:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -212,7 +215,7 @@ func pickup(collision):
 
 func talk(collision):
 	if collision:
-		if collision.collider.is_in_group("talkable"):
+		if collision.collider.is_in_group("talkable") && !is_in_dialogue:
 			#print(collision.collider)
 			update_dialogue_text(collision.collider.get_node("NPCDialogue").parse_dialogue_text())
 	
@@ -275,69 +278,6 @@ func fire_smg():
 	
 	shoot_bullets(smg_barrel, 1, Vector3(smg_spread,smg_spread,0))
 
-#func melee_rebound_check():
-	#var arm_array:Array = rebound_area.get_overlapping_bodies()
-	#
-	#for n in arm_array:
-		#if arm_array[n].is_in_group("projectile"):
-			#num_of_projectiles_in_area+=1
-			#pass
-		#pass
-	#
-	##	check if player wants to melee entity, if so change arm state to MELEE (default to this state if no projectile or enemy is available)
-	#if num_of_projectiles_in_area == 0:
-		#arm_state = arm.MELEE
-	#
-	##	check if player wants to rebound projectile, if so change arm state to REBOUND
-	#if num_of_projectiles_in_area >=1:
-		#arm_state = arm.REBOUND
-	#
-	#match (arm_state):
-		#arm.MELEE:
-			#print("melee attack")
-		#arm.REBOUND:
-			#rebound()
-	#
-	#
-	#pass
-
-
-#func melee_rebound_check():
-	#if !melee_rebound_state:
-		#return
-	#
-	#rebound_col.set_disabled(false)
-	#
-	#if rebound_timer < REBOUND_MAX_TIME:
-		#print("can rebound, entered bodies: ", rebound_area.get_overlapping_bodies())
-		#pass
-	#
-	### TODO: add check for ricoche and melee functions to this script and place here	
-	#
-	#var arm_array:Array = rebound_area.get_overlapping_bodies()
-	##	check if player wants to melee entity, if so change arm state to MELEE (default to this state if no projectile or enemy is available)
-	#
-	#
-	##	check if player wants to rebound projectile, if so change arm state to REBOUND
-	#
-	#match (arm_state):
-		#arm.MELEE:
-			#print("melee attack")
-		#arm.REBOUND:
-			#rebound()
-	#
-	#
-#
-	#if rebound_timer >= REBOUND_MAX_TIME:
-		#rebound_timer = 0.0
-		#rebound_col.set_disabled(true)
-		#melee_rebound_state = false
-	##rebound_col.disabled = melee_rebound_state
-	##print(rebound_col.is_disabled())
-	#
-	#rebound_timer += delta_time
-	#pass
-
 func rebound():
 	if rebound_col.disabled:
 		rebound_col.disabled = false
@@ -350,37 +290,6 @@ func rebound():
 	
 	pass
 
-
-##	rebound bullets
-#func rebound(state, delta):
-	#if !state:
-		#return
-	#
-	#if rebound_timer < REBOUND_MAX_TIME:
-		#rebound_timer = rebound_timer + delta
-	#
-	#if rebound_timer >= REBOUND_MAX_TIME && is_rebounding:
-		#if rebound_area.has_overlapping_bodies():
-			#var projectile_array:Array = rebound_area.get_overlapping_bodies()
-			#
-			#for n in projectile_array:
-				#var obj = projectile_array[0].get_parent()
-				#projectile_array.erase(Node3D)
-				#obj.delete_projectile()
-				#
-				#pass
-			#
-			#rebound_projectiles()
-			#play_sound_effect(ricochet)
-			## IGNORE commented code in this function after this line its useless
-			
-			
-	#else:
-		#play_sound_effect(ricochet_miss)
-	
-	#else:
-		#rebound_timer = 0.0
-		#is_rebounding = false
 
 ##	function to shoot bullets from spawn point, number of bullets, and spread
 func shoot_bullets(bullet_spawn:Node3D, bullet_count:int, spread:Vector3):
@@ -623,15 +532,6 @@ func _on_rebound_area_3d_body_entered(body):
 		#print("objects in area3d")
 	pass # Replace with function body.
 
-#func rebound_projectiles():
-	#is_rebounding = false
-	#rebound_timer = 0.06
-	#
-	#var projectile_array:int = rebound_area.get_overlapping_bodies().size()
-	#
-	#shoot_rebound_bullets(camera.global_position, 1, Vector3.ZERO, REBOUND_BASE_DAMAGE * (1 + (projectile_array/10.0)))
-	#pass
-
 func shoot_rebound_bullets(bullet_spawn:Vector3, bullet_count:int, spread:Vector3, damage_mod:float):
 	rng.seed = hash(Time.get_ticks_usec())
 	
@@ -672,10 +572,27 @@ func melee():
 		print("hit enemy")
 
 func update_dialogue_text(new_text):
-	dialogue_box.visible = true
-	dialogue_box_timer = 0.0
+	#dialogue_box.visible = true
+	#dialogue_box_timer = 0.0
+	#
+	#dialogue_text.text = new_text
+	#dialogue_audio.stream = preload("res://sound/sh2/SH2 Whisper.mp3")
+	#dialogue_audio.play()
 	
-	dialogue_text.text = new_text
-	dialogue_audio.stream = preload("res://sound/sh2/SH2 Whisper.mp3")
-	dialogue_audio.play()
+	is_in_dialogue = true
+	
+	var dialogue_box_packed_scene: PackedScene = preload("res://player/ui/dialogue_box.tscn")
+	var dialogue_box_instance = dialogue_box_packed_scene.instantiate()
+	player_ui.add_child(dialogue_box_instance)
+	dialogue_box_instance.update_dialogue_text(new_text)
+	
+	exit_timer.start(0)
+	
+	pass
 
+
+
+func _on_exit_dialogue_timeout():
+	player_ui.get_node("DialogueBox").queue_free()
+	is_in_dialogue = false
+	pass # Replace with function body.

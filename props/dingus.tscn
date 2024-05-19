@@ -134,6 +134,7 @@ stream = ExtResource("4_2mjsw")
 [node name="NPCDialogue" type="Node3D" parent="."]
 script = ExtResource("5_hpwje")
 entity_name = "dingus"
+dialogue_line = "man, i just fucking love tummies. that shit is hot fr fr no cap"
 dialogue_array = [&"anyways, um... i bought a whole bunch of shungite rocks, do you know what shungite is? anybody know what shungite is? ", &"no, not suge knight, i think he\'s locked up in prison. i\'m talkin\' shungite", &"anyways, it\'s a two billion year-old like, rock stone that protects against frequencies and unwanted frequencies that may be traveling in the air", &"that\'s my story, i bought a whole bunch of stuff", &"put \'em around the la casa. little pyramids, stuff like that"]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

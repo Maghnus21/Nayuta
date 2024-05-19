@@ -351,7 +351,7 @@ states/r_arm_rebound/position = Vector2(646, 100)
 transitions = ["r_arm_rebound", "r_arm_idle", SubResource("AnimationNodeStateMachineTransition_qfdxq"), "Start", "r_arm_idle", SubResource("AnimationNodeStateMachineTransition_iqjdf"), "r_arm_idle", "r_arm_rebound", SubResource("AnimationNodeStateMachineTransition_lqb20"), "r_arm_idle", "r_arm_punch", SubResource("AnimationNodeStateMachineTransition_g6ylb"), "r_arm_punch", "r_arm_idle", SubResource("AnimationNodeStateMachineTransition_l703o")]
 graph_offset = Vector2(-90, -70)
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col", "raycast", "rebound_area", "rebound_col", "rebound_spawn", "dialogue_box", "dialogue_text", "name_dialogue_text", "player_flashlight", "pistol", "smg", "shotgun", "pistol_barrel", "smg_barrel", "shotgun_barrel", "player_ui", "sfx_source", "gun_source", "dialogue_audio") groups=["player"]]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "pickup_point", "ray", "player", "player_col", "raycast", "rebound_area", "rebound_col", "rebound_spawn", "dialogue_box", "dialogue_text", "name_dialogue_text", "exit_timer", "player_flashlight", "pistol", "smg", "shotgun", "pistol_barrel", "smg_barrel", "shotgun_barrel", "player_ui", "sfx_source", "gun_source", "dialogue_audio") groups=["player"]]
 slide_on_ceiling = false
 script = ExtResource("2_txmmq")
 camera = NodePath("Head/Camera3D")
@@ -367,6 +367,7 @@ rebound_spawn = NodePath("Head/Camera3D/ReboundBulletSpawn")
 dialogue_box = NodePath("PlayerHUD/DialogueBox")
 dialogue_text = NodePath("PlayerHUD/DialogueBox/DialogueRichTextLabel")
 name_dialogue_text = NodePath("PlayerHUD/DialogueBox/NameRichTextLabel")
+exit_timer = NodePath("Timers/ExitDialogue")
 player_flashlight = NodePath("Head/Camera3D/Flashlight")
 pistol = NodePath("Head/Camera3D/pistol")
 smg = NodePath("Head/Camera3D/smg2")
@@ -389,7 +390,7 @@ player_character = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." node_paths=PackedStringArray("entity") groups=["hitbox"]]
 shape = SubResource("CylinderShape3D_n8a3r")
 script = ExtResource("4_i36n8")
-entity = NodePath("")
+entity = NodePath("..")
 
 [node name="GroundCheckShapeCast3D" type="ShapeCast3D" parent="."]
 shape = SubResource("CylinderShape3D_i3ki8")
@@ -620,3 +621,10 @@ offset_right = -180.0
 offset_bottom = -72.0
 texture = ExtResource("10_3p6aj")
 expand_mode = 1
+
+[node name="Timers" type="Node3D" parent="."]
+
+[node name="ExitDialogue" type="Timer" parent="Timers"]
+wait_time = 8.0
+
+[connection signal="timeout" from="Timers/ExitDialogue" to="." method="_on_exit_dialogue_timeout"]

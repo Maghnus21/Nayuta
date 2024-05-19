@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/ui/player_ui.gd" id="1_sgwv8"]
 
-[node name="PlayerUI" type="Control"]
+[node name="PlayerUI" type="Control" node_paths=PackedStringArray("health_bar", "energy_bar", "weapon_name", "ammo_count_value", "objective_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sgwv8")
+health_bar = NodePath("PlayerStatus/PlayerHealth/HealthRect")
+energy_bar = NodePath("PlayerStatus/Energy/ConstituentRect")
+weapon_name = NodePath("WeaponStatus/WeaponName")
+ammo_count_value = NodePath("WeaponStatus/AmmoCountValue")
+objective_text = NodePath("PlayerObjective/ObjectiveTextLabel")
 
 [node name="PlayerStatus" type="Control" parent="."]
 layout_mode = 1
@@ -40,7 +45,7 @@ offset_top = -48.0
 offset_right = 320.0
 grow_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="PlayerStatus/PlayerHealth"]
+[node name="HealthRect" type="ColorRect" parent="PlayerStatus/PlayerHealth"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -51,7 +56,19 @@ offset_right = 296.0
 grow_vertical = 2
 color = Color(0.894118, 0, 0.117647, 1)
 
-[node name="WeaponName" type="RichTextLabel" parent="PlayerStatus/PlayerHealth"]
+[node name="BackgroundHealthRect" type="ColorRect" parent="PlayerStatus/PlayerHealth"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 296.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HealthText" type="RichTextLabel" parent="PlayerStatus/PlayerHealth"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -75,7 +92,7 @@ offset_right = 320.0
 offset_bottom = -48.0
 grow_vertical = 0
 
-[node name="ColorRect2" type="ColorRect" parent="PlayerStatus/Energy"]
+[node name="ConstituentRect" type="ColorRect" parent="PlayerStatus/Energy"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -86,7 +103,19 @@ offset_bottom = 16.0
 grow_vertical = 2
 color = Color(0, 0.529412, 0.643137, 1)
 
-[node name="WeaponName2" type="RichTextLabel" parent="PlayerStatus/Energy"]
+[node name="BackgroundConstituentRect" type="ColorRect" parent="PlayerStatus/Energy"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_right = 296.0
+offset_bottom = 16.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ConstituentText" type="RichTextLabel" parent="PlayerStatus/Energy"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -181,7 +210,7 @@ offset_right = 256.0
 offset_bottom = 88.0
 color = Color(0.419608, 0.419608, 0.419608, 0.564706)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PlayerObjective"]
+[node name="ObjectiveTextLabel" type="RichTextLabel" parent="PlayerObjective"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 88.0

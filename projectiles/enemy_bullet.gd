@@ -58,7 +58,7 @@ func _physics_process(delta):
 			queue_free()
 
 		if collider.is_in_group("player"):
-			#collider.get_node().receive_damage(bullet_damage)
+			collider.damage(bullet_damage)
 			print("hit player")
 			queue_free()
 
