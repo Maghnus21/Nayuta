@@ -18,7 +18,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("1_3qmyr")
 bullet_damage = 28.0
 raycast = NodePath("RayCast3D")
-bullet_speed = 90.0
+bullet_speed = 180.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv0cs5r1r8x0i"]
+
+[ext_resource type="Script" path="res://scripts/weapon/submachinegun.gd" id="1_fptam"]
+[ext_resource type="PackedScene" uid="uid://qlaxm6kkmdo6" path="res://models/viewmodels/first_person_arms_smg.blend" id="1_wclkc"]
+
+[node name="bt_mp9" type="Node3D"]
+script = ExtResource("1_fptam")
+WeaponName = "SMG1"
+
+[node name="first_person_arms_smg" parent="." instance=ExtResource("1_wclkc")]
+
+[node name="Skeleton3D" parent="first_person_arms_smg/PlayerViewmodelArmature" index="0"]
+bones/1/rotation = Quaternion(-0.00119511, 0.0011951, -0.7071, 0.707111)
+bones/2/rotation = Quaternion(0.00296323, 0.00398323, -1.66119e-06, 0.999988)
+bones/3/rotation = Quaternion(-0.00127329, -0.00398335, 7.20453e-07, 0.999991)
+bones/19/position = Vector3(-0.21, 0.19, -0.14)
+bones/19/rotation = Quaternion(0.0653493, -0.000418108, 0.945319, 0.319535)
+bones/20/rotation = Quaternion(0.811908, -0.00232535, 0.000455182, 0.583781)
+bones/21/rotation = Quaternion(-0.146708, 0.305443, -0.119478, 0.933224)
+bones/22/rotation = Quaternion(-1.27913e-07, -1.24393e-07, 0.397289, 0.917693)
+bones/23/rotation = Quaternion(-2.13345e-07, -1.98771e-07, 0.652121, 0.758115)
+bones/24/rotation = Quaternion(-1.94902e-07, -1.85303e-07, 0.611053, 0.79159)
+bones/25/rotation = Quaternion(-0.0206069, -0.00892124, 0.397189, 0.917462)
+bones/26/rotation = Quaternion(-1.769e-07, -0.0292795, 0.651463, 0.758115)
+bones/27/rotation = Quaternion(-1.95303e-07, -0.0274355, 0.610436, 0.79159)
+bones/28/rotation = Quaternion(-0.0449698, -0.0194685, 0.396812, 0.916591)
+bones/29/rotation = Quaternion(-2.25105e-07, -0.0561427, 0.570782, 0.81918)
+bones/30/rotation = Quaternion(-2.08948e-07, -0.0372254, 0.378457, 0.92487)
+bones/32/rotation = Quaternion(-1.95907e-07, 0.0387443, 0.600539, 0.798656)
+bones/33/rotation = Quaternion(-2.43742e-07, 0.0390754, 0.605671, 0.794755)
+bones/34/rotation = Quaternion(0.294968, -0.379411, 0.297206, 0.825051)
+bones/35/rotation = Quaternion(-0.276765, -0.0261827, -0.0868843, 0.956643)
+bones/37/position = Vector3(-0.02, 0.105, 0.0300004)
+bones/37/rotation = Quaternion(0, -0.707756, -0.706457, -1.78814e-07)
+bones/41/position = Vector3(-0.264856, -0.159767, 0.228485)
+bones/41/rotation = Quaternion(0, 0.710756, 0.703439, -1.19209e-07)
+bones/42/position = Vector3(-0.5, -0.33, -0.43)
+bones/44/position = Vector3(-0.21, -0.01, -0.14)
+
+[node name="AnimationPlayer" parent="first_person_arms_smg" index="2"]
+autoplay = "smg_idle"
+
+[node name="AudioSources" type="Node3D" parent="."]
+
+[node name="GunShotAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioSources"]
+bus = &"Sfx"
+
+[node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioSources"]
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AudioSources"]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="RateOfFireTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
+
+[editable path="first_person_arms_smg"]

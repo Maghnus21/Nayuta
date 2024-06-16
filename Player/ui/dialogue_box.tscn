@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/ui/dialogue_box.gd" id="1_4oidx"]
 [ext_resource type="Texture2D" uid="uid://dhh71hs5h2ke0" path="res://images/IMG_20210927_150717.jpg" id="1_qo25w"]
-[ext_resource type="AudioStream" uid="uid://1vwrjl5a6k88" path="res://sound/buttons/lightswitch2.wav" id="3_u8kq3"]
+[ext_resource type="AudioStream" uid="uid://b0d2atnofp1ma" path="res://sound/misc/boop.wav" id="3_fakp3"]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
@@ -93,7 +93,7 @@ grow_vertical = 0
 text = "text"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_u8kq3")
+stream = ExtResource("3_fakp3")
 mix_target = 2
 bus = &"Sfx"
 

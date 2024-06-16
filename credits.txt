@@ -20,6 +20,12 @@ shotgun fire:
 smg fire:
 	https://freesound.org/people/SuperPhat/sounds/417689/
 
+smg reload:
+	https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/677160/
+
+silenced gunshot:
+	https://freesound.org/people/morganpurkis/sounds/384685/
+
 ricochet1:
 	https://freesound.org/people/harrisonlace/sounds/634884/
 

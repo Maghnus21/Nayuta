@@ -82,7 +82,7 @@ var smg_damage:float = 18.0
 var shotgun_damage:float = 22.0
 
 var pistol_rpm:int = 300
-var smg_rpm:int = 1000
+var smg_rpm:int = 1420
 var shotgun_rpm:int = 60
 
 var pistol_spread:float = 0.01
@@ -132,7 +132,7 @@ func _ready():
 	melee_hit_default = preload("res://sound/weapons/crowbar_impact1.wav")
 	melee_hit_entity = preload("res://sound/physics/flesh/flesh_impact_bullet1.wav")
 	pistol_audio = preload("res://sound/weapons/pistol_fire2.wav")
-	smg_audio = preload("res://sound/weapons/smg1_fire1.wav")
+	smg_audio = preload("res://sound/weapons/silenced-gunshot-1.wav")
 	shotgun_audio = preload("res://sound/weapons/shotgun_fire7.wav")
 	ricochet = preload("res://sound/weapons/ricochet1.wav")
 	ricochet_miss = preload("res://sound/weapons/ricochet_miss.wav")
@@ -191,13 +191,13 @@ func cast_ray(range:float):
 ##	checks if player has pressed interact key currently "F" and picks up rigidbody object
 func pick_up_obj():
 	if Input.is_action_just_pressed("interact_key"):
-		#talk(cast_ray(5.0))
+		talk(cast_ray(5.0))
 		
-		if held_obj != null:
-			drop_obj()
-		else:
-			pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
-	
+		#if held_obj != null:
+			#drop_obj()
+		#else:
+			#pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
+	#
 	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
 		throw_obj()
 	
@@ -595,6 +595,7 @@ func update_dialogue_text(new_text):
 
 
 func _on_exit_dialogue_timeout():
-	player_ui.get_node("DialogueBox").queue_free()
+	if player_ui.get_node("DialogueBox"):
+		player_ui.get_node("DialogueBox").queue_free()
 	is_in_dialogue = false
 	pass # Replace with function body.
