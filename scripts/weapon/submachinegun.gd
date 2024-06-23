@@ -8,6 +8,8 @@ class_name SubmachineGun
 
 @onready var cycle_time:float = 60.0/rpm
 @onready var rof_timer:Timer = $Timers/RateOfFireTimer
+@onready var reload_time:float = 0.6827 * 2		# timer is duration of holster animation. use this until reload animation is added
+@onready var reload_timer:Timer = $Timers/ReloadTimer
 
 var anim_tree
 
@@ -39,6 +41,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("mouse_left"):
 		primary_attack()
+	
+	if Input.is_action_just_pressed("r_key"):
+		reload()
 	pass
 
 func _physics_process(delta):
@@ -49,14 +54,14 @@ func primary_attack():
 		fire_bullet()
 		
 		
-		anim_tree.travel("smg_fire")
+		anim_tree.start("smg_fire")
 		
 		play_shoot()
 		
 		rof_timer.start()
 		can_fire_weapon = false
 	
-	if rof_timer.is_stopped():
+	if rof_timer.is_stopped() && reload_timer.is_stopped():
 		can_fire_weapon = true
 	
 	pass
@@ -85,3 +90,14 @@ func play_shoot():
 	gunshot_source.stream = gunshot_sound
 	gunshot_source.play()
 	pass
+
+func reload():
+	reload_timer.start(reload_time)
+	can_fire_weapon = false
+	anim_tree.travel("smg_holster")
+	pass
+
+func _on_reload_timer_timeout():
+	print("Weapon ", name, " can fire")
+	can_fire_weapon = true
+	pass # Replace with function body.
