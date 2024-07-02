@@ -3747,7 +3747,7 @@ shape = SubResource("ConvexPolygonShape3D_2r141")
 [node name="entity_2_brush_116_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_2_func_group"]
 shape = SubResource("ConvexPolygonShape3D_ivp2j")
 
-[node name="entity_3_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
+[node name="entity_3_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap" groups=["level_mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0297, 23.9665, -7.47126)
 
 [node name="entity_3_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_3_func_group"]

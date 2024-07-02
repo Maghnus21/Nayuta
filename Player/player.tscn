@@ -1174,11 +1174,8 @@ player_arms = NodePath("../ReboundArm")
 mouse_sensitivity = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -3.49692e-07, 0, 1, 0, 3.49692e-07, 0, 1, 0, 0, 0)
 far = 7500.0
-
-[node name="bt_mp9" parent="Head/Camera3D" instance=ExtResource("8_bthlx")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.1, 0)
 
 [node name="pistol" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.252463, -0.163048, -0.361487)
@@ -1590,6 +1587,11 @@ spot_angle = 30.0
 
 [node name="ReboundBulletSpawn" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.012)
+
+[node name="WeaponParent" type="Node3D" parent="Head"]
+transform = Transform3D(-1, 0, 2.62269e-07, 0, 1, 0, -2.62269e-07, 0, -1, 0, -0.1, 0)
+
+[node name="bt_mp9" parent="Head/WeaponParent" instance=ExtResource("8_bthlx")]
 
 [node name="AudioSources" type="Node3D" parent="."]
 

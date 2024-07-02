@@ -7,11 +7,12 @@ extends Node3D
 @export var delete_time:= 3.0
 var timer=0.0
 
-var bullet_hole:PackedScene
+var bullet_hole:PackedScene = preload("res://decals/bullet_hole_concrete1.tscn")
+var concrete_impact_smoke:PackedScene = preload("res://particles/smoke_low.tscn")
 
 
-var np:Vector3		# new position
-var lp:Vector3		# last position
+var nrp:Vector3		# new ray position
+var lrp:Vector3		# last ray position
 
 var velocity: Vector3
 
@@ -22,6 +23,8 @@ func _ready():
 	#bullet_hole = preload("res://decals/bullet_hole_concrete_decal.tscn")
 	
 	velocity = self.transform.basis.z * bullet_speed
+	
+	print("pos1:", nrp, "\tpos2:", lrp)
 	pass # Replace with function body.
 
 
@@ -54,6 +57,8 @@ func _physics_process(delta):
 		if collider.is_in_group("level_mesh"):
 			print("hit level mesh: ", collider.name)
 			
+			instanciate_impact(raycast.get_collision_point())
+			
 			queue_free()
 
 		if collider.is_in_group("enemy"):
@@ -61,8 +66,8 @@ func _physics_process(delta):
 			print("hit enemy: ", collider.name, "\t health: ", collider.health)
 			queue_free()
 
-func _set_rotation(rot):
-	self.rotation = rot
+func set_projectile_rotation(rot):
+	rotation = rot
 	pass
 
 func set_damage_value(new_damage_value:float):
@@ -71,3 +76,16 @@ func set_damage_value(new_damage_value:float):
 
 func set_speed(new_speed_value:float):
 	bullet_speed = new_speed_value
+
+func instanciate_impact(pos):
+	var impact_decal = bullet_hole.instantiate()
+	var impact_smoke = concrete_impact_smoke.instantiate()
+			
+	get_tree().get_root().add_child(impact_decal)
+	get_tree().get_root().add_child(impact_smoke)
+			
+	impact_decal.global_position = pos
+	impact_smoke.global_position = pos
+			
+	impact_smoke.emitting = true
+	

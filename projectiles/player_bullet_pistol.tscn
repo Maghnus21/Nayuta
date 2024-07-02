@@ -14,11 +14,12 @@ radial_segments = 12
 rings = 4
 
 [node name="bullet" type="Node3D" node_paths=PackedStringArray("raycast")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
 script = ExtResource("1_3qmyr")
 bullet_damage = 28.0
 raycast = NodePath("RayCast3D")
-bullet_speed = 180.0
+bullet_speed = 256.0
+delete_time = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

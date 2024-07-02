@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cssgl5qx5atk1"]
+
+[ext_resource type="Texture2D" uid="uid://cgxewh5u3tv4v" path="res://images/bullet-hole-png--961-2862574245.png" id="1_ccaxs"]
+[ext_resource type="Script" path="res://decals/bullet_hole_concrete1.gd" id="2_6wv7a"]
+
+[node name="BulletHoleConcrete1" type="Decal"]
+size = Vector3(0.4, 0.4, 0.4)
+texture_albedo = ExtResource("1_ccaxs")
+script = ExtResource("2_6wv7a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

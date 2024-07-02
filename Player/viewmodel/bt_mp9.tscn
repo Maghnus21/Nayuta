@@ -616,7 +616,10 @@ transitions = ["smg_fire", "smg_idle", SubResource("AnimationNodeStateMachineTra
 [node name="bt_mp9" type="Node3D" node_paths=PackedStringArray("bullet_spawn")]
 script = ExtResource("1_fptam")
 projectile = ExtResource("2_jjpcb")
-bullet_spawn = NodePath(".")
+bullet_spawn = NodePath("BulletSpawn")
+bullet_spread = Vector3(0.03, 0.03, 0)
+rpm = 1340
+light_lerp_weight = 0.25
 WeaponName = "SMG1"
 
 [node name="first_person_arms_smg" parent="." instance=ExtResource("1_wclkc")]
@@ -665,6 +668,9 @@ bus = &"Sfx"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AudioSources"]
 
+[node name="BulletSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.242097, -0.0695282, 0.892819)
+
 [node name="Timers" type="Node" parent="."]
 
 [node name="RateOfFireTimer" type="Timer" parent="Timers"]
@@ -683,6 +689,20 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_scmme")
 anim_player = NodePath("../first_person_arms_smg/AnimationPlayer")
 parameters/conditions/reload = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.15157e-08, 0.193534, 0.131725)
+visible = false
+
+[node name="Muzzle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243784, -0.075894, 0.890487)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Muzzle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0149193)
+light_color = Color(0.976471, 0.67451, 0.423529, 1)
+light_energy = 0.0
+omni_range = 3.0
+omni_attenuation = 0.5
 
 [connection signal="timeout" from="Timers/ReloadTimer" to="." method="_on_reload_timer_timeout"]
 

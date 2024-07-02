@@ -22,7 +22,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	camera.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
+	self.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
+	#camera.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
 	rebound_area.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
 	player_arms.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
 	#flashlight.rotation_degrees = Vector3(mouse_rotation_x, 0, 0)
