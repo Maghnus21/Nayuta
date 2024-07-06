@@ -25,7 +25,6 @@ emitting = false
 amount = 1
 lifetime = 3.0
 one_shot = true
-explosiveness = 1.0
 collision_base_size = 0.05
 visibility_aabb = AABB(-1.45, -1.56447, -1.3934, 2.9, 3.12894, 2.78679)
 transform_align = 3

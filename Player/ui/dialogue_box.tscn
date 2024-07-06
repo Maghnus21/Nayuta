@@ -6,11 +6,16 @@
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = -240.0
+offset_right = 338.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("1_4oidx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -84,13 +89,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 248.0
+offset_left = 200.0
 offset_top = -104.0
-offset_right = 320.0
-offset_bottom = -80.0
+offset_right = 318.0
+offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "text"
+text = "press esc to exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fakp3")
@@ -100,5 +105,10 @@ bus = &"Sfx"
 [node name="TypeTimer" type="Timer" parent="."]
 wait_time = 0.05
 
+[node name="QueueFreeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="TypeTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="QueueFreeTimer" to="." method="_on_queue_free_timer_timeout"]

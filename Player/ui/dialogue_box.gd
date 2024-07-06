@@ -5,8 +5,9 @@ var dialogue_store: Array
 var dialogue_store_string: String
 
 @onready var dialogue_richtextlabel: RichTextLabel = $'DialogueRichTextLabel'
-@onready var audio_player:AudioStreamPlayer = $'AudioStreamPlayer'
+@onready var audio_player: AudioStreamPlayer = $'AudioStreamPlayer'
 @onready var type_timer: Timer = $'TypeTimer'
+@onready var delete_timer: Timer = $'QueueFreeTimer'
 
 var playing_voice:bool = false
 
@@ -20,6 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("esc_key"):
+		kill()
 	pass
 
 func update_dialogue_text(dialogue_text: String) -> void:
@@ -31,6 +34,10 @@ func update_dialogue_text(dialogue_text: String) -> void:
 	audio_player.play(0)
 	pass
 
+func kill():
+	GlobalData.is_player_in_dialogue = false
+	queue_free()
+
 func _on_timer_timeout():
 	if dialogue_richtextlabel.visible_characters < dialogue_richtextlabel.text.length():
 		audio_player.play(0)
@@ -39,6 +46,7 @@ func _on_timer_timeout():
 	else:
 		playing_voice = false
 		type_timer.stop()
+		delete_timer.start(0)
 	pass # Replace with function body.
 
 
@@ -50,3 +58,8 @@ func _on_audio_stream_player_finished() -> void:
 func audio_player_pitch_varience():
 	audio_player.pitch_scale = rng.randf_range(0.95, 1.0)
 	pass
+
+
+func _on_queue_free_timer_timeout():
+	kill()
+	pass # Replace with function body.

@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalSettings="*res://scripts/global/global_settings.gd"
-UIManager="*res://scripts/global/ui_manager.gd"
+GlobalSettings="*res://scripts/managers/global_settings.gd"
+UIManager="*res://scripts/managers/ui_manager.gd"
+GlobalData="*res://scripts/managers/global_data.gd"
 
 [display]
 
@@ -107,6 +108,11 @@ t_key={
 r_key={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"echo":false,"script":null)
+]
+}
+esc_key={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

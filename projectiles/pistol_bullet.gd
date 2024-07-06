@@ -1,4 +1,5 @@
 extends Node3D
+class_name PistolBullet
 
 @export var bullet_damage: float = 20.0
 @export var raycast:RayCast3D
@@ -11,8 +12,8 @@ var bullet_hole:PackedScene = preload("res://decals/bullet_hole_concrete1.tscn")
 var concrete_impact_smoke:PackedScene = preload("res://particles/smoke_low.tscn")
 
 
-var nrp:Vector3		# new ray position
-var lrp:Vector3		# last ray position
+var p1:Vector3
+var p2:Vector3
 
 var velocity: Vector3
 
@@ -20,11 +21,7 @@ var velocity: Vector3
 func _ready():
 	set_as_top_level(true)
 	
-	#bullet_hole = preload("res://decals/bullet_hole_concrete_decal.tscn")
-	
 	velocity = self.transform.basis.z * bullet_speed
-	
-	print("pos1:", nrp, "\tpos2:", lrp)
 	pass # Replace with function body.
 
 
@@ -57,7 +54,7 @@ func _physics_process(delta):
 		if collider.is_in_group("level_mesh"):
 			print("hit level mesh: ", collider.name)
 			
-			instanciate_impact(raycast.get_collision_point())
+			#intanciate_impact(raycast)
 			
 			queue_free()
 
@@ -65,6 +62,9 @@ func _physics_process(delta):
 			collider.damage_entity(bullet_damage)
 			print("hit enemy: ", collider.name, "\t health: ", collider.health)
 			queue_free()
+	
+	
+	
 
 func set_projectile_rotation(rot):
 	rotation = rot
@@ -77,15 +77,28 @@ func set_damage_value(new_damage_value:float):
 func set_speed(new_speed_value:float):
 	bullet_speed = new_speed_value
 
-func instanciate_impact(pos):
+# FIX decal look_at shitting itself
+func instanciate_impact(ray):
+
+	
 	var impact_decal = bullet_hole.instantiate()
 	var impact_smoke = concrete_impact_smoke.instantiate()
 			
-	get_tree().get_root().add_child(impact_decal)
+	#get_tree().get_root().add_child(impact_decal)
+	ray.get_collider().add_child(impact_decal)
 	get_tree().get_root().add_child(impact_smoke)
 			
-	impact_decal.global_position = pos
-	impact_smoke.global_position = pos
-			
+	impact_decal.global_transform.origin = ray.get_collision_point()
+	impact_smoke.global_transform.origin = ray.get_collision_point()
+	
+	#impact_decal.look_at(ray.get_collision_point() - normal, Vector3.UP)
+	
+	if ray.get_collision_normal().dot(Vector3.UP) > 0.0000000000000000000001:
+		var direction = ray.get_collision_point() + ray.get_collision_normal()
+		if impact_decal.global_transform.origin != direction:
+			impact_decal.look_at(direction, Vector3.UP)
+	
+	
+	#impact_decal.look_at(ray.get_collision_point() + ray.get_collision_normal(), Vector3.UP)
 	impact_smoke.emitting = true
 	

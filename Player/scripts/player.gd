@@ -216,9 +216,10 @@ func pickup(collision):
 
 func talk(collision):
 	if collision:
-		if collision.collider.is_in_group("talkable") && !is_in_dialogue:
+		if collision.collider.is_in_group("talkable") && !GlobalData.is_player_in_dialogue:
 			#print(collision.collider)
 			update_dialogue_text(collision.collider.get_node("NPCDialogue").parse_dialogue_text())
+			
 	
 	else:
 		print("cannot talk")
@@ -331,6 +332,7 @@ func player_attack(delta):
 		check_melee_rebound()
 		pass
 
+## checks if bullets are in player area3d. if projectiles are registered, damage is changed to 0 and visibility disabled, and instanciates rebount bullet. if no projectiles are registered, punch entity/object
 func check_melee_rebound():
 	#	enables collision for area3d collider child node
 	melee_rebound_state = true
@@ -342,9 +344,14 @@ func check_melee_rebound():
 	var temp_n:int = 0
 	for n in area3d_array:
 		if area3d_array[temp_n].is_in_group("projectile"):
+			area3d_array[temp_n].get_parent().bullet_damage = 0.0
+			area3d_array[temp_n].get_parent().visible = false
 			projectile_count += 1
 			temp_n += 1
 		pass
+	
+	# clears array for performance reasons
+	area3d_array.clear()
 	
 	if projectile_count == 0:
 		arm_state = arm.MELEE
@@ -574,6 +581,9 @@ func melee():
 		print("hit enemy")
 
 func update_dialogue_text(new_text):
+	GlobalData.is_player_in_dialogue = true
+	UIManager.start_dialogue(new_text)
+	
 	#dialogue_box.visible = true
 	#dialogue_box_timer = 0.0
 	#
@@ -581,21 +591,13 @@ func update_dialogue_text(new_text):
 	#dialogue_audio.stream = preload("res://sound/sh2/SH2 Whisper.mp3")
 	#dialogue_audio.play()
 	
-	is_in_dialogue = true
-	
-	var dialogue_box_packed_scene: PackedScene = preload("res://player/ui/dialogue_box.tscn")
-	var dialogue_box_instance = dialogue_box_packed_scene.instantiate()
-	player_ui.add_child(dialogue_box_instance)
-	dialogue_box_instance.update_dialogue_text(new_text)
-	
-	exit_timer.start(0)
+	#is_in_dialogue = true
+	#
+	#var dialogue_box_packed_scene: PackedScene = preload("res://player/ui/dialogue_box.tscn")
+	#var dialogue_box_instance = dialogue_box_packed_scene.instantiate()
+	#player_ui.add_child(dialogue_box_instance)
+	#dialogue_box_instance.update_dialogue_text(new_text)
+	#
+	#exit_timer.start(0)
 	
 	pass
-
-
-
-func _on_exit_dialogue_timeout():
-	if player_ui.get_node("DialogueBox"):
-		player_ui.get_node("DialogueBox").queue_free()
-	is_in_dialogue = false
-	pass # Replace with function body.

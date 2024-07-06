@@ -1,7 +1,8 @@
-[gd_scene load_steps=768 format=3 uid="uid://uj4nxgibfhcj"]
+[gd_scene load_steps=769 format=3 uid="uid://uj4nxgibfhcj"]
 
 [ext_resource type="LightmapGIData" uid="uid://bdl16dpvscj5i" path="res://maps/e1/e1m1_lm.lmbake" id="1_lh7sk"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_lju5v"]
+[ext_resource type="Script" path="res://maps/e1/e1m1.gd" id="1_s6rtk"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_d3gwp"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_7b81r"]
 [ext_resource type="Texture2D" uid="uid://cjh862kam0ffa" path="res://textures/Concrete031_1K-JPG_Color.jpg" id="4_wbtjr"]
@@ -3103,6 +3104,7 @@ billboard_keep_scale = true
 size = Vector3(97.595, 1, 119.165)
 
 [node name="e1m1" type="Node3D"]
+script = ExtResource("1_s6rtk")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ltw28")

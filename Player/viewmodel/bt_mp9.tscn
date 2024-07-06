@@ -652,6 +652,12 @@ bones/42/rotation = Quaternion(0.5, 0.5, -0.5, -0.5)
 bones/43/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
 bones/44/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 
+[node name="arms" parent="first_person_arms_smg/PlayerViewmodelArmature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="smg" parent="first_person_arms_smg/PlayerViewmodelArmature/Skeleton3D" index="1"]
+cast_shadow = 0
+
 [node name="Camera" parent="first_person_arms_smg" index="1"]
 visible = false
 
