@@ -664,6 +664,15 @@ visible = false
 [node name="AnimationPlayer" parent="first_person_arms_smg" index="2"]
 autoplay = "smg_idle"
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../first_person_arms_smg")
+libraries = {
+"": SubResource("AnimationLibrary_6ko3t")
+}
+tree_root = SubResource("AnimationNodeStateMachine_scmme")
+anim_player = NodePath("../first_person_arms_smg/AnimationPlayer")
+parameters/conditions/reload = false
+
 [node name="AudioSources" type="Node3D" parent="."]
 
 [node name="GunShotAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioSources"]
@@ -677,29 +686,6 @@ bus = &"Sfx"
 [node name="BulletSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.242097, -0.0695282, 0.892819)
 
-[node name="Timers" type="Node" parent="."]
-
-[node name="RateOfFireTimer" type="Timer" parent="Timers"]
-process_callback = 0
-one_shot = true
-
-[node name="ReloadTimer" type="Timer" parent="Timers"]
-process_callback = 0
-one_shot = true
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../first_person_arms_smg")
-libraries = {
-"": SubResource("AnimationLibrary_6ko3t")
-}
-tree_root = SubResource("AnimationNodeStateMachine_scmme")
-anim_player = NodePath("../first_person_arms_smg/AnimationPlayer")
-parameters/conditions/reload = false
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.15157e-08, 0.193534, 0.131725)
-visible = false
-
 [node name="Muzzle" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243784, -0.075894, 0.890487)
 
@@ -709,6 +695,16 @@ light_color = Color(0.976471, 0.67451, 0.423529, 1)
 light_energy = 0.0
 omni_range = 3.0
 omni_attenuation = 0.5
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="RateOfFireTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
 
 [connection signal="timeout" from="Timers/ReloadTimer" to="." method="_on_reload_timer_timeout"]
 

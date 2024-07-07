@@ -1,0 +1,151 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx5aalyobltwp"]
+
+[ext_resource type="Script" path="res://scripts/q_light.gd" id="1_ue7tm"]
+
+[node name="TransportPod" type="Node3D"]
+
+[node name="TransportTube" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.986856, 0.161604, 0, -0.161604, 0.986856, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TransportTube"]
+use_collision = true
+radius = 0.75
+height = 10.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="TransportTube/CSGCylinder3D"]
+operation = 2
+radius = 0.55
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TransportTube/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999996, -3.27826e-07, 0, 3.27826e-07, 0.999996, 0, 7.45058e-09, 0.488739)
+operation = 2
+size = Vector3(0.7, 1.9, 0.741574)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="TransportTube/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15274, -1.19209e-07)
+use_collision = true
+radius = 0.827204
+height = 0.801486
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="TransportTube"]
+transform = Transform3D(1, 0, 0, 0, 0.993027, 0.117884, 0, -0.117884, 0.993027, 0, 1.67575, 0.494238)
+use_collision = true
+height = 6.62949
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TransportTube/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.365858)
+operation = 1
+size = Vector3(0.7, 1.9, 0.3)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="TransportTube/CSGCylinder3D2"]
+operation = 2
+radius = 0.45
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TransportTube"]
+transform = Transform3D(1, 0, 0, 0, 0.985882, 0.16744, 0, -0.16744, 0.985882, 0, 1.8765, 0.40611)
+use_collision = true
+size = Vector3(0.6, 1, 0.775)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="TransportTube/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, -0.170794)
+operation = 2
+size = Vector3(0.5, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="TransportTube/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139618, -0.280341)
+operation = 2
+size = Vector3(0.675, 0.875, 1.025)
+
+[node name="Tubes" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939264, 0, 0)
+use_collision = true
+radius = 0.17
+height = 3.18124
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(1, 0, 0, 0, 0.977012, 0.213184, 0, -0.213184, 0.977012, 0.939264, 2.67908, -0.238236)
+use_collision = true
+radius = 0.17
+height = 2.27769
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939264, 5.32127, -0.496546)
+radius = 0.17
+height = 3.18124
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.63247, 3.12092, -0.558762)
+radius = 0.17
+height = 0.661492
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(0.192522, -0.698706, 0.689018, 0, 0.702153, 0.712026, -0.981293, -0.137081, 0.13518, 1.13643, 2.9072, -0.518551)
+radius = 0.17
+height = 0.773199
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(0.124573, -0.0909649, 0.988032, -0.146472, 0.983193, 0.108987, -0.98134, -0.158295, 0.109156, 1.39391, 2.13001, -0.426222)
+use_collision = true
+radius = 0.17
+height = 1.17256
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(0.100773, 0.0600732, 0.993094, -0.16376, 0.985563, -0.0430004, -0.98134, -0.158295, 0.109156, 1.35688, -0.0711023, -0.0700477)
+use_collision = true
+radius = 0.17
+height = 3.33827
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13001, 0, 0.848886)
+use_collision = true
+radius = 0.32
+height = 11.6535
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37082, 0, 1.2645)
+use_collision = true
+radius = 0.12
+height = 11.6535
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(3.06263e-08, 0.700648, -0.713507, 1, -4.37114e-08, 0, -3.11884e-08, -0.713507, -0.700648, -0.607176, 3.12092, 0.162765)
+radius = 0.255
+height = 0.773458
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(3.06263e-08, 0.713507, 0.700648, 1, -3.08087e-15, -4.37114e-08, -3.11884e-08, 0.700648, -0.713507, -1.396, 3.98412, -0.464819)
+radius = 0.325
+height = 2.05782
+
+[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(3.06263e-08, 0.968239, 0.250025, 1, -2.18557e-08, -3.78552e-08, -3.11884e-08, 0.250025, -0.968239, -0.470543, 3.98135, 0.269687)
+radius = 0.325
+height = 0.692303
+
+[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(-0.684649, 0.684649, 0.250025, 0.707107, 0.707107, -4.47035e-08, -0.176794, 0.176794, -0.968239, -0.153856, 4.12108, 0.351464)
+radius = 0.325
+height = 0.692303
+
+[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(-0.968239, 3.07336e-08, 0.250025, -5.96046e-08, 1, -5.96046e-08, -0.250025, -7.45058e-08, -0.968239, 0.00532693, 4.78966, 0.392569)
+radius = 0.325
+height = 1.25174
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="Tubes"]
+transform = Transform3D(0.495433, 0.495433, -0.713507, 0.707107, -0.707107, 0, -0.504526, -0.504526, -0.700648, -0.949522, 3.31607, 0.511394)
+radius = 0.255
+height = 0.773458
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." node_paths=PackedStringArray("light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5441, 0.662566, 0.568202)
+light_color = Color(0.615686, 0, 0.0588235, 1)
+light_energy = 0.205
+shadow_enabled = true
+omni_range = 3.0
+script = ExtResource("1_ue7tm")
+LIGHT_MODE = "SLOW_PULSE"
+smooth_transistion = true
+light = NodePath(".")

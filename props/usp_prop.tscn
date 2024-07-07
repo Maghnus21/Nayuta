@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://djhfwbd3pc7ot"]
+
+[ext_resource type="PackedScene" uid="uid://c07ynv1x80g5v" path="res://models/weapons/pistol.blend" id="1_0bwac"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y32ic"]
+size = Vector3(0.05, 0.17, 0.245)
+
+[node name="UspProp" type="RigidBody3D" groups=["holdable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y32ic")
+
+[node name="pistol" parent="." instance=ExtResource("1_0bwac")]
+
+[editable path="pistol"]

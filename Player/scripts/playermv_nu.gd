@@ -146,7 +146,7 @@ func _physics_process(delta):
 	catagorize_pos()
 	jump_button()
 	check_state()
-	emit_walk_sounds()
+	#emit_walk_sounds()
 	
 	if show_debug_data: update_debug_info()
 	

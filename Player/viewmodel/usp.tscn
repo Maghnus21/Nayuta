@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvoo52hgyaxnw"]
+
+[ext_resource type="PackedScene" uid="uid://7pe5fm2h61vr" path="res://models/viewmodels/first_person_arms_pistol.blend" id="1_6m1tt"]
+[ext_resource type="Script" path="res://player/viewmodel/usp.gd" id="1_h2r7b"]
+[ext_resource type="PackedScene" uid="uid://yfln1ytwj8qk" path="res://projectiles/player_bullet_pistol.tscn" id="2_edil0"]
+
+[node name="usp" type="Node3D" node_paths=PackedStringArray("bullet_spawn")]
+script = ExtResource("1_h2r7b")
+projectile = ExtResource("2_edil0")
+bullet_spawn = NodePath("BulletSpawn")
+bullet_spread = Vector3(0.01, 0.01, 0)
+rpm = 300
+muzzle_light_intensity = 0.3
+light_lerp_weight = 0.35
+WeaponName = "Pistol"
+
+[node name="first_person_arms_pistol" parent="." instance=ExtResource("1_6m1tt")]
+
+[node name="Skeleton3D" parent="first_person_arms_pistol/PlayerViewmodelArmature" index="0"]
+bones/1/rotation = Quaternion(-0.00119511, 0.0011951, -0.7071, 0.707111)
+bones/2/rotation = Quaternion(0.00296323, 0.00398323, -1.66119e-06, 0.999988)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.00127329, -0.00398335, 7.20453e-07, 0.999991)
+bones/3/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.022455, -1.46766e-10, 1.69201e-09, 0.999748)
+bones/10/rotation = Quaternion(-0.049003, -1.4663e-10, 3.69243e-09, 0.998799)
+bones/13/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(0.336648, -1.38231e-10, -2.53668e-08, 0.941631)
+bones/18/rotation = Quaternion(-5.66244e-07, -1.19209e-07, 1.12016e-13, 1)
+bones/19/position = Vector3(-0.306405, 0.198435, -0.183156)
+bones/19/rotation = Quaternion(0.14829, 0.236782, 0.955352, 0.0961608)
+bones/20/rotation = Quaternion(0.696955, -0.00285645, 0.000390704, 0.717109)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.22318, 0.100474, -0.148684, 0.958117)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(-0.018156, -0.00063752, 0.0350857, 0.999219)
+bones/23/rotation = Quaternion(-2.62383e-07, -0.0282582, 0.777336, 0.628451)
+bones/24/rotation = Quaternion(-2.19572e-07, -0.0245134, 0.674324, 0.738029)
+bones/25/rotation = Quaternion(-0.0162941, -0.000950772, 0.0582433, 0.998169)
+bones/26/rotation = Quaternion(-2.03273e-07, -0.0236402, 0.723897, 0.689503)
+bones/27/rotation = Quaternion(-2.11424e-07, -0.0220309, 0.67462, 0.737837)
+bones/28/rotation = Quaternion(-0.020518, -0.0071229, 0.327874, 0.944472)
+bones/29/rotation = Quaternion(-1.58403e-07, -0.0167035, 0.384261, 0.923074)
+bones/30/rotation = Quaternion(0.0339533, 0.0442164, 0.798656, 0.5992)
+bones/31/rotation = Quaternion(0.00150325, 1.01504e-09, -6.81475e-09, 0.999999)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/rotation = Quaternion(-9.88397e-08, 0.000900946, 0.299696, 0.954034)
+bones/33/rotation = Quaternion(-2.55487e-07, 0.00220941, 0.734982, 0.678083)
+bones/34/rotation = Quaternion(0.253262, -0.620361, 0.221788, 0.708393)
+bones/35/rotation = Quaternion(-0.150364, -0.274155, 0.159706, 0.936335)
+bones/36/rotation = Quaternion(-0.184822, -0.0175043, 0.0889243, 0.978584)
+bones/37/position = Vector3(-0.0139999, 0.110387, 0.00987163)
+bones/37/rotation = Quaternion(-5.96046e-08, -0.707756, -0.706457, -1.49012e-07)
+bones/37/scale = Vector3(1, 1, 1)
+bones/38/rotation = Quaternion(-1.12559e-07, -2.08645e-09, -0.707107, 0.707107)
+bones/39/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
+bones/40/position = Vector3(-0.212372, -0.100541, 0.285916)
+bones/40/rotation = Quaternion(-5.96047e-08, 0.707107, 0.707107, -1.49012e-07)
+bones/41/position = Vector3(-0.408493, -0.304546, -0.263934)
+bones/41/rotation = Quaternion(0.5, 0.5, -0.5, -0.5)
+bones/42/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
+bones/43/position = Vector3(-0.306405, -0.00156543, -0.183156)
+bones/43/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+
+[node name="AnimationPlayer" parent="first_person_arms_pistol" index="2"]
+autoplay = "pistol_idle"
+
+[node name="BulletSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197962, -0.0224942, 0.58051)
+
+[node name="Muzzle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198312, -0.0228551, 0.580833)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Muzzle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0149193)
+light_color = Color(0.976471, 0.67451, 0.423529, 1)
+light_energy = 0.0
+omni_range = 3.0
+omni_attenuation = 0.5
+
+[node name="AudioSources" type="Node3D" parent="."]
+
+[node name="GunShotAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioSources"]
+bus = &"Sfx"
+
+[node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioSources"]
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AudioSources"]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="RateOfFireTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
+
+[editable path="first_person_arms_pistol"]

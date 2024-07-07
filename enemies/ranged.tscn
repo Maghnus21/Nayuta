@@ -21,7 +21,7 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyqp6"]
 albedo_texture = ExtResource("4_smf4m")
 
-[sub_resource type="Animation" id="Animation_1a8te"]
+[sub_resource type="Animation" id="Animation_q541q"]
 resource_name = "human_death"
 length = 0.9
 tracks/0/type = "position_3d"
@@ -305,7 +305,7 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, -2.55444e-08, -7.5872e-09, 3.06771e-09, 1)
 
-[sub_resource type="Animation" id="Animation_fdkmi"]
+[sub_resource type="Animation" id="Animation_rmwme"]
 resource_name = "human_fire"
 length = 0.666667
 tracks/0/type = "rotation_3d"
@@ -589,7 +589,7 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, 0.5, 0.5, 0.5, 0.5)
 
-[sub_resource type="Animation" id="Animation_3t06v"]
+[sub_resource type="Animation" id="Animation_iyg3u"]
 resource_name = "human_head_split"
 length = 0.266667
 tracks/0/type = "rotation_3d"
@@ -873,7 +873,7 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, -2.55444e-08, -7.5872e-09, 3.06771e-09, 1)
 
-[sub_resource type="Animation" id="Animation_s46hy"]
+[sub_resource type="Animation" id="Animation_lw0hw"]
 resource_name = "human_head_split_immediate"
 length = 0.0333333
 tracks/0/type = "rotation_3d"
@@ -1157,7 +1157,7 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, -2.55444e-08, -7.5872e-09, 3.06771e-09, 1)
 
-[sub_resource type="Animation" id="Animation_6m1xu"]
+[sub_resource type="Animation" id="Animation_bhggu"]
 resource_name = "human_idle"
 length = 0.001
 loop_mode = 1
@@ -1442,7 +1442,7 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, -0.692666, 0.142175, -0.142175, 0.692666)
 
-[sub_resource type="Animation" id="Animation_s2wmd"]
+[sub_resource type="Animation" id="Animation_r35aq"]
 resource_name = "human_run"
 length = 0.9
 loop_mode = 1
@@ -1727,14 +1727,14 @@ tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = PackedFloat32Array(0, 1, -0.692666, 0.142175, -0.142175, 0.692666)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6hcf1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgewb"]
 _data = {
-"human_death": SubResource("Animation_1a8te"),
-"human_fire": SubResource("Animation_fdkmi"),
-"human_head_split": SubResource("Animation_3t06v"),
-"human_head_split_immediate": SubResource("Animation_s46hy"),
-"human_idle": SubResource("Animation_6m1xu"),
-"human_run": SubResource("Animation_s2wmd")
+"human_death": SubResource("Animation_q541q"),
+"human_fire": SubResource("Animation_rmwme"),
+"human_head_split": SubResource("Animation_iyg3u"),
+"human_head_split_immediate": SubResource("Animation_lw0hw"),
+"human_idle": SubResource("Animation_bhggu"),
+"human_run": SubResource("Animation_r35aq")
 }
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_noero"]
@@ -1850,13 +1850,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1,
 [node name="Skeleton3D" parent="gunner/human_rig" index="0"]
 bones/0/rotation = Quaternion(1.15388e-08, 0.997297, 0.0734729, -1.68336e-07)
 bones/0/scale = Vector3(1, 1, 1)
+bones/1/scale = Vector3(1, 1, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.692666, -0.142175, 0.142175, 0.692666)
+bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.692666, 0.142175, -0.142175, 0.692666)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.751558, 0.1326, 0.16602, 0.624512)
 bones/10/rotation = Quaternion(-0.100893, -0.0370812, -0.103477, 0.988806)
 bones/11/rotation = Quaternion(-0.00408028, 0.00411138, 0.0038134, 0.999976)
+bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-5.90551e-09, 2.96562e-09, -0.0271197, 0.999632)
 bones/12/scale = Vector3(1, 1, 1)
 bones/15/rotation = Quaternion(-6.62741e-09, 3.20921e-09, -0.0304691, 0.999536)
@@ -1947,7 +1950,7 @@ state_machine = NodePath("..")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../gunner")
 libraries = {
-"": SubResource("AnimationLibrary_6hcf1")
+"": SubResource("AnimationLibrary_mgewb")
 }
 tree_root = SubResource("AnimationNodeStateMachine_7uqhc")
 anim_player = NodePath("../gunner/AnimationPlayer")

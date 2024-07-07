@@ -1,4 +1,4 @@
-[gd_scene load_steps=769 format=3 uid="uid://uj4nxgibfhcj"]
+[gd_scene load_steps=772 format=3 uid="uid://uj4nxgibfhcj"]
 
 [ext_resource type="LightmapGIData" uid="uid://bdl16dpvscj5i" path="res://maps/e1/e1m1_lm.lmbake" id="1_lh7sk"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_lju5v"]
@@ -45,6 +45,9 @@
 [ext_resource type="Script" path="res://scripts/q_light.gd" id="33_45ojv"]
 [ext_resource type="Texture2D" uid="uid://dsxtl06ivmmm7" path="res://textures/old-house-window-texture-18509.jpg" id="36_d2rj6"]
 [ext_resource type="Texture2D" uid="uid://bvo2p5ylrvutr" path="res://textures/av8ef08f387b0d6930c6f.jpg" id="37_vg4rt"]
+[ext_resource type="PackedScene" uid="uid://dx5aalyobltwp" path="res://props/transport_pod.tscn" id="46_5cxjs"]
+[ext_resource type="PackedScene" uid="uid://djhfwbd3pc7ot" path="res://props/usp_prop.tscn" id="46_r2kp3"]
+[ext_resource type="PackedScene" uid="uid://tp7nqlboomeq" path="res://props/bt_mp9_prop.tscn" id="47_af30k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbawq"]
 sky_top_color = Color(0.65098, 0.709804, 0.792157, 1)
@@ -2712,142 +2715,6 @@ points = PackedVector3Array(25.9556, -15.5319, 21.8378, 25.9556, -16.5319, 21.83
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d5cjk"]
 points = PackedVector3Array(9.95556, -15.5319, 17.8378, 9.95556, -16.5319, 17.8378, 31.9556, -16.5319, 17.8378, 31.9556, -15.5319, 17.8378, 9.95556, -15.5319, 21.8378, 9.95556, -16.5319, 21.8378, 31.9556, -16.5319, 21.8378, 31.9556, -15.5319, 21.8378)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw1lr"]
-resource_name = "ceiling_light_mat"
-cull_mode = 2
-albedo_texture = ExtResource("17_l3sgj")
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4018s"]
-resource_name = "light_em"
-cull_mode = 2
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_jwqk5"]
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -1.15, 0.5, 0.1, 2.30001),
-"format": 34896613377,
-"index_count": 78,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 11, 0, 6, 0, 2, 0, 9, 0, 11, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0, 10, 0, 12, 0, 8, 0, 10, 0, 14, 0, 12, 0, 0, 0, 9, 0, 2, 0, 0, 0, 8, 0, 9, 0, 6, 0, 10, 0, 4, 0, 6, 0, 11, 0, 10, 0, 4, 0, 8, 0, 0, 0, 4, 0, 10, 0, 8, 0, 9, 0, 15, 0, 11, 0, 9, 0, 13, 0, 15, 0, 11, 0, 14, 0, 10, 0, 11, 0, 15, 0, 14, 0, 8, 0, 13, 0, 9, 0, 8, 0, 12, 0, 13, 0),
-"name": "ceiling_light_mat",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 204, 12, 0, 0, 54, 253, 0, 0, 204, 12, 0, 0, 200, 2, 0, 0, 50, 243, 0, 0, 54, 253, 0, 0, 50, 243, 0, 0, 200, 2, 0, 0, 204, 12, 50, 51, 54, 253, 0, 0, 204, 12, 50, 51, 200, 2, 0, 0, 50, 243, 50, 51, 54, 253, 0, 0, 50, 243, 50, 51, 200, 2, 0, 0)
-}, {
-"aabb": AABB(-0.225, 0.02, -1.125, 0.45, 1.00005e-05, 2.25001),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
-"name": "light_em",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_e00jl"]
-resource_name = "ceiling_light_long_Cube_001"
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -1.15, 0.5, 0.1, 2.30001),
-"attribute_data": PackedByteArray(110, 122, 0, 0, 166, 55, 255, 255, 59, 199, 88, 200, 77, 111, 0, 0, 25, 188, 88, 200, 166, 55, 255, 255, 110, 122, 255, 255, 166, 55, 0, 0, 59, 199, 88, 200, 77, 111, 255, 255, 25, 188, 88, 200, 166, 55, 0, 0, 0, 0, 255, 255, 59, 199, 177, 144, 144, 133, 255, 255, 25, 188, 177, 144, 77, 111, 255, 255, 110, 122, 255, 255, 0, 0, 0, 0, 59, 199, 255, 255, 144, 133, 0, 0, 25, 188, 255, 255, 77, 111, 0, 0, 110, 122, 0, 0, 222, 52, 54, 253, 83, 190, 155, 94, 25, 188, 255, 255, 222, 52, 200, 2, 141, 192, 177, 144, 25, 188, 144, 5, 224, 185, 144, 5, 200, 2, 54, 253, 83, 190, 177, 144, 224, 185, 255, 255, 200, 2, 200, 2, 141, 192, 155, 94, 25, 188, 155, 94, 224, 185, 255, 255, 83, 190, 177, 144, 224, 185, 144, 5, 166, 183, 144, 5, 25, 188, 177, 144, 166, 183, 255, 255, 83, 190, 155, 94),
-"format": 34896613399,
-"index_count": 78,
-"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 34, 0, 18, 0, 7, 0, 27, 0, 34, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0, 32, 0, 36, 0, 25, 0, 32, 0, 41, 0, 36, 0, 1, 0, 27, 0, 7, 0, 1, 0, 24, 0, 27, 0, 18, 0, 31, 0, 12, 0, 18, 0, 34, 0, 31, 0, 12, 0, 24, 0, 1, 0, 12, 0, 31, 0, 24, 0, 28, 0, 43, 0, 35, 0, 28, 0, 38, 0, 43, 0, 33, 0, 40, 0, 30, 0, 33, 0, 42, 0, 40, 0, 26, 0, 39, 0, 29, 0, 26, 0, 37, 0, 39, 0),
-"material": SubResource("StandardMaterial3D_lw1lr"),
-"name": "ceiling_light_mat",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 44,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 84, 213, 204, 12, 0, 0, 54, 253, 255, 255, 204, 12, 0, 0, 54, 253, 255, 255, 204, 12, 0, 0, 54, 253, 84, 213, 204, 12, 0, 0, 200, 2, 255, 255, 204, 12, 0, 0, 200, 2, 255, 191, 204, 12, 0, 0, 200, 2, 84, 213, 50, 243, 0, 0, 54, 253, 84, 213, 50, 243, 0, 0, 54, 253, 255, 255, 50, 243, 0, 0, 54, 253, 255, 255, 50, 243, 0, 0, 200, 2, 84, 213, 50, 243, 0, 0, 200, 2, 255, 255, 50, 243, 0, 0, 200, 2, 255, 191, 204, 12, 50, 51, 54, 253, 255, 255, 204, 12, 50, 51, 54, 253, 84, 213, 204, 12, 50, 51, 200, 2, 255, 191, 204, 12, 50, 51, 200, 2, 84, 213, 50, 243, 50, 51, 54, 253, 84, 213, 50, 243, 50, 51, 54, 253, 255, 255, 50, 243, 50, 51, 200, 2, 84, 213, 50, 243, 50, 51, 200, 2, 255, 191, 84, 85, 170, 170, 255, 127, 255, 63, 255, 127, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 63, 255, 63, 255, 191, 84, 85, 170, 170, 255, 63, 255, 191, 255, 255, 255, 127, 255, 127, 255, 63, 255, 127, 255, 127, 170, 170, 84, 85, 255, 127, 255, 127, 255, 255, 255, 127, 170, 170, 84, 85, 255, 127, 255, 63, 255, 63, 255, 191, 170, 170, 84, 85, 255, 63, 255, 191, 255, 255, 255, 127, 170, 170, 84, 85, 255, 127, 255, 63, 255, 63, 255, 191, 170, 170, 84, 85, 255, 127, 255, 63, 255, 127, 255, 127, 170, 170, 84, 85, 84, 85, 170, 170, 255, 127, 255, 63, 255, 63, 255, 191, 84, 85, 170, 170, 255, 127, 255, 63, 255, 127, 255, 127, 255, 63, 255, 191, 170, 170, 84, 85, 255, 127, 255, 127, 170, 170, 84, 85, 84, 85, 170, 170, 255, 63, 255, 191, 84, 85, 170, 170, 255, 127, 255, 127)
-}, {
-"aabb": AABB(-0.225, 0.02, -1.125, 0.45, 1.00005e-05, 2.25001),
-"attribute_data": PackedByteArray(166, 183, 255, 255, 166, 183, 144, 5, 144, 133, 255, 255, 144, 133, 144, 5),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
-"material": SubResource("StandardMaterial3D_4018s"),
-"name": "light_em",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_jwqk5")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwj0x"]
-resource_name = "ceiling_light_mat"
-cull_mode = 2
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qjv7"]
-resource_name = "light_em"
-cull_mode = 2
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_uqdst"]
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -0.25, 0.5, 0.1, 0.50001),
-"format": 34896613377,
-"index_count": 78,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 11, 0, 6, 0, 2, 0, 9, 0, 11, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0, 10, 0, 12, 0, 8, 0, 10, 0, 14, 0, 12, 0, 0, 0, 9, 0, 2, 0, 0, 0, 8, 0, 9, 0, 6, 0, 10, 0, 4, 0, 6, 0, 11, 0, 10, 0, 4, 0, 8, 0, 0, 0, 4, 0, 10, 0, 8, 0, 9, 0, 15, 0, 11, 0, 9, 0, 13, 0, 15, 0, 11, 0, 14, 0, 10, 0, 11, 0, 15, 0, 14, 0, 8, 0, 13, 0, 9, 0, 8, 0, 12, 0, 13, 0),
-"name": "ceiling_light_mat",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 255, 255, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 255, 255, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 204, 12, 0, 0, 49, 243, 0, 0, 204, 12, 0, 0, 204, 12, 0, 0, 50, 243, 0, 0, 49, 243, 0, 0, 50, 243, 0, 0, 204, 12, 0, 0, 204, 12, 50, 51, 49, 243, 0, 0, 204, 12, 50, 51, 204, 12, 0, 0, 50, 243, 50, 51, 49, 243, 0, 0, 50, 243, 50, 51, 204, 12, 0, 0)
-}, {
-"aabb": AABB(-0.225, 0.02, -0.225, 0.45, 1.00005e-05, 0.45001),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
-"name": "light_em",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_3k50p"]
-resource_name = "ceiling_light_Cube_001"
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -0.25, 0.5, 0.1, 0.50001),
-"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127),
-"format": 34896613399,
-"index_count": 78,
-"index_data": PackedByteArray(0, 0, 10, 0, 4, 0, 0, 0, 7, 0, 10, 0, 9, 0, 22, 0, 11, 0, 9, 0, 20, 0, 22, 0, 21, 0, 18, 0, 24, 0, 21, 0, 15, 0, 18, 0, 14, 0, 5, 0, 16, 0, 14, 0, 3, 0, 5, 0, 8, 0, 36, 0, 19, 0, 8, 0, 29, 0, 36, 0, 23, 0, 6, 0, 12, 0, 23, 0, 17, 0, 6, 0, 34, 0, 38, 0, 27, 0, 34, 0, 43, 0, 38, 0, 2, 0, 29, 0, 8, 0, 2, 0, 26, 0, 29, 0, 19, 0, 33, 0, 13, 0, 19, 0, 36, 0, 33, 0, 13, 0, 25, 0, 1, 0, 13, 0, 33, 0, 25, 0, 30, 0, 45, 0, 37, 0, 30, 0, 40, 0, 45, 0, 35, 0, 42, 0, 32, 0, 35, 0, 44, 0, 42, 0, 28, 0, 41, 0, 31, 0, 28, 0, 39, 0, 41, 0),
-"material": SubResource("StandardMaterial3D_fwj0x"),
-"name": "ceiling_light_mat",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 46,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 84, 213, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 84, 213, 0, 0, 255, 255, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 84, 213, 255, 255, 255, 255, 253, 255, 255, 191, 255, 255, 255, 255, 253, 255, 255, 255, 255, 255, 255, 255, 253, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 204, 12, 0, 0, 49, 243, 255, 191, 204, 12, 0, 0, 49, 243, 255, 191, 204, 12, 0, 0, 49, 243, 255, 255, 204, 12, 0, 0, 49, 243, 255, 191, 204, 12, 0, 0, 204, 12, 255, 191, 204, 12, 0, 0, 204, 12, 255, 127, 204, 12, 0, 0, 204, 12, 255, 191, 50, 243, 0, 0, 49, 243, 255, 191, 50, 243, 0, 0, 49, 243, 255, 191, 50, 243, 0, 0, 49, 243, 255, 255, 50, 243, 0, 0, 204, 12, 255, 191, 50, 243, 0, 0, 204, 12, 255, 191, 50, 243, 0, 0, 204, 12, 255, 127, 204, 12, 50, 51, 49, 243, 255, 255, 204, 12, 50, 51, 49, 243, 255, 191, 204, 12, 50, 51, 204, 12, 255, 127, 204, 12, 50, 51, 204, 12, 255, 191, 50, 243, 50, 51, 49, 243, 255, 191, 50, 243, 50, 51, 49, 243, 255, 255, 50, 243, 50, 51, 204, 12, 255, 191, 50, 243, 50, 51, 204, 12, 255, 127, 84, 213, 84, 213, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 255, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 127, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 255, 255, 0, 0, 255, 127, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 255, 127, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255)
-}, {
-"aabb": AABB(-0.225, 0.02, -0.225, 0.45, 1.00005e-05, 0.45001),
-"attribute_data": PackedByteArray(255, 31, 255, 63, 255, 31, 255, 127, 255, 95, 255, 63, 255, 95, 255, 127),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
-"material": SubResource("StandardMaterial3D_4qjv7"),
-"name": "light_em",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_uqdst")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_541xk"]
 resource_name = "bars"
 cull_mode = 2
@@ -3100,11 +2967,152 @@ uv2_triplanar = true
 texture_filter = 2
 billboard_keep_scale = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw1lr"]
+resource_name = "ceiling_light_mat"
+cull_mode = 2
+albedo_texture = ExtResource("17_l3sgj")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4018s"]
+resource_name = "light_em"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jwqk5"]
+_surfaces = [{
+"aabb": AABB(-0.25, 0, -1.15, 0.5, 0.1, 2.30001),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 11, 0, 6, 0, 2, 0, 9, 0, 11, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0, 10, 0, 12, 0, 8, 0, 10, 0, 14, 0, 12, 0, 0, 0, 9, 0, 2, 0, 0, 0, 8, 0, 9, 0, 6, 0, 10, 0, 4, 0, 6, 0, 11, 0, 10, 0, 4, 0, 8, 0, 0, 0, 4, 0, 10, 0, 8, 0, 9, 0, 15, 0, 11, 0, 9, 0, 13, 0, 15, 0, 11, 0, 14, 0, 10, 0, 11, 0, 15, 0, 14, 0, 8, 0, 13, 0, 9, 0, 8, 0, 12, 0, 13, 0),
+"name": "ceiling_light_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 204, 12, 0, 0, 54, 253, 0, 0, 204, 12, 0, 0, 200, 2, 0, 0, 50, 243, 0, 0, 54, 253, 0, 0, 50, 243, 0, 0, 200, 2, 0, 0, 204, 12, 50, 51, 54, 253, 0, 0, 204, 12, 50, 51, 200, 2, 0, 0, 50, 243, 50, 51, 54, 253, 0, 0, 50, 243, 50, 51, 200, 2, 0, 0)
+}, {
+"aabb": AABB(-0.225, 0.02, -1.125, 0.45, 1.00005e-05, 2.25001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
+"name": "light_em",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e00jl"]
+resource_name = "ceiling_light_long_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.25, 0, -1.15, 0.5, 0.1, 2.30001),
+"attribute_data": PackedByteArray(110, 122, 0, 0, 166, 55, 255, 255, 59, 199, 88, 200, 77, 111, 0, 0, 25, 188, 88, 200, 166, 55, 255, 255, 110, 122, 255, 255, 166, 55, 0, 0, 59, 199, 88, 200, 77, 111, 255, 255, 25, 188, 88, 200, 166, 55, 0, 0, 0, 0, 255, 255, 59, 199, 177, 144, 144, 133, 255, 255, 25, 188, 177, 144, 77, 111, 255, 255, 110, 122, 255, 255, 0, 0, 0, 0, 59, 199, 255, 255, 144, 133, 0, 0, 25, 188, 255, 255, 77, 111, 0, 0, 110, 122, 0, 0, 222, 52, 54, 253, 83, 190, 155, 94, 25, 188, 255, 255, 222, 52, 200, 2, 141, 192, 177, 144, 25, 188, 144, 5, 224, 185, 144, 5, 200, 2, 54, 253, 83, 190, 177, 144, 224, 185, 255, 255, 200, 2, 200, 2, 141, 192, 155, 94, 25, 188, 155, 94, 224, 185, 255, 255, 83, 190, 177, 144, 224, 185, 144, 5, 166, 183, 144, 5, 25, 188, 177, 144, 166, 183, 255, 255, 83, 190, 155, 94),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 34, 0, 18, 0, 7, 0, 27, 0, 34, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0, 32, 0, 36, 0, 25, 0, 32, 0, 41, 0, 36, 0, 1, 0, 27, 0, 7, 0, 1, 0, 24, 0, 27, 0, 18, 0, 31, 0, 12, 0, 18, 0, 34, 0, 31, 0, 12, 0, 24, 0, 1, 0, 12, 0, 31, 0, 24, 0, 28, 0, 43, 0, 35, 0, 28, 0, 38, 0, 43, 0, 33, 0, 40, 0, 30, 0, 33, 0, 42, 0, 40, 0, 26, 0, 39, 0, 29, 0, 26, 0, 37, 0, 39, 0),
+"material": SubResource("StandardMaterial3D_lw1lr"),
+"name": "ceiling_light_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 84, 213, 204, 12, 0, 0, 54, 253, 255, 255, 204, 12, 0, 0, 54, 253, 255, 255, 204, 12, 0, 0, 54, 253, 84, 213, 204, 12, 0, 0, 200, 2, 255, 255, 204, 12, 0, 0, 200, 2, 255, 191, 204, 12, 0, 0, 200, 2, 84, 213, 50, 243, 0, 0, 54, 253, 84, 213, 50, 243, 0, 0, 54, 253, 255, 255, 50, 243, 0, 0, 54, 253, 255, 255, 50, 243, 0, 0, 200, 2, 84, 213, 50, 243, 0, 0, 200, 2, 255, 255, 50, 243, 0, 0, 200, 2, 255, 191, 204, 12, 50, 51, 54, 253, 255, 255, 204, 12, 50, 51, 54, 253, 84, 213, 204, 12, 50, 51, 200, 2, 255, 191, 204, 12, 50, 51, 200, 2, 84, 213, 50, 243, 50, 51, 54, 253, 84, 213, 50, 243, 50, 51, 54, 253, 255, 255, 50, 243, 50, 51, 200, 2, 84, 213, 50, 243, 50, 51, 200, 2, 255, 191, 84, 85, 170, 170, 255, 127, 255, 63, 255, 127, 255, 127, 84, 85, 170, 170, 255, 127, 255, 127, 255, 255, 255, 127, 84, 85, 170, 170, 255, 127, 255, 63, 255, 63, 255, 191, 84, 85, 170, 170, 255, 63, 255, 191, 255, 255, 255, 127, 255, 127, 255, 63, 255, 127, 255, 127, 170, 170, 84, 85, 255, 127, 255, 127, 255, 255, 255, 127, 170, 170, 84, 85, 255, 127, 255, 63, 255, 63, 255, 191, 170, 170, 84, 85, 255, 63, 255, 191, 255, 255, 255, 127, 170, 170, 84, 85, 255, 127, 255, 63, 255, 63, 255, 191, 170, 170, 84, 85, 255, 127, 255, 63, 255, 127, 255, 127, 170, 170, 84, 85, 84, 85, 170, 170, 255, 127, 255, 63, 255, 63, 255, 191, 84, 85, 170, 170, 255, 127, 255, 63, 255, 127, 255, 127, 255, 63, 255, 191, 170, 170, 84, 85, 255, 127, 255, 127, 170, 170, 84, 85, 84, 85, 170, 170, 255, 63, 255, 191, 84, 85, 170, 170, 255, 127, 255, 127)
+}, {
+"aabb": AABB(-0.225, 0.02, -1.125, 0.45, 1.00005e-05, 2.25001),
+"attribute_data": PackedByteArray(166, 183, 255, 255, 166, 183, 144, 5, 144, 133, 255, 255, 144, 133, 144, 5),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_4018s"),
+"name": "light_em",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jwqk5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwj0x"]
+resource_name = "ceiling_light_mat"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qjv7"]
+resource_name = "light_em"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uqdst"]
+_surfaces = [{
+"aabb": AABB(-0.25, 0, -0.25, 0.5, 0.1, 0.50001),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 11, 0, 6, 0, 2, 0, 9, 0, 11, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0, 10, 0, 12, 0, 8, 0, 10, 0, 14, 0, 12, 0, 0, 0, 9, 0, 2, 0, 0, 0, 8, 0, 9, 0, 6, 0, 10, 0, 4, 0, 6, 0, 11, 0, 10, 0, 4, 0, 8, 0, 0, 0, 4, 0, 10, 0, 8, 0, 9, 0, 15, 0, 11, 0, 9, 0, 13, 0, 15, 0, 11, 0, 14, 0, 10, 0, 11, 0, 15, 0, 14, 0, 8, 0, 13, 0, 9, 0, 8, 0, 12, 0, 13, 0),
+"name": "ceiling_light_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 255, 255, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 255, 255, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 204, 12, 0, 0, 49, 243, 0, 0, 204, 12, 0, 0, 204, 12, 0, 0, 50, 243, 0, 0, 49, 243, 0, 0, 50, 243, 0, 0, 204, 12, 0, 0, 204, 12, 50, 51, 49, 243, 0, 0, 204, 12, 50, 51, 204, 12, 0, 0, 50, 243, 50, 51, 49, 243, 0, 0, 50, 243, 50, 51, 204, 12, 0, 0)
+}, {
+"aabb": AABB(-0.225, 0.02, -0.225, 0.45, 1.00005e-05, 0.45001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
+"name": "light_em",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3k50p"]
+resource_name = "ceiling_light_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.25, 0, -0.25, 0.5, 0.1, 0.50001),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 0, 0, 255, 95, 255, 255, 255, 95, 255, 191, 255, 95, 255, 191, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray(0, 0, 10, 0, 4, 0, 0, 0, 7, 0, 10, 0, 9, 0, 22, 0, 11, 0, 9, 0, 20, 0, 22, 0, 21, 0, 18, 0, 24, 0, 21, 0, 15, 0, 18, 0, 14, 0, 5, 0, 16, 0, 14, 0, 3, 0, 5, 0, 8, 0, 36, 0, 19, 0, 8, 0, 29, 0, 36, 0, 23, 0, 6, 0, 12, 0, 23, 0, 17, 0, 6, 0, 34, 0, 38, 0, 27, 0, 34, 0, 43, 0, 38, 0, 2, 0, 29, 0, 8, 0, 2, 0, 26, 0, 29, 0, 19, 0, 33, 0, 13, 0, 19, 0, 36, 0, 33, 0, 13, 0, 25, 0, 1, 0, 13, 0, 33, 0, 25, 0, 30, 0, 45, 0, 37, 0, 30, 0, 40, 0, 45, 0, 35, 0, 42, 0, 32, 0, 35, 0, 44, 0, 42, 0, 28, 0, 41, 0, 31, 0, 28, 0, 39, 0, 41, 0),
+"material": SubResource("StandardMaterial3D_fwj0x"),
+"name": "ceiling_light_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 46,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 84, 213, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 84, 213, 0, 0, 255, 255, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 84, 213, 255, 255, 255, 255, 253, 255, 255, 191, 255, 255, 255, 255, 253, 255, 255, 255, 255, 255, 255, 255, 253, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 204, 12, 0, 0, 49, 243, 255, 191, 204, 12, 0, 0, 49, 243, 255, 191, 204, 12, 0, 0, 49, 243, 255, 255, 204, 12, 0, 0, 49, 243, 255, 191, 204, 12, 0, 0, 204, 12, 255, 191, 204, 12, 0, 0, 204, 12, 255, 127, 204, 12, 0, 0, 204, 12, 255, 191, 50, 243, 0, 0, 49, 243, 255, 191, 50, 243, 0, 0, 49, 243, 255, 191, 50, 243, 0, 0, 49, 243, 255, 255, 50, 243, 0, 0, 204, 12, 255, 191, 50, 243, 0, 0, 204, 12, 255, 191, 50, 243, 0, 0, 204, 12, 255, 127, 204, 12, 50, 51, 49, 243, 255, 255, 204, 12, 50, 51, 49, 243, 255, 191, 204, 12, 50, 51, 204, 12, 255, 127, 204, 12, 50, 51, 204, 12, 255, 191, 50, 243, 50, 51, 49, 243, 255, 191, 50, 243, 50, 51, 49, 243, 255, 255, 50, 243, 50, 51, 204, 12, 255, 191, 50, 243, 50, 51, 204, 12, 255, 127, 84, 213, 84, 213, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 255, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 127, 0, 0, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 255, 255, 0, 0, 255, 127, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 255, 127, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255)
+}, {
+"aabb": AABB(-0.225, 0.02, -0.225, 0.45, 1.00005e-05, 0.45001),
+"attribute_data": PackedByteArray(255, 31, 255, 63, 255, 31, 255, 127, 255, 95, 255, 63, 255, 95, 255, 127),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_4qjv7"),
+"name": "light_em",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uqdst")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_p8nr6"]
 size = Vector3(97.595, 1, 119.165)
 
 [node name="e1m1" type="Node3D"]
 script = ExtResource("1_s6rtk")
+
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_count_label")]
+script = ExtResource("31_qjo3k")
+enemies = 26
+enemy_count_label = NodePath("../Label")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ltw28")
@@ -3115,21 +3123,7 @@ use_denoiser = false
 generate_probes_subdiv = 3
 light_data = ExtResource("1_lh7sk")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.97282, 0.207675, -0.102432, -0.0735776, 0.142207, 0.987099, 0.219562, 0.967806, -0.123062, -1.1268, 10.8975, 3.02024)
-light_color = Color(0.529412, 0.513726, 0.462745, 1)
-light_energy = 4.0
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.49
-directional_shadow_max_distance = 1000.0
-
-[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_count_label")]
-script = ExtResource("31_qjo3k")
-enemies = 26
-enemy_count_label = NodePath("../Label")
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_1yag4")
@@ -5205,155 +5199,19 @@ shape = SubResource("ConvexPolygonShape3D_d5cjk")
 
 [node name="level_mesh" type="Node3D" parent="."]
 
-[node name="UnpickupableProps" type="Node3D" parent="level_mesh"]
+[node name="StaticProps" type="Node3D" parent="level_mesh"]
 
-[node name="constructor" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_4nt4y")]
+[node name="constructor" parent="level_mesh/StaticProps" instance=ExtResource("20_4nt4y")]
 transform = Transform3D(0.925, 0, 0, 0, 0.925, 0, 0, 0, 0.925, 24, 10.319, -36.9094)
 
-[node name="ceiling_light_long" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 13.9511, -17)
-
-[node name="ceiling_light_long2" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9009, 34.8983, 6.97968)
-
-[node name="ceiling_light_long3" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 2, -0.917734, 24.6471, -27.5105)
-
-[node name="ceiling_light" parent="level_mesh/UnpickupableProps" instance=ExtResource("32_whqbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8482, 34.939, 4.35128)
-
-[node name="ceiling_light_long4" type="Node3D" parent="level_mesh/UnpickupableProps" node_paths=PackedStringArray("light")]
-transform = Transform3D(-0.319987, 0.887025, 0.332859, 0.0102626, 0.354556, -0.934978, -0.947366, -0.295764, -0.122556, -20.9713, 3.89228, -20.3547)
-script = ExtResource("33_45ojv")
-LIGHT_MODE = "FLOURSCENT_FLICKER"
-read_speed = 12
-light = NodePath("OmniLight3D")
-
-[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/UnpickupableProps/ceiling_light_long4"]
+[node name="CSGBox3D" type="CSGBox3D" parent="level_mesh/StaticProps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3819, 30.4758, 0)
 gi_mode = 2
-mesh = SubResource("ArrayMesh_e00jl")
-skeleton = NodePath("")
+use_collision = true
+size = Vector3(7.11182, 1, 1)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/UnpickupableProps/ceiling_light_long4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
-light_energy = 2.52
-shadow_enabled = true
-omni_range = 10.0
-
-[node name="ceiling_light2" type="Node3D" parent="level_mesh/UnpickupableProps" node_paths=PackedStringArray("light")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0468, 34.9183, -0.230683)
-script = ExtResource("33_45ojv")
-LIGHT_MODE = "SLOW_PULSE"
-light = NodePath("SpotLight3D")
-
-[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/UnpickupableProps/ceiling_light2"]
-mesh = SubResource("ArrayMesh_3k50p")
-skeleton = NodePath("")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="level_mesh/UnpickupableProps/ceiling_light2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.126137, 0)
-shadow_enabled = true
-spot_range = 6.86346
-spot_angle = 22.3161
-
-[node name="ceiling_light3" parent="level_mesh/UnpickupableProps" instance=ExtResource("32_whqbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2877, 4.95202, 6.08544)
-
-[node name="ceiling_light_long5" type="Node3D" parent="level_mesh/UnpickupableProps" node_paths=PackedStringArray("light")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8196, 14.8399, -28.1827)
-script = ExtResource("33_45ojv")
-LIGHT_MODE = "NORMAL"
-read_speed = 12
-light = NodePath("OmniLight3D")
-
-[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/UnpickupableProps/ceiling_light_long5"]
-gi_mode = 2
-mesh = SubResource("ArrayMesh_e00jl")
-skeleton = NodePath("")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/UnpickupableProps/ceiling_light_long5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
-light_energy = 2.39
-shadow_enabled = true
-omni_range = 25.0221
-
-[node name="ceiling_light4" parent="level_mesh/UnpickupableProps" instance=ExtResource("32_whqbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.704, 34.887, 20.9737)
-LIGHT_MODE = "SLOW_STROBE"
-
-[node name="ceiling_light_long6" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6008, 12.8313, 10.2669)
-
-[node name="ceiling_light_long7" type="Node3D" parent="level_mesh/UnpickupableProps" node_paths=PackedStringArray("light")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -47.8445, 27.7324, -8.29222)
-script = ExtResource("33_45ojv")
-LIGHT_MODE = "NORMAL"
-read_speed = 12
-light = NodePath("OmniLight3D")
-
-[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/UnpickupableProps/ceiling_light_long7"]
-gi_mode = 2
-mesh = SubResource("ArrayMesh_e00jl")
-skeleton = NodePath("")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/UnpickupableProps/ceiling_light_long7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
-light_energy = 0.8
-shadow_enabled = true
-omni_range = 14.3847
-
-[node name="ceiling_light_long8" type="Node3D" parent="level_mesh/UnpickupableProps" node_paths=PackedStringArray("light")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.8718, 27.7324, -8.29222)
-script = ExtResource("33_45ojv")
-LIGHT_MODE = "GENTLE_PULSE1"
-read_speed = 12
-light = NodePath("../ceiling_light_long7/OmniLight3D")
-
-[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/UnpickupableProps/ceiling_light_long8"]
-gi_mode = 2
-mesh = SubResource("ArrayMesh_e00jl")
-skeleton = NodePath("")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/UnpickupableProps/ceiling_light_long8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
-light_energy = 0.8
-shadow_enabled = true
-omni_range = 14.3847
-
-[node name="ceiling_light5" type="Node3D" parent="level_mesh/UnpickupableProps" node_paths=PackedStringArray("light")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1191, 22.8213, -16.2456)
-script = ExtResource("33_45ojv")
-LIGHT_MODE = "NORMAL"
-light = NodePath("OmniLight3D")
-
-[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/UnpickupableProps/ceiling_light5"]
-mesh = SubResource("ArrayMesh_3k50p")
-skeleton = NodePath("")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/UnpickupableProps/ceiling_light5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126135, 0)
-light_energy = 0.65
-shadow_enabled = true
-omni_range = 11.3995
-
-[node name="ceiling_light_long9" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0258, 20.9145, -6.34077)
-LIGHT_MODE = "FLOURSCENT_FLICKER"
-
-[node name="ceiling_light7" parent="level_mesh/UnpickupableProps" instance=ExtResource("32_whqbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.6828, 21, -24.4987)
-
-[node name="ceiling_light_long10" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3273, 20.9496, -45.7324)
-
-[node name="ceiling_light8" parent="level_mesh/UnpickupableProps" instance=ExtResource("32_whqbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0413, 20.8869, -51.8514)
-
-[node name="ceiling_light_long11" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6943, 14.9072, 8.24714)
-
-[node name="ceiling_light_long12" parent="level_mesh/UnpickupableProps" instance=ExtResource("20_eg6vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1847, 4.88351, -10.0064)
+[node name="TransportPod" parent="level_mesh/StaticProps" instance=ExtResource("46_5cxjs")]
+transform = Transform3D(-0.861629, 0, -0.507538, 0, 1, 0, 0.507538, 0, -0.861629, 41.8123, 31.19, 7.74482)
 
 [node name="windows" type="Node3D" parent="level_mesh"]
 
@@ -5778,24 +5636,222 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.5, 0, -1, 0, -4.37114e-08, 24.0
 [node name="small_gate4" parent="level_mesh/gates" instance=ExtResource("23_6yaeh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.0255, 33, -38.0437)
 
-[node name="player_body" parent="." instance=ExtResource("5_iyfg7")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 36.6564, 31.1322, 4.9673)
+[node name="Lights" type="Node3D" parent="level_mesh"]
 
-[node name="dingus_the_cat" parent="." instance=ExtResource("5_t0qje")]
+[node name="ceiling_light_long" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 13.9511, -17)
+
+[node name="ceiling_light_long2" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9009, 34.8983, 6.97968)
+
+[node name="ceiling_light_long3" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 2, -0.917734, 24.6471, -27.5105)
+
+[node name="ceiling_light" parent="level_mesh/Lights" instance=ExtResource("32_whqbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8482, 34.939, 4.35128)
+
+[node name="SpotLight3D" parent="level_mesh/Lights/ceiling_light" index="2"]
+spot_range = 10.7059
+spot_angle = 55.745
+
+[node name="ceiling_light_long4" type="Node3D" parent="level_mesh/Lights" node_paths=PackedStringArray("light")]
+transform = Transform3D(-0.319987, 0.887025, 0.332859, 0.0102626, 0.354556, -0.934978, -0.947366, -0.295764, -0.122556, -20.9713, 3.89228, -20.3547)
+script = ExtResource("33_45ojv")
+LIGHT_MODE = "FLOURSCENT_FLICKER"
+read_speed = 12
+light = NodePath("OmniLight3D")
+
+[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/Lights/ceiling_light_long4"]
+gi_mode = 2
+mesh = SubResource("ArrayMesh_e00jl")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/Lights/ceiling_light_long4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
+light_energy = 2.52
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="ceiling_light2" type="Node3D" parent="level_mesh/Lights" node_paths=PackedStringArray("light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0468, 34.9183, -0.230683)
+script = ExtResource("33_45ojv")
+LIGHT_MODE = "SLOW_PULSE"
+light = NodePath("SpotLight3D")
+
+[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/Lights/ceiling_light2"]
+mesh = SubResource("ArrayMesh_3k50p")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="level_mesh/Lights/ceiling_light2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.126137, 0)
+shadow_enabled = true
+spot_range = 6.86346
+spot_angle = 22.3161
+
+[node name="ceiling_light3" parent="level_mesh/Lights" instance=ExtResource("32_whqbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2877, 4.95202, 6.08544)
+
+[node name="ceiling_light_long5" type="Node3D" parent="level_mesh/Lights" node_paths=PackedStringArray("light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8196, 14.8399, -28.1827)
+script = ExtResource("33_45ojv")
+LIGHT_MODE = "NORMAL"
+read_speed = 12
+light = NodePath("OmniLight3D")
+
+[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/Lights/ceiling_light_long5"]
+gi_mode = 2
+mesh = SubResource("ArrayMesh_e00jl")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/Lights/ceiling_light_long5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
+light_energy = 2.39
+shadow_enabled = true
+omni_range = 25.0221
+
+[node name="ceiling_light4" parent="level_mesh/Lights" instance=ExtResource("32_whqbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.704, 34.887, 20.9737)
+LIGHT_MODE = "SLOW_STROBE"
+
+[node name="ceiling_light_long6" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6008, 12.8313, 10.2669)
+
+[node name="ceiling_light_long7" type="Node3D" parent="level_mesh/Lights" node_paths=PackedStringArray("light")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -47.8445, 27.7324, -8.29222)
+script = ExtResource("33_45ojv")
+LIGHT_MODE = "NORMAL"
+read_speed = 12
+light = NodePath("OmniLight3D")
+
+[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/Lights/ceiling_light_long7"]
+gi_mode = 2
+mesh = SubResource("ArrayMesh_e00jl")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/Lights/ceiling_light_long7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
+light_energy = 0.8
+shadow_enabled = true
+omni_range = 14.3847
+
+[node name="ceiling_light_long8" type="Node3D" parent="level_mesh/Lights" node_paths=PackedStringArray("light")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.8718, 27.7324, -8.29222)
+script = ExtResource("33_45ojv")
+LIGHT_MODE = "GENTLE_PULSE1"
+read_speed = 12
+light = NodePath("../ceiling_light_long7/OmniLight3D")
+
+[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/Lights/ceiling_light_long8"]
+gi_mode = 2
+mesh = SubResource("ArrayMesh_e00jl")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/Lights/ceiling_light_long8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442248, 0)
+light_energy = 0.8
+shadow_enabled = true
+omni_range = 14.3847
+
+[node name="ceiling_light5" type="Node3D" parent="level_mesh/Lights" node_paths=PackedStringArray("light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1191, 22.8213, -16.2456)
+script = ExtResource("33_45ojv")
+LIGHT_MODE = "NORMAL"
+light = NodePath("OmniLight3D")
+
+[node name="ceilinglight" type="MeshInstance3D" parent="level_mesh/Lights/ceiling_light5"]
+mesh = SubResource("ArrayMesh_3k50p")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/Lights/ceiling_light5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126135, 0)
+light_energy = 0.65
+shadow_enabled = true
+omni_range = 11.3995
+
+[node name="ceiling_light_long9" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0258, 20.9145, -6.34077)
+LIGHT_MODE = "FLOURSCENT_FLICKER"
+
+[node name="ceiling_light7" parent="level_mesh/Lights" instance=ExtResource("32_whqbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.6828, 21, -24.4987)
+
+[node name="ceiling_light_long10" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3273, 20.9496, -45.7324)
+
+[node name="ceiling_light8" parent="level_mesh/Lights" instance=ExtResource("32_whqbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0413, 20.8869, -51.8514)
+
+[node name="ceiling_light_long11" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6943, 14.9072, 8.24714)
+
+[node name="ceiling_light_long12" parent="level_mesh/Lights" instance=ExtResource("20_eg6vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1847, 4.88351, -10.0064)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="level_mesh/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6998, 42.6933, -40.0415)
+light_energy = 1.405
+shadow_enabled = true
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="level_mesh/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6998, 50.1609, -40.0415)
+light_energy = 1.405
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="level_mesh/Lights"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43.9948, 41.9854, -40.0415)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 15.8116
+spot_angle = 85.3339
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="level_mesh/Lights"]
+transform = Transform3D(-0.0740737, -2.96058e-16, 0.997253, 7.43011e-09, 1, 5.51892e-10, -0.997253, 7.45058e-09, -0.0740737, -35.359, 70.9447, -0.681548)
+visible = false
+light_energy = 3.055
+shadow_enabled = true
+omni_range = 120.522
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="level_mesh/Lights"]
+transform = Transform3D(-0.0740737, -2.96058e-16, 0.997253, 7.43011e-09, 1, 5.51892e-10, -0.997253, 7.45058e-09, -0.0740737, -36.642, 70.9447, -17.9543)
+visible = false
+light_energy = 3.055
+shadow_enabled = true
+omni_range = 120.522
+
+[node name="ceiling_light6" parent="level_mesh/Lights" instance=ExtResource("32_whqbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.921, 22.9426, -16.6784)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="level_mesh/Lights"]
+transform = Transform3D(-0.97282, 0.207675, -0.102432, -0.0735776, 0.142207, 0.987099, 0.219562, 0.967806, -0.123062, -1.1268, 10.8975, 3.02024)
+light_color = Color(0.529412, 0.513726, 0.462745, 1)
+light_energy = 4.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_transmittance_bias = 0.49
+directional_shadow_max_distance = 1000.0
+
+[node name="PhysicsProps" type="Node3D" parent="level_mesh"]
+
+[node name="dingus_the_cat" parent="level_mesh/PhysicsProps" instance=ExtResource("5_t0qje")]
 transform = Transform3D(0.428951, 0, 0.903328, 0, 1, 0, -0.903328, 0, 0.428951, 21.0485, 32.4587, 9.63125)
 mass = 4.0
+
+[node name="MtMp9Prop" parent="level_mesh/PhysicsProps" instance=ExtResource("47_af30k")]
+transform = Transform3D(0, -0.488317, 0.872667, -1, -4.32981e-08, -7.64575e-10, 2.98023e-08, -0.872666, -0.488317, 33.974, 32, 0.024)
+
+[node name="UspProp" parent="level_mesh/PhysicsProps" instance=ExtResource("46_r2kp3")]
+transform = Transform3D(0, -0.420751, 0.907176, -1, -4.37114e-08, 0, 2.98023e-08, -0.907176, -0.420751, 32.833, 32, -0.02)
+
+[node name="player_body" parent="." instance=ExtResource("5_iyfg7")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 39.0686, 31.1322, 5.30167)
 
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_right = 125.0
 offset_bottom = 83.0
 text = "Enemy count: "
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3819, 30.4758, 0)
-gi_mode = 2
-use_collision = true
-size = Vector3(7.11182, 1, 1)
 
 [node name="enemies" type="Node3D" parent="."]
 
@@ -5904,50 +5960,13 @@ game_manager = NodePath("../../GameManager")
 transform = Transform3D(-0.999997, 0, -0.00237361, 0, 1, 0, 0.00237361, 0, -0.999997, -45.6104, 39, -39.9356)
 game_manager = NodePath("../../GameManager")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6998, 42.6933, -40.0415)
-light_energy = 1.405
-shadow_enabled = true
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6998, 50.1609, -40.0415)
-light_energy = 1.405
-shadow_enabled = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43.9948, 41.9854, -40.0415)
-light_energy = 16.0
-shadow_enabled = true
-spot_range = 15.8116
-spot_angle = 85.3339
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(-0.0740737, -3.28953e-17, 0.997253, 7.43011e-09, 1, 5.51892e-10, -0.997253, 7.45058e-09, -0.0740737, -35.359, 70.9447, -0.681548)
-visible = false
-light_energy = 3.055
-shadow_enabled = true
-omni_range = 120.522
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(-0.0740737, -3.28953e-17, 0.997253, 7.43011e-09, 1, 5.51892e-10, -0.997253, 7.45058e-09, -0.0740737, -36.642, 70.9447, -17.9543)
-visible = false
-light_energy = 3.055
-shadow_enabled = true
-omni_range = 120.522
-
-[node name="ceiling_light" parent="." instance=ExtResource("32_whqbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.921, 22.9426, -16.6784)
-
 [node name="skybox" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.821, -9.97869)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="skybox"]
 shape = SubResource("BoxShape3D_p8nr6")
 
-[node name="LightmapProbe" type="LightmapProbe" parent="."]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.897951, 0.312852, 0.309528, -1.49012e-08, 0.70332, -0.710873, -0.440096, -0.638329, -0.631547, -33.0067, 16.0553, -21.5634)
 
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(-0.403737, 0, -0.914875, 0, 1, 0, 0.914875, 0, -0.403737, 29.2529, 31.7872, 4.02792)
+[editable path="level_mesh/Lights/ceiling_light"]

@@ -164,16 +164,6 @@ func _physics_process(delta):
 	
 	#check_health()
 
-# unused but will keep for posterity
-#func player_hud():
-	#if dialogue_box.visible:
-		#dialogue_box_timer += delta_time
-		#
-		#if dialogue_box_timer >= DIALOGUE_BOX_VISIBLE_TIME:
-			#dialogue_box.visible = false
-			#dialogue_box_timer = 0.0
-	#pass
-
 ##	casts ray from center of screen to specified units forward
 func cast_ray(range:float):
 	var space = get_world_3d().direct_space_state
@@ -191,13 +181,13 @@ func cast_ray(range:float):
 ##	checks if player has pressed interact key currently "F" and picks up rigidbody object
 func pick_up_obj():
 	if Input.is_action_just_pressed("interact_key"):
-		talk(cast_ray(5.0))
+		#talk(cast_ray(5.0)) if !GlobalData.is_player_in_dialogue else continue_dialogue()
 		
-		#if held_obj != null:
-			#drop_obj()
-		#else:
-			#pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
-	#
+		if held_obj != null:
+			drop_obj()
+		else:
+			pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
+	
 	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
 		throw_obj()
 	
@@ -218,12 +208,17 @@ func talk(collision):
 	if collision:
 		if collision.collider.is_in_group("talkable") && !GlobalData.is_player_in_dialogue:
 			#print(collision.collider)
-			update_dialogue_text(collision.collider.get_node("NPCDialogue").parse_dialogue_text())
+			GlobalData.entity_in_dialogue_sequence = collision.collider
+			start_dialogue_sequence(GlobalData.entity_in_dialogue_sequence.get_node("NPCDialogue").parse_dialogue_text())
 			
 	
 	else:
 		print("cannot talk")
-	
+
+func continue_dialogue():
+	progress_dialogue_sequence(GlobalData.entity_in_dialogue_sequence.get_node("NPCDialogue").parse_dialogue_text())
+	pass
+
 
 ##	moves object to holding point vector using physics. object will bump into walls
 ##	TODO increase pull force overtime to try and get object to point
@@ -580,7 +575,7 @@ func melee():
 		gun_source.play()
 		print("hit enemy")
 
-func update_dialogue_text(new_text):
+func start_dialogue_sequence(new_text):
 	GlobalData.is_player_in_dialogue = true
 	UIManager.start_dialogue(new_text)
 	
@@ -596,8 +591,13 @@ func update_dialogue_text(new_text):
 	#var dialogue_box_packed_scene: PackedScene = preload("res://player/ui/dialogue_box.tscn")
 	#var dialogue_box_instance = dialogue_box_packed_scene.instantiate()
 	#player_ui.add_child(dialogue_box_instance)
-	#dialogue_box_instance.update_dialogue_text(new_text)
+	#dialogue_box_instance.start_dialogue_sequence(new_text)
 	#
 	#exit_timer.start(0)
 	
 	pass
+
+func progress_dialogue_sequence(new_text):
+	UIManager.progress_dialogue(new_text)
+
+

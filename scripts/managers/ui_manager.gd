@@ -4,6 +4,7 @@ extends Node
 var player:Node3D
 var player_ui_node:Control
 var dialogue_box:PackedScene = preload("res://player/ui/dialogue_box.tscn")
+var dialogue_box_instance
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,9 +33,12 @@ func get_player() -> Node3D:
 	return player
 
 func start_dialogue(new_text:String):
-	var dialogue_box_instance = dialogue_box.instantiate()
+	dialogue_box_instance = dialogue_box.instantiate()
 	player.get_node("PlayerHUD/PlayerUI").add_child(dialogue_box_instance)
 	dialogue_box_instance.update_dialogue_text(new_text)
 	pass
 
+func progress_dialogue(new_text:String):
+	dialogue_box_instance.update_dialogue_text(new_text)
+	pass
 

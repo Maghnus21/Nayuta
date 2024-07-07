@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://sal6bjtl1sxw"
-path="res://.godot/imported/player_viewmodel_default.blend-3d5043cf7ce7e659e7c781d370da6405.scn"
+uid="uid://d1ewhogpjhjmk"
+path="res://.godot/imported/first_person_arms_default.blend-f8e14e9529c9ae5cbe0ea17af7e62798.scn"
 
 [deps]
 
-source_file="res://player/viewmodel/player_viewmodel_default.blend"
-dest_files=["res://.godot/imported/player_viewmodel_default.blend-3d5043cf7ce7e659e7c781d370da6405.scn"]
+source_file="res://models/viewmodels/first_person_arms_default.blend"
+dest_files=["res://.godot/imported/first_person_arms_default.blend-f8e14e9529c9ae5cbe0ea17af7e62798.scn"]
 
 [params]
 
