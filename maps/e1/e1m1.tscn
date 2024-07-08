@@ -3144,7 +3144,7 @@ default_material = SubResource("StandardMaterial3D_p5e6p")
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_0_worldspawn" groups=["level_mesh"]]
 mesh = SubResource("ArrayMesh_8h6yh")
 
 [node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_0_worldspawn"]
@@ -3177,7 +3177,7 @@ shape = SubResource("ConvexPolygonShape3D_0xahd")
 [node name="entity_1_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1078, 10.9843, -7.13829)
 
-[node name="entity_1_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_1_func_group"]
+[node name="entity_1_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_1_func_group" groups=["level_mesh"]]
 mesh = SubResource("ArrayMesh_8kw20")
 
 [node name="entity_1_brush_0_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_1_func_group"]
@@ -3393,7 +3393,7 @@ shape = SubResource("ConvexPolygonShape3D_7vomx")
 [node name="entity_2_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6327, 32.5209, 7.83761)
 
-[node name="entity_2_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_2_func_group"]
+[node name="entity_2_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_2_func_group" groups=["level_mesh"]]
 mesh = SubResource("ArrayMesh_nol0y")
 
 [node name="entity_2_brush_0_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_2_func_group"]
@@ -4014,7 +4014,7 @@ shape = SubResource("ConvexPolygonShape3D_o1tuj")
 [node name="entity_3_brush_86_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_3_func_group"]
 shape = SubResource("ConvexPolygonShape3D_k0cbq")
 
-[node name="entity_4_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
+[node name="entity_4_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap" groups=["level_mesh"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1186, 13.8713, -5.62957)
 
 [node name="entity_4_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_4_func_group"]
@@ -4377,7 +4377,7 @@ shape = SubResource("ConvexPolygonShape3D_x4hea")
 [node name="entity_5_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3964, 22.3821, -4.71324)
 
-[node name="entity_5_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_5_func_group"]
+[node name="entity_5_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_5_func_group" groups=["level_mesh"]]
 mesh = SubResource("ArrayMesh_dnfs6")
 
 [node name="entity_5_brush_0_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_5_func_group"]
@@ -4928,7 +4928,7 @@ shape = SubResource("ConvexPolygonShape3D_khpg5")
 [node name="entity_8_func_group" type="StaticBody3D" parent="NavigationRegion3D/QodotNode3D/QodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.9556, 31.5319, -27.8378)
 
-[node name="entity_8_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_8_func_group"]
+[node name="entity_8_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_8_func_group" groups=["level_mesh"]]
 mesh = SubResource("ArrayMesh_1wlgc")
 
 [node name="entity_8_brush_0_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/QodotNode3D/QodotMap/entity_8_func_group"]

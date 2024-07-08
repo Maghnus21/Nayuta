@@ -1,6 +1,7 @@
-[gd_scene load_steps=650 format=3 uid="uid://bg4j4nm0mwsdi"]
+[gd_scene load_steps=651 format=3 uid="uid://bg4j4nm0mwsdi"]
 
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_f2l86"]
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_rwa8b"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_ngxq3"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_dmxx3"]
 [ext_resource type="Texture2D" uid="uid://cjh862kam0ffa" path="res://textures/Concrete031_1K-JPG_Color.jpg" id="4_3pl66"]
@@ -2403,6 +2404,7 @@ texture_filter = 2
 billboard_keep_scale = true
 
 [node name="main_menu" type="Node3D"]
+script = ExtResource("1_rwa8b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y2gcl")

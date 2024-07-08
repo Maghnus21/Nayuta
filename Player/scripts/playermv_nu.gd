@@ -104,7 +104,7 @@ func _ready():
 func _input(event):
 	
 	#	if player dead, will ignore user inputs
-	if is_dead:
+	if GlobalData.player_has_died:
 		fmove = 0.0
 		smove = 0.0
 		jump_press = false
@@ -139,6 +139,8 @@ func _input(event):
 
 func _physics_process(delta):
 	deltaTime = delta
+	
+	if GlobalData.player_has_died: crouch_press = true
 	
 	check_health()
 	

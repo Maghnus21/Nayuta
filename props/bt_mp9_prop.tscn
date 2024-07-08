@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://tp7nqlboomeq"]
+[gd_scene load_steps=5 format=3 uid="uid://tp7nqlboomeq"]
 
 [ext_resource type="PackedScene" uid="uid://ciu05ve37si4n" path="res://models/weapons/smg.blend" id="1_fclnm"]
+[ext_resource type="Script" path="res://scripts/rb_collision.gd" id="1_lvhvf"]
+[ext_resource type="AudioStream" uid="uid://dig1r4bq5rdie" path="res://sound/physics/metal/weapon_impact_hard1.wav" id="3_7ppod"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7iddr"]
 size = Vector3(0.09, 0.358042, 0.659984)
 
-[node name="BtMp9Prop" type="RigidBody3D" groups=["holdable"]]
+[node name="BtMp9Prop" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
 mass = 1.5
+script = ExtResource("1_lvhvf")
+audio_source = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0600024, 0.194433)
 shape = SubResource("BoxShape3D_7iddr")
 
 [node name="smg2" parent="." instance=ExtResource("1_fclnm")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_7ppod")
 
 [editable path="smg2"]

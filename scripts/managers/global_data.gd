@@ -9,6 +9,7 @@ var node_group_dict = {0:"holdable"}
 
 "===============[Player Variables]==============="
 var player
+var player_has_died:bool = false
 var entity_in_dialogue_sequence:Node3D
 
 "===============[Player Flags]==============="

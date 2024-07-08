@@ -139,6 +139,7 @@ func fire_bullet():
 		#pass
 	
 	var instance = projectile.instantiate()
+	instance.bullet_damage = 15.0
 	instance.position = bullet_spawn.position
 	instance.rotation = bullet_spawn.rotation + Vector3(x_mod, y_mod, 0)
 	

@@ -64,6 +64,7 @@ var DIALOGUE_BOX_VISIBLE_TIME:float = 8.0
 @export var sfx_source:AudioStreamPlayer3D
 @export var gun_source:AudioStreamPlayer3D
 @export var dialogue_audio:AudioStreamPlayer
+@onready var player_audio_source:AudioStreamPlayer3D = $"AudioSources/PlayerAudio"
 
 
 #	local
@@ -127,6 +128,8 @@ var is_in_dialogue:bool = false
 
 var current_weapon:Node3D
 
+var misclick_sound:AudioStreamWAV
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = MAX_HEALTH
@@ -144,6 +147,7 @@ func _ready():
 	ricochet_miss = preload("res://sound/weapons/ricochet_miss.wav")
 	
 	flashlight_sound = preload("res://sound/items/flashlight1.wav")
+	misclick_sound = preload("res://sound/buttons/blip1.wav")
 	
 	rng = RandomNumberGenerator.new()
 	
@@ -154,6 +158,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("r_key") && GlobalData.player_has_died:
+		get_tree().change_scene_to_file("res://menu/main_menu.tscn")
+	
 	player_attack(delta)
 	change_weapon()
 	pick_up_obj()
@@ -187,13 +194,24 @@ func cast_ray(range:float):
 ##	checks if player has pressed interact key currently "F" and picks up rigidbody object
 func pick_up_obj():
 	if Input.is_action_just_pressed("interact_key"):
-		talk(cast_ray(5.0)) if !GlobalData.is_player_in_dialogue else continue_dialogue()
+		var ray_collision = cast_ray(5.0)
 		
-		#if held_obj != null:
-			#drop_obj()
-		#else:
-			#pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
-	#
+		if ray_collision:
+			if ray_collision.collider.is_in_group("talkable") && ray_collision.collider.is_in_group("holdable"):
+				talk(cast_ray(5.0)) if !GlobalData.is_player_in_dialogue else continue_dialogue()
+		
+			elif ray_collision.collider.is_in_group("holdable"):
+				if held_obj != null:
+					drop_obj()
+				else:
+					pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
+			else:
+				play_sound_effect(misclick_sound)
+				print("misclick lol")
+		else:
+			play_sound_effect(misclick_sound)
+			print("misclick lol")
+		
 	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
 		throw_obj()
 	
@@ -471,6 +489,12 @@ func  change_weapon():
 		#pistol.visible = false
 		#smg.visible = false
 		#shotgun.visible = true
+	if Input.is_action_just_pressed("h_key"):
+		current_weapon = null
+		
+		pistol_viewmodel.visible = false
+		smg_viewmodel.visible = false
+		shotgun_viewmodel.visible = false
 
 func change_weapon_by_int(new_weapon):
 	match new_weapon:
@@ -526,6 +550,11 @@ func damage(damage_amount):
 	health -= damage_amount
 	
 	player_ui.reduce_health_bar_precentage(damage_amount)
+	
+	if health <= 0.0:
+		GlobalData.player_has_died = true
+		UIManager.change_player_obj_text("You have died, press 'R' to restart")
+		pass
 	
 	print(health)
 	pass

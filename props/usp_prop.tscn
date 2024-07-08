@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://djhfwbd3pc7ot"]
+[gd_scene load_steps=5 format=3 uid="uid://djhfwbd3pc7ot"]
 
 [ext_resource type="PackedScene" uid="uid://c07ynv1x80g5v" path="res://models/weapons/pistol.blend" id="1_0bwac"]
+[ext_resource type="Script" path="res://scripts/rb_collision.gd" id="1_jtutw"]
+[ext_resource type="AudioStream" uid="uid://w52c104gx6wb" path="res://sound/physics/metal/weapon_impact_hard2.wav" id="3_d1tf3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y32ic"]
 size = Vector3(0.05, 0.17, 0.245)
 
-[node name="UspProp" type="RigidBody3D" groups=["holdable"]]
+[node name="UspProp" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
+mass = 0.5
+script = ExtResource("1_jtutw")
+audio_source = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_y32ic")
 
 [node name="pistol" parent="." instance=ExtResource("1_0bwac")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_d1tf3")
+bus = &"Sfx"
 
 [editable path="pistol"]

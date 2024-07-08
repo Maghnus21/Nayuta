@@ -40,6 +40,7 @@ func update_state(delta):
 	pass
 
 func physics_update_state(delta):
+	check_player_status()
 	
 	lerp_angle_rotate_towards_point(state_machine, state_machine.entity, target, 0.05)
 	
@@ -73,5 +74,8 @@ func physics_update_state(delta):
 func fire_projectile():
 	pass
 
-
+func check_player_status():
+	if GlobalData.player_has_died:
+		state_machine.change_state("idlestate")
+	pass
 

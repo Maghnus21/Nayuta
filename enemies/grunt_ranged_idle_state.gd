@@ -56,6 +56,8 @@ func physics_update_state(delta):
 	
 	var angle_to_ent:float = rad_to_deg(a.angle_to_point(b))
 	#print (a, "\t ", b, "\t ", angle_to_ent)
+	if GlobalData.player_has_died:
+		return
 	
 	if angle_to_ent <= MAX_DETECT_ANGLE && angle_to_ent >= -MAX_DETECT_ANGLE && state_machine.entity.loc_check():
 		

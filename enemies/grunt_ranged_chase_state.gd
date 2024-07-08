@@ -42,6 +42,8 @@ func update_state(delta):
 	pass
 
 func physics_update_state(delta):
+	check_player_status()
+	
 	# check if player is within shooting distance
 	var distance = state_machine.entity.global_position.distance_to(target.global_position)
 	
@@ -76,4 +78,8 @@ func target_destination(target):
 func open_face():
 	state_machine.entity_anim_state_machine["parameters/RunBlendTree/Add2/add_amount"] = 1.0
 
+func check_player_status():
+	if GlobalData.player_has_died:
+		state_machine.change_state("idlestate")
+	pass
 
