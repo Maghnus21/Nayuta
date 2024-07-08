@@ -1,5 +1,5 @@
 extends Weapons
-class_name SubmachineGun
+class_name Pistol
 
 @export var projectile:PackedScene
 @export var bullet_spawn:Node3D
@@ -11,14 +11,14 @@ class_name SubmachineGun
 @onready var reload_time:float = 0.6827 * 2		# timer is duration of holster animation. use this until reload animation is added
 @onready var reload_timer:Timer = $Timers/ReloadTimer
 
-var anim_tree
+#var anim_tree
 
 @onready var gunshot_source:AudioStreamPlayer = $AudioSources/GunShotAudioStreamPlayer
 @onready var sfx_source:AudioStreamPlayer = $AudioSources/SFXAudioStreamPlayer
 
 var trace_bullet_max_distance:float = 5.0	# if entity is within this distance of the player, it will instead damage the entity with raycast and not projectile
 
-var gunshot_sound:AudioStreamWAV = preload("res://sound/weapons/silenced-gunshot-1.wav")
+var gunshot_sound:AudioStreamWAV = preload("res://sound/weapons/pistol_fire2.wav")
 var reload_sound:AudioStreamWAV = preload("res://sound/weapons/uzi-submachine-gun_reload.wav")
 
 var can_fire_weapon:bool = true		#default state true
@@ -26,9 +26,6 @@ var can_fire_weapon:bool = true		#default state true
 var delta_time:float = 0.0		# globally accessible delta time variable
 
 var rng
-
-#@onready var player_camera:Camera3D = GlobalData.get_player().get_node("Head/Camera3D")
-
 
 ## TESTING PURPOSES ONLY, REMOVE LATER
 ## THIS IS TO BE REVISED FOR GREATER REUSABILITY
@@ -42,9 +39,6 @@ var rng
 
 var emit_smoke:bool = true
 
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var player_node:Node3D = GlobalData.get_player()
@@ -52,9 +46,9 @@ func _ready():
 	
 	rof_timer.set_wait_time(cycle_time)
 	
-	anim_tree = $AnimationTree.get("parameters/playback")
+	#anim_tree = $AnimationTree.get("parameters/playback")
 	
-	anim_tree.travel("smg_idle")
+	#anim_tree.travel("smg_idle")
 	
 	rng = RandomNumberGenerator.new()
 	pass # Replace with function body.
@@ -62,11 +56,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("mouse_left"):
-		primary_attack()
-	
-	if Input.is_action_just_pressed("r_key"):
-		reload()
+	#if Input.is_action_pressed("mouse_left"):
+		#primary_attack()
+	#
+	#if Input.is_action_just_pressed("r_key"):
+		#reload()
 	pass
 
 func _physics_process(delta):
@@ -74,6 +68,7 @@ func _physics_process(delta):
 		muzzle_light.light_energy = lerpf(muzzle_light.light_energy, 0.0, light_lerp_weight)
 	
 	delta_time = delta
+	pass
 
 func primary_attack():
 	if can_fire_weapon:
@@ -90,7 +85,7 @@ func primary_attack():
 		#else:
 			#emit_smoke = !emit_smoke
 		
-		anim_tree.start("smg_fire")
+		#anim_tree.start("smg_fire")
 		
 		play_shoot()
 		
@@ -168,7 +163,7 @@ func reload():
 	reload_timer.start(reload_time)
 	can_fire_weapon = false
 	play_reload()
-	anim_tree.travel("smg_holster")
+	#anim_tree.travel("smg_holster")
 	pass
 
 func reset_muzzle_light():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cv0cs5r1r8x0i"]
 
-[ext_resource type="Script" path="res://scripts/weapon/submachinegun.gd" id="1_fptam"]
+[ext_resource type="Script" path="res://scripts/weapons/mp9_submachinegun.gd" id="1_fptam"]
 [ext_resource type="PackedScene" uid="uid://qlaxm6kkmdo6" path="res://models/viewmodels/first_person_arms_smg.blend" id="1_wclkc"]
 [ext_resource type="PackedScene" uid="uid://yfln1ytwj8qk" path="res://projectiles/player_bullet_pistol.tscn" id="2_jjpcb"]
 
@@ -620,7 +620,6 @@ bullet_spawn = NodePath("BulletSpawn")
 bullet_spread = Vector3(0.03, 0.03, 0)
 rpm = 1340
 light_lerp_weight = 0.25
-WeaponName = "SMG1"
 
 [node name="first_person_arms_smg" parent="." instance=ExtResource("1_wclkc")]
 

@@ -36,9 +36,14 @@ func start_dialogue(new_text:String):
 	dialogue_box_instance = dialogue_box.instantiate()
 	player.get_node("PlayerHUD/PlayerUI").add_child(dialogue_box_instance)
 	dialogue_box_instance.update_dialogue_text(new_text)
+	dialogue_box_instance.update_name_text(GlobalData.entity_in_dialogue_sequence.get_node("NPCDialogue").entity_name)
 	pass
 
 func progress_dialogue(new_text:String):
+	if GlobalData.entity_in_dialogue_sequence.get_node("NPCDialogue").last_string:
+		dialogue_box_instance.kill_box_after_string = true
 	dialogue_box_instance.update_dialogue_text(new_text)
 	pass
 
+func change_player_obj_text(new_text:String):
+	player.get_node("PlayerHUD/PlayerUI").set_player_objective_text(new_text)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=772 format=3 uid="uid://uj4nxgibfhcj"]
+[gd_scene load_steps=775 format=3 uid="uid://uj4nxgibfhcj"]
 
 [ext_resource type="LightmapGIData" uid="uid://bdl16dpvscj5i" path="res://maps/e1/e1m1_lm.lmbake" id="1_lh7sk"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_node3d.gd" id="1_lju5v"]
@@ -48,6 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://dx5aalyobltwp" path="res://props/transport_pod.tscn" id="46_5cxjs"]
 [ext_resource type="PackedScene" uid="uid://djhfwbd3pc7ot" path="res://props/usp_prop.tscn" id="46_r2kp3"]
 [ext_resource type="PackedScene" uid="uid://tp7nqlboomeq" path="res://props/bt_mp9_prop.tscn" id="47_af30k"]
+[ext_resource type="PackedScene" uid="uid://nhegdly8anth" path="res://props/spas_prop.tscn" id="47_h4k74"]
+[ext_resource type="PackedScene" uid="uid://q3s5ufv0ssqf" path="res://triggers/intro_dialogue_trigger.tscn" id="48_57ym2"]
+[ext_resource type="PackedScene" uid="uid://cpeq38vply4ui" path="res://triggers/level_finish_trigger.tscn" id="49_8ru8t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbawq"]
 sky_top_color = Color(0.65098, 0.709804, 0.792157, 1)
@@ -3118,6 +3121,7 @@ enemy_count_label = NodePath("../Label")
 environment = SubResource("Environment_ltw28")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+visible = false
 directional = true
 use_denoiser = false
 generate_probes_subdiv = 3
@@ -5843,6 +5847,17 @@ transform = Transform3D(0, -0.488317, 0.872667, -1, -4.32981e-08, -7.64575e-10, 
 
 [node name="UspProp" parent="level_mesh/PhysicsProps" instance=ExtResource("46_r2kp3")]
 transform = Transform3D(0, -0.420751, 0.907176, -1, -4.37114e-08, 0, 2.98023e-08, -0.907176, -0.420751, 32.833, 32, -0.02)
+
+[node name="SpasProp" parent="level_mesh/PhysicsProps" instance=ExtResource("47_h4k74")]
+transform = Transform3D(1.13133e-08, 0.258819, -0.965926, 1, -4.37114e-08, 0, -4.2222e-08, -0.965926, -0.258819, 31, 32, 0)
+
+[node name="Triggers" type="Node3D" parent="level_mesh"]
+
+[node name="IntroDialogueTrigger" parent="level_mesh/Triggers" instance=ExtResource("48_57ym2")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 34.9288, 32.7925, 3.62624)
+
+[node name="LevelFinishTrigger" parent="level_mesh/Triggers" instance=ExtResource("49_8ru8t")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 38.4852, 32.2925, 4.70749)
 
 [node name="player_body" parent="." instance=ExtResource("5_iyfg7")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 39.0686, 31.1322, 5.30167)

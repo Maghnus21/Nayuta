@@ -109,6 +109,11 @@ wait_time = 0.05
 wait_time = 5.0
 one_shot = true
 
+[node name="NextStringTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="TypeTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="QueueFreeTimer" to="." method="_on_queue_free_timer_timeout"]

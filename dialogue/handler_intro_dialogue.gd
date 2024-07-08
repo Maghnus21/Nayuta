@@ -1,5 +1,6 @@
 extends Dialogue
 
+var last_string:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,7 @@ func parse_dialogue_text() -> String:
 	
 	if current_dialogue_index > dialogue_array.size() - 1:
 		current_dialogue_index = dialogue_array.size() - 1
+		last_string = !last_string
 	
 	
 	return current_dialogue_string 

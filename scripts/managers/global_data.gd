@@ -14,6 +14,11 @@ var entity_in_dialogue_sequence:Node3D
 "===============[Player Flags]==============="
 var is_player_in_dialogue:bool = false
 
+"===============[Level Variables]============"
+var e1m1_craimg_count:int = 26
+var e1m1_craimh_death:int = 0
+var e1m1_all_craimh_dead:bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,7 +30,7 @@ func _process(delta):
 
 ## to be called by main scene root nodes upon loading into a game
 func start_global_data():
-	set_player();
+	set_player()
 
 func set_player():
 	player = get_tree().get_first_node_in_group("player")
@@ -33,3 +38,14 @@ func set_player():
 
 func get_player() -> Node3D:
 	return player
+
+func e1m1_update_craimh_death_count(amount:int):
+	e1m1_craimh_death += amount
+	
+	var new_text:String = "Craimh remaining:\n" + str(e1m1_craimg_count-e1m1_craimh_death) + " / " + str(e1m1_craimg_count)
+	UIManager.change_player_obj_text(new_text)
+	
+	if e1m1_craimh_death == e1m1_craimg_count:
+		e1m1_all_craimh_dead = !e1m1_all_craimh_dead
+		print("bool e1m1_all_craimh_dead state: ", e1m1_all_craimh_dead)
+	

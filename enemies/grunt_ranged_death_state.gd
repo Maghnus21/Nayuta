@@ -15,7 +15,7 @@ func enter_state():
 	state_machine.entity_anim_state_machine["parameters/conditions/death"] = true
 	col.disabled = true
 	
-	state_machine.entity.game_manager.enemies_remaining(1)
+	GlobalData.e1m1_update_craimh_death_count(1)
 	pass
 
 func exit_state():

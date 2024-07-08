@@ -53,6 +53,10 @@ var DIALOGUE_BOX_VISIBLE_TIME:float = 8.0
 @export var smg_bullet:PackedScene
 @export var shotgun_bullet:PackedScene
 
+@onready var pistol_viewmodel:Node3D = $"Head/WeaponParent/usp"
+@onready var smg_viewmodel:Node3D = $"Head/WeaponParent/bt_mp9"
+@onready var shotgun_viewmodel:Node3D = $"Head/WeaponParent/Spas"
+
 @export_category("UI")
 @export var player_ui:Control
 
@@ -121,6 +125,8 @@ var flashlight_sound:AudioStreamWAV
 var dialogue_box_timer:float = 0.0
 var is_in_dialogue:bool = false
 
+var current_weapon:Node3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = MAX_HEALTH
@@ -181,13 +187,13 @@ func cast_ray(range:float):
 ##	checks if player has pressed interact key currently "F" and picks up rigidbody object
 func pick_up_obj():
 	if Input.is_action_just_pressed("interact_key"):
-		#talk(cast_ray(5.0)) if !GlobalData.is_player_in_dialogue else continue_dialogue()
+		talk(cast_ray(5.0)) if !GlobalData.is_player_in_dialogue else continue_dialogue()
 		
-		if held_obj != null:
-			drop_obj()
-		else:
-			pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
-	
+		#if held_obj != null:
+			#drop_obj()
+		#else:
+			#pickup(cast_ray(5.0))	# calls cast_ray to return PhysicsRayQueryParameter3D data and is set to pickuk func
+	#
 	if Input.is_action_just_pressed("mouse_left") && held_obj != null:
 		throw_obj()
 	
@@ -307,21 +313,24 @@ func shoot_bullets(bullet_spawn:Node3D, bullet_count:int, spread:Vector3):
 ##	function to see if player pressed input, fires weapon depending on enum
 func player_attack(delta):
 	
-	if Input.is_action_pressed("mouse_left") && time_passed > rate_of_fire:
-		if active_weapon == weapons.PISTOL:
-			fire_pistol()
-			pass
-		elif active_weapon == weapons.SMG:
-			fire_smg()
-			pass
-		elif  active_weapon == weapons.SHOTGUN:
-			fire_shotgun()
-			pass
-		else:
-			pass
-		time_passed = 0
-	else:
-		time_passed += delta
+	#if Input.is_action_pressed("mouse_left") && time_passed > rate_of_fire:
+		#if active_weapon == weapons.PISTOL:
+			#fire_pistol()
+			#pass
+		#elif active_weapon == weapons.SMG:
+			#fire_smg()
+			#pass
+		#elif  active_weapon == weapons.SHOTGUN:
+			#fire_shotgun()
+			#pass
+		#else:
+			#pass
+		#time_passed = 0
+	#else:
+		#time_passed += delta
+	
+	if Input.is_action_pressed("mouse_left") && current_weapon != null:
+		current_weapon.primary_attack()
 	
 	if Input.is_action_just_pressed("mouse_right") && can_melee && can_rebound:
 		check_melee_rebound()
@@ -407,35 +416,61 @@ func  change_weapon():
 		pass
 	
 	if Input.is_action_just_pressed("alpha_1"):
-		last_used_weap = active_weapon
 		
-		active_weapon = weapons.PISTOL
-		rate_of_fire = 60.0 / pistol_rpm
-		time_passed = 0.0
+		current_weapon = get_node("Head/WeaponParent/usp")
 		
-		pistol.visible = true
-		smg.visible = false
-		shotgun.visible = false
+		pistol_viewmodel.visible = true
+		smg_viewmodel.visible = false
+		shotgun_viewmodel.visible = false
+		
+		
+		
+		#last_used_weap = active_weapon
+		#
+		#active_weapon = weapons.PISTOL
+		#rate_of_fire = 60.0 / pistol_rpm
+		#time_passed = 0.0
+		#
+		#pistol.visible = true
+		#smg.visible = false
+		#shotgun.visible = false
 	if Input.is_action_just_pressed("alpha_2"):
-		last_used_weap = active_weapon
 		
-		active_weapon = weapons.SMG
-		rate_of_fire = 60.0 / smg_rpm
-		time_passed = 0.0
+		current_weapon = get_node("Head/WeaponParent/bt_mp9")
 		
-		pistol.visible = false
-		smg.visible = true
-		shotgun.visible = false
+		pistol_viewmodel.visible = false
+		smg_viewmodel.visible = true
+		shotgun_viewmodel.visible = false
+		
+		
+		#last_used_weap = active_weapon
+		#
+		#active_weapon = weapons.SMG
+		#rate_of_fire = 60.0 / smg_rpm
+		#time_passed = 0.0
+		#
+		#pistol.visible = false
+		#smg.visible = true
+		#shotgun.visible = false
 	if Input.is_action_just_pressed("alpha_3"):
-		last_used_weap = active_weapon
 		
-		active_weapon = weapons.SHOTGUN
-		rate_of_fire = 60.0 / shotgun_rpm
-		time_passed = 0.0
+		current_weapon = get_node("Head/WeaponParent/Spas")
 		
-		pistol.visible = false
-		smg.visible = false
-		shotgun.visible = true
+		pistol_viewmodel.visible = false
+		smg_viewmodel.visible = false
+		shotgun_viewmodel.visible = true
+		
+		
+		
+		#last_used_weap = active_weapon
+		#
+		#active_weapon = weapons.SHOTGUN
+		#rate_of_fire = 60.0 / shotgun_rpm
+		#time_passed = 0.0
+		#
+		#pistol.visible = false
+		#smg.visible = false
+		#shotgun.visible = true
 
 func change_weapon_by_int(new_weapon):
 	match new_weapon:

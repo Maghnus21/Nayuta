@@ -4,24 +4,6 @@ class_name Weapons
 @export_enum("Pistol","SMG1", "Shotgun") var WeaponName:String
 
 
-#	maximum amout of rounds the play can hold for each round type
-var BUCKSHOT_MAX_CARRY = 150
-var _10MM_MAX_CARRY = 300
-var _12_7MM_MAX_CARRY = 240
-
-
-#	the max amount of rounds each weapons clip/magazine can store
-var PISTOL_MAX_CLIP = 21
-var SMG_MAX_CLIP = 45
-var SHOTGUN_MAX_CLIP = 12
-
-
-#	the amount of rounds weapons will give
-var PISTOL_DEFAULT_GIVE = 21
-var SMG_DEFAULT_GIVE = 23
-var SHOTGUN_DEFAULT_GIVE = 6
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

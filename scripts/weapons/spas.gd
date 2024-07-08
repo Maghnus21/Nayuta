@@ -1,15 +1,18 @@
 extends Weapons
-class_name Pistol
+class_name SpasShotgun
+
 
 @export var projectile:PackedScene
 @export var bullet_spawn:Node3D
 @export var bullet_spread:Vector3		#TODO: add gradual increase of weapon spread when firing weapon
 @export var rpm:int = 1420
+@export var buckshot_count:int = 12
 
 @onready var cycle_time:float = 60.0/rpm
 @onready var rof_timer:Timer = $Timers/RateOfFireTimer
 @onready var reload_time:float = 0.6827 * 2		# timer is duration of holster animation. use this until reload animation is added
 @onready var reload_timer:Timer = $Timers/ReloadTimer
+var rounds_shot:int = 0
 
 #var anim_tree
 
@@ -18,7 +21,7 @@ class_name Pistol
 
 var trace_bullet_max_distance:float = 5.0	# if entity is within this distance of the player, it will instead damage the entity with raycast and not projectile
 
-var gunshot_sound:AudioStreamWAV = preload("res://sound/weapons/pistol_fire2.wav")
+var gunshot_sound:AudioStreamWAV = preload("res://sound/weapons/shotgun_fire7.wav")
 var reload_sound:AudioStreamWAV = preload("res://sound/weapons/uzi-submachine-gun_reload.wav")
 
 var can_fire_weapon:bool = true		#default state true
@@ -56,11 +59,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("mouse_left"):
-		primary_attack()
-	
-	if Input.is_action_just_pressed("r_key"):
-		reload()
+	#if Input.is_action_pressed("mouse_left"):
+		#primary_attack()
+	#
+	#if Input.is_action_just_pressed("r_key"):
+		#reload()
 	pass
 
 func _physics_process(delta):
@@ -72,7 +75,9 @@ func _physics_process(delta):
 
 func primary_attack():
 	if can_fire_weapon:
-		fire_bullet()
+		
+		for k in buckshot_count:
+			fire_bullet()
 		
 		reset_muzzle_light()
 		smoke()
@@ -88,7 +93,7 @@ func primary_attack():
 		#anim_tree.start("smg_fire")
 		
 		play_shoot()
-		
+		rounds_shot = 0
 		rof_timer.start()
 		can_fire_weapon = false
 	
@@ -103,7 +108,7 @@ func secondary_attack():
 
 func fire_bullet():
 	# calcualte new random spread for projectile
-	rng.seed = hash(Time.get_ticks_usec())
+	rng.seed = hash(Time.get_ticks_usec() + rounds_shot)
 	
 	var x_mod = rng.randf_range(-bullet_spread.x, bullet_spread.x)
 	var y_mod = rng.randf_range(-bullet_spread.y, bullet_spread.y)

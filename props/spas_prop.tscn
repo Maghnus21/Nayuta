@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://nhegdly8anth"]
+
+[ext_resource type="PackedScene" uid="uid://dylxjnvdseh0j" path="res://models/weapons/shotgun.blend" id="1_rf2po"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2w7y"]
+size = Vector3(0.09, 0.244, 1)
+
+[node name="SpasProp" type="RigidBody3D" groups=["holdable"]]
+
+[node name="shotgun2" parent="." instance=ExtResource("1_rf2po")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0065918, 0.0649663)
+shape = SubResource("BoxShape3D_y2w7y")

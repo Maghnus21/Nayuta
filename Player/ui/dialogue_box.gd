@@ -4,10 +4,14 @@ class_name DialogueBox
 var dialogue_store: Array
 var dialogue_store_string: String
 
+var kill_box_after_string:bool = false
+
 @onready var dialogue_richtextlabel: RichTextLabel = $'DialogueRichTextLabel'
+@onready var name_richtextlabel:RichTextLabel =  $'NameRichTextLabel'
 @onready var audio_player: AudioStreamPlayer = $'AudioStreamPlayer'
 @onready var type_timer: Timer = $'TypeTimer'
-@onready var delete_timer: Timer = $'QueueFreeTimer'
+@onready var next_string_timer: Timer = $'NextStringTimer'
+@onready var kill_timer: Timer = $'QueueFreeTimer'
 
 var playing_voice:bool = false
 
@@ -34,8 +38,13 @@ func update_dialogue_text(dialogue_text: String) -> void:
 	audio_player.play(0)
 	pass
 
+func update_name_text(name_string:String):
+	name_richtextlabel.set_text(name_string)
+	pass
+
 func kill():
 	GlobalData.is_player_in_dialogue = false
+	GlobalData.entity_in_dialogue_sequence = null
 	queue_free()
 
 func _on_timer_timeout():
@@ -46,7 +55,8 @@ func _on_timer_timeout():
 	else:
 		playing_voice = false
 		type_timer.stop()
-		delete_timer.start(0)
+		if kill_box_after_string:
+			kill_timer.start(0)
 	pass # Replace with function body.
 
 

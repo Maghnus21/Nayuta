@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://q3s5ufv0ssqf"]
+
+[ext_resource type="Script" path="res://triggers/intro_dialogue_trigger.gd" id="1_7qkfa"]
+[ext_resource type="Script" path="res://dialogue/handler_intro_dialogue.gd" id="2_r0fdc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6idk"]
+size = Vector3(12, 8, 3)
+
+[node name="IntroDialogueTrigger" type="Area3D"]
+script = ExtResource("1_7qkfa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_p6idk")
+
+[node name="NPCDialogue" type="Node3D" parent="."]
+script = ExtResource("2_r0fdc")
+entity_name = "Datalus"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
