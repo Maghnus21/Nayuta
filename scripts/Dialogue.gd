@@ -4,6 +4,7 @@ class_name Dialogue
 @export var entity_name:String = "Entity"
 @export var dialogue_line: String = "default dialogue line"
 @export var dialogue_array:Array
+var last_string:bool = false
 
 var text_timer:Timer
 

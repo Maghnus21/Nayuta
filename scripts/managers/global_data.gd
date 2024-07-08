@@ -43,10 +43,11 @@ func get_player() -> Node3D:
 func e1m1_update_craimh_death_count(amount:int):
 	e1m1_craimh_death += amount
 	
-	var new_text:String = "Craimh remaining:\n" + str(e1m1_craimg_count-e1m1_craimh_death) + " / " + str(e1m1_craimg_count)
+	var new_text:String = "Cnaimh remaining:\n" + str(e1m1_craimg_count-e1m1_craimh_death) + " / " + str(e1m1_craimg_count)
 	UIManager.change_player_obj_text(new_text)
 	
 	if e1m1_craimh_death == e1m1_craimg_count:
 		e1m1_all_craimh_dead = !e1m1_all_craimh_dead
-		print("bool e1m1_all_craimh_dead state: ", e1m1_all_craimh_dead)
+		UIManager.change_player_obj_text("return to the transport tube")
+		print("bool e1m1_all_cnaimh_dead state: ", e1m1_all_craimh_dead)
 	

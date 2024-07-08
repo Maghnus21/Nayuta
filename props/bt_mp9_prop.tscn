@@ -8,7 +8,7 @@
 size = Vector3(0.09, 0.358042, 0.659984)
 
 [node name="BtMp9Prop" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
-mass = 1.5
+mass = 2.5
 script = ExtResource("1_lvhvf")
 audio_source = NodePath("AudioStreamPlayer3D")
 

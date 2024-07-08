@@ -208,6 +208,8 @@ func pick_up_obj():
 			else:
 				play_sound_effect(misclick_sound)
 				print("misclick lol")
+		elif GlobalData.is_player_in_dialogue:
+			continue_dialogue()
 		else:
 			play_sound_effect(misclick_sound)
 			print("misclick lol")
