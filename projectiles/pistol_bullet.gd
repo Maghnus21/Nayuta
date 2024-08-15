@@ -4,16 +4,21 @@ class_name PistolBullet
 @export var bullet_damage: float = 20.0
 @export var raycast:RayCast3D
 @export var bullet_speed: float
-@export var bullet_grav: float = 0.0
-@export var delete_time:= 3.0
+@export var bullet_drop: float = -2.0
+@export var delete_time: float = 3.0
+var time:=0.0
+var inital_pos: Vector3
+var inital_vel: Vector3
+
+var p1:Vector3
+var p2:Vector3
+
+var delta_time = 0
 var timer=0.0
 
 var bullet_hole:PackedScene = preload("res://decals/bullet_hole_concrete1.tscn")
 var concrete_impact_smoke:PackedScene = preload("res://particles/smoke_low.tscn")
-
-
-var p1:Vector3
-var p2:Vector3
+var projectile_shape:PackedScene		# shape of projectile, eg spear, that will follow bullet raycast
 
 var velocity: Vector3
 
@@ -28,9 +33,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print("updating raycast")
-	
-	
-	
 	pass
 
 
@@ -44,7 +46,7 @@ func _physics_process(delta):
 	
 	var distance = velocity.length() * delta
 	
-	self.transform.origin += Vector3(velocity.x, velocity.y - bullet_grav, velocity.z) * delta
+	self.transform.origin += Vector3(velocity.x, velocity.y, velocity.z) * delta
 	raycast.force_raycast_update()
 	
 	if raycast.is_colliding():
@@ -57,14 +59,15 @@ func _physics_process(delta):
 			#intanciate_impact(raycast)
 			
 			queue_free()
-
+		
 		if collider.is_in_group("enemy"):
 			collider.damage_entity(bullet_damage)
 			print("hit enemy: ", collider.name, "\t health: ", collider.health)
 			queue_free()
-	
-	
-	
+		
+		#if !collider.is_in_group("player") && collider.get_node_type() == RigidBody3D:
+			#collider.apply_central_impulse(Vector3(1.0, 1.0, 1.0))
+		#print(collider)
 
 func set_projectile_rotation(rot):
 	rotation = rot
@@ -101,4 +104,10 @@ func instanciate_impact(ray):
 	
 	#impact_decal.look_at(ray.get_collision_point() + ray.get_collision_normal(), Vector3.UP)
 	impact_smoke.emitting = true
-	
+
+func update_projectile():
+	pass
+
+func get_bullet_position() -> Vector3:
+	var gravity = Vector3.DOWN * bullet_drop
+	return (inital_pos) + (inital_vel * time) + (0.5 * gravity * time * time)

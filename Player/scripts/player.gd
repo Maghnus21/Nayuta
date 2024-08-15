@@ -3,7 +3,7 @@ extends Node3D
 #	constants
 var RAY_LENGTH:float = 3.0
 var PULL_FORCE:float = 20.0
-var THROW_FORCE:float = 256.0
+var THROW_FORCE:float = 36.0
 var MAX_HEALTH:float = 100.0
 var FLASHLIGHT_MIN_DIS:float = 3.0
 var MELEE_COOLDOWN:float = 0.4			# time must be equal to melee animation time
@@ -158,6 +158,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# resets to main menu when player died
 	if Input.is_action_just_pressed("r_key") && GlobalData.player_has_died:
 		get_tree().change_scene_to_file("res://menu/main_menu.tscn")
 	
@@ -245,7 +246,6 @@ func continue_dialogue():
 	progress_dialogue_sequence(GlobalData.entity_in_dialogue_sequence.get_node("NPCDialogue").parse_dialogue_text())
 	pass
 
-
 ##	moves object to holding point vector using physics. object will bump into walls
 ##	TODO increase pull force overtime to try and get object to point
 func hold_obj():
@@ -265,7 +265,7 @@ func throw_obj():
 	
 	var forward = -camera.global_transform.basis.z
 	
-	held_obj.apply_impulse(forward * THROW_FORCE / held_obj.get_mass())
+	held_obj.apply_impulse(forward * THROW_FORCE)
 	drop_obj()
 
 ##	shotgun
@@ -352,6 +352,9 @@ func player_attack(delta):
 	if Input.is_action_pressed("mouse_left") && current_weapon != null:
 		current_weapon.primary_attack()
 	
+	if Input.is_action_just_pressed("r_key") && current_weapon != null:
+		current_weapon.reload()
+	
 	if Input.is_action_just_pressed("mouse_right") && can_melee && can_rebound:
 		check_melee_rebound()
 		pass
@@ -437,6 +440,7 @@ func  change_weapon():
 	
 	if Input.is_action_just_pressed("alpha_1"):
 		
+		current_weapon = null
 		current_weapon = get_node("Head/WeaponParent/usp")
 		
 		pistol_viewmodel.visible = true
@@ -456,6 +460,7 @@ func  change_weapon():
 		#shotgun.visible = false
 	if Input.is_action_just_pressed("alpha_2"):
 		
+		current_weapon = null
 		current_weapon = get_node("Head/WeaponParent/bt_mp9")
 		
 		pistol_viewmodel.visible = false
@@ -474,6 +479,7 @@ func  change_weapon():
 		#shotgun.visible = false
 	if Input.is_action_just_pressed("alpha_3"):
 		
+		current_weapon = null
 		current_weapon = get_node("Head/WeaponParent/Spas")
 		
 		pistol_viewmodel.visible = false

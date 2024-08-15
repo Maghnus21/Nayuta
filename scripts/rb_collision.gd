@@ -9,7 +9,7 @@ var MAX_VELOCITY = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	audio_source.play()
+	#audio_source.play()
 	pass # Replace with function body.
 
 
@@ -26,6 +26,9 @@ func _on_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.damage_entity(100.0)
 		print("hit enemy")
+	
+	if body.is_in_group("level"):
+		audio_source.play()
 	
 	pass # Replace with function body.
 

@@ -2,7 +2,7 @@ extends Node3D
 class_name Weapons
 
 @export_enum("Pistol","SMG1", "Shotgun") var WeaponName:String
-
+@export_enum("weapon", "pickup") var ItemType:String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,7 +59,8 @@ func kill():
 	queue_free()
 	pass
 
-
+func reload():
+	print("weapon reloaded")
 
 
 
