@@ -12,8 +12,8 @@ size = Vector3(0.615, 0.519, 1.217)
 
 [node name="SpasProp" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
 mass = 4.0
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_kaaoc")
 audio_source = NodePath("AudioStreamPlayer3D")
 

@@ -513,23 +513,3 @@ func check_health():
 		print("dies lmao")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_parent().get_tree().change_scene_to_file("res://menu/died_menu.tscn")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

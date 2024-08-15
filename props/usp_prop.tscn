@@ -9,8 +9,8 @@ size = Vector3(0.05, 0.17, 0.245)
 
 [node name="UspProp" type="RigidBody3D" node_paths=PackedStringArray("audio_source") groups=["holdable"]]
 mass = 1.75
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_jtutw")
 audio_source = NodePath("AudioStreamPlayer3D")
 

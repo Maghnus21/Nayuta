@@ -671,5 +671,3 @@ func start_dialogue_sequence(new_text):
 
 func progress_dialogue_sequence(new_text):
 	UIManager.progress_dialogue(new_text)
-
-

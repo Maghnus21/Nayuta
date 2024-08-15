@@ -61,9 +61,3 @@ func kill():
 
 func reload():
 	print("weapon reloaded")
-
-
-
-
-
-

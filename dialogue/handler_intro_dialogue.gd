@@ -31,4 +31,3 @@ func parse_dialogue_text() -> String:
 	
 	return current_dialogue_string 
 	#return dialogue_line
-
